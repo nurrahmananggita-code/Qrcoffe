@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Minimal Ngopi – Dapur</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EAF2FA;--surface:#fff;--ink:#0F1E33;--mute:#5F7189;--line:#D3DFEC;--side:#12294D;--side-ink:#D6E4F7;--brand:#1F4E9C;--brand-ink:#fff;--new:#0B77C2;--new-bg:#D9EDFB;--proc:#1B3A73;--proc-bg:#DCE4F4;--done:#4A7A9E;--done-bg:#E3EEF5;--konf:#2E6FB5;--konf-bg:#D2E6F8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C1524;--surface:#14213A;--ink:#E6EEF8;--mute:#93A6C0;--line:#24365A;--side:#08101D;--new-bg:#12324F;--proc-bg:#1A2A4F;--done-bg:#15303F;--konf:#8FC3F0;--konf-bg:#17406B;--new:#6BB8F0;--proc:#8FA8E8;--done:#7FB6D6;--brand:#4C86DB}}
+:root[data-theme="dark"]{--bg:#0C1524;--surface:#14213A;--ink:#E6EEF8;--mute:#93A6C0;--line:#24365A;--side:#08101D;--new-bg:#12324F;--proc-bg:#1A2A4F;--done-bg:#15303F;--konf:#8FC3F0;--konf-bg:#17406B;--new:#6BB8F0;--proc:#8FA8E8;--done:#7FB6D6;--brand:#4C86DB}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font:15px/1.5 "DM Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","DM Sans",system-ui,sans-serif;margin:0;letter-spacing:-.01em}
+button{font:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.hide{display:none!important}
+/* login */
+.login{min-height:100vh;display:grid;grid-template-columns:1.1fr 1fr}
+.login-art{background:var(--side);color:var(--side-ink);padding:56px;display:flex;flex-direction:column;justify-content:space-between}
+.login-art h1{font-size:56px;line-height:1.02;color:#fff;max-width:440px}
+.login-art p{max-width:380px;opacity:.75}
+.login-form{display:flex;align-items:center;justify-content:center;padding:40px}
+.login-form form{width:100%;max-width:360px;display:flex;flex-direction:column;gap:16px}
+label{font-weight:500;font-size:14px;display:flex;flex-direction:column;gap:6px}
+input{padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);font:inherit}
+.btn{border:0;border-radius:8px;padding:11px 18px;font-weight:700;background:var(--brand);color:var(--brand-ink)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn.lg{padding:14px 20px;font-size:16px}
+.err{color:var(--new);font-size:13px;min-height:18px}
+/* app */
+.app{display:grid;grid-template-columns:240px 1fr;min-height:100vh}
+aside{background:var(--side);color:var(--side-ink);padding:24px 16px;display:flex;flex-direction:column;gap:6px;position:sticky;top:0;height:100vh}
+.logo{font:700 20px "Bricolage Grotesque",sans-serif;color:#fff;padding:0 10px 22px}
+.nav{display:flex;justify-content:space-between;align-items:center;width:100%;text-align:left;background:none;border:0;color:inherit;padding:11px 12px;border-radius:8px}
+.nav:hover{background:rgba(255,255,255,.07)}
+.nav.on{background:rgba(255,255,255,.14);color:#fff;font-weight:700}
+.badge{background:var(--brand);color:#fff;border-radius:99px;padding:0 8px;font-size:12px;font-weight:700}
+.side-foot{margin-top:auto;font-size:13px;opacity:.8;padding:10px}
+main{padding:28px 36px 48px;min-width:0}
+.top{display:flex;justify-content:space-between;align-items:end;margin-bottom:24px;gap:16px}
+.top h2{font-size:30px}
+.top span{color:var(--mute)}
+.clock{font:700 26px "Bricolage Grotesque",sans-serif;text-align:right}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;margin-bottom:28px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
+.stat b{display:block;font:700 34px "Bricolage Grotesque",sans-serif}
+.stat small{color:var(--mute)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:12px;border-top:4px solid var(--new)}
+.card.proc{border-top-color:var(--proc)}.card.konf{border-top-color:var(--konf)}.card.done{border-top-color:var(--done)}
+.card-h{display:flex;justify-content:space-between;align-items:start}
+.card-h h3{font-size:20px}
+.meta{color:var(--mute);font-size:13px}
+.tag{font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;background:var(--new-bg);color:var(--new);white-space:nowrap}
+.tag.proc{background:var(--proc-bg);color:var(--proc)}.tag.konf{background:var(--konf-bg);color:var(--konf)}.tag.done{background:var(--done-bg);color:var(--done)}
+ul{list-style:none;margin:0;padding:0}
+li.it{display:flex;gap:10px;padding:6px 0;border-bottom:1px dashed var(--line)}
+li.it:last-child{border:0}
+li.it b{min-width:28px;color:var(--brand)}
+li.it em{display:block;font-style:normal;color:var(--mute);font-size:13px}
+.acts{display:flex;gap:8px;margin-top:auto}
+.acts .btn{flex:1}
+.sec{display:flex;justify-content:space-between;align-items:center;margin:0 0 14px}
+.sec h3{font-size:20px}
+.link{background:none;border:0;color:var(--brand);font-weight:700;padding:0}
+.empty{padding:48px;text-align:center;color:var(--mute);background:var(--surface);border:1px dashed var(--line);border-radius:12px}
+.detail{display:grid;grid-template-columns:1.5fr 1fr;gap:20px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px}
+.panel h3{margin-bottom:12px}
+.tl{display:flex;flex-direction:column;gap:16px;margin-top:6px}
+.tl div{padding-left:22px;position:relative;color:var(--mute)}
+.tl div:before{content:"";position:absolute;left:0;top:6px;width:10px;height:10px;border-radius:50%;background:var(--line)}
+.tl div.on{color:var(--ink);font-weight:500}.tl div.on:before{background:var(--brand)}
+.note{background:var(--new-bg);color:var(--new);padding:12px 14px;border-radius:8px;margin-top:14px;font-weight:500}
+table{width:100%;border-collapse:collapse}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line)}
+th{color:var(--mute);font-weight:500;font-size:13px}
+tr.row{cursor:pointer}tr.row:hover{background:var(--bg)}
+.wrap{overflow-x:auto}
+@media (max-width:1000px){.login{grid-template-columns:1fr}.login-art{display:none}.stats{grid-template-columns:repeat(2,1fr)}.detail{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<section class="login" id="login">
+  <div class="login-art">
+    <div class="logo" style="padding:0;font-size:22px">Minimal Ngopi</div>
+    <div>
+      <h1>Pesanan masuk, kopi keluar.</h1>
+      <p>Layar kerja tim dapur untuk melihat, menyiapkan, dan menyelesaikan pesanan.</p>
+    </div>
+    <small>Dapur · Cabang Solo</small>
+  </div>
+  <div class="login-form">
+    <form id="lf">
+      <h2 style="font-size:30px">Masuk ke Dapur</h2>
+      <label>Username<input id="u" value="barista01" autocomplete="username"></label>
+      <label>Kata sandi<input id="p" type="password" value="kopi1234" autocomplete="current-password"></label>
+      <div class="err" id="err"></div>
+      <button class="btn lg" type="submit">Masuk</button>
+    </form>
+  </div>
+</section>
+
+<div class="app hide" id="app">
+  <aside>
+    <div class="logo">Minimal Ngopi</div>
+    <button class="nav" data-v="dashboard">Dashboard</button>
+    <button class="nav" data-v="dibayar">Pesanan Baru <span class="badge" id="c-dibayar">0</span></button>
+    <button class="nav" data-v="konf">Dikonfirmasi <span id="c-konf"></span></button>
+    <button class="nav" data-v="proses">Sedang Diproses <span id="c-proses"></span></button>
+    <button class="nav" data-v="selesai">Pesanan Selesai <span id="c-selesai"></span></button>
+    <div class="side-foot">Barista 01<br><button class="link" id="out" style="color:var(--side-ink);margin-top:6px">Keluar</button></div>
+  </aside>
+  <main id="main"></main>
+</div>
+
+<script>
+const orders=[
+ {id:"A-1042",who:"Meja 5 · Rina",type:"Dine in",t:"09:17",s:"dibayar",items:[{n:"Nasi Goreng Kampung",q:2,note:""},{n:"Teh Tarik",q:2,note:""}],memo:"Pedas sedang, tanpa telur."},
+ {id:"A-1041",who:"Meja 2 · Bagas",type:"Dine in",t:"09:14",s:"belum",items:[{n:"Kopi Susu Gula Aren",q:2,note:"Less sugar"},{n:"Pisang Goreng Keju",q:1,note:""}],memo:""},
+ {id:"A-1040",who:"Meja 8 · Dewi",type:"Dine in",t:"09:06",s:"proses",items:[{n:"Ayam Bakar Madu",q:1,note:""},{n:"Teh Tarik",q:1,note:""},{n:"Kentang Goreng",q:1,note:""}],memo:"Ayam bakar jangan terlalu gosong."},
+ {id:"A-1039",who:"Meja 3 · Hendra",type:"Dine in",t:"09:02",s:"proses",items:[{n:"Mie Goreng Jawa",q:2,note:""},{n:"Americano",q:1,note:"Regular"}],memo:""},
+ {id:"A-1038",who:"Meja 11 · Sinta",type:"Dine in",t:"08:56",s:"konf",items:[{n:"Matcha Latte",q:2,note:"Gula less"},{n:"Pudding Cokelat",q:2,note:""}],memo:"Matcha kurangi gula."},
+ {id:"A-1037",who:"Meja 6 · Yoga",type:"Dine in",t:"08:53",s:"konf",items:[{n:"Kopi Tubruk",q:1,note:""},{n:"Roti Bakar Cokelat",q:1,note:""}],memo:""},
+ {id:"A-1036",who:"Meja 1 · Andi",type:"Dine in",t:"08:40",s:"selesai",items:[{n:"Kopi Susu Gula Aren",q:1,note:""},{n:"Kopi Tubruk",q:2,note:""}],memo:"",done:"08:52"},
+ {id:"A-1035",who:"Meja 6 · Maya",type:"Dine in",t:"08:32",s:"selesai",items:[{n:"Matcha Latte",q:2,note:""},{n:"Mie Goreng Jawa",q:1,note:""}],memo:"",done:"08:46"}
+];
+const L={belum:"Belum dibayar",dibayar:"Sudah dibayar",konf:"Dikonfirmasi dapur",proses:"Sedang diproses",selesai:"Selesai"};
+const $=s=>document.querySelector(s);
+let view="dashboard",sel=null;
+
+function tag(s){return `<span class="tag ${s==='proses'?'proc':s==='konf'?'konf':s==='selesai'?'done':''}">${L[s]}</span>`}
+function items(o){return `<ul>${o.items.map(i=>`<li class="it"><b>${i.q}×</b><span>${i.n}${i.note?`<em>${i.note}</em>`:""}</span></li>`).join("")}</ul>`}
+function card(o){
+  const next=o.s==="dibayar"?`<button class="btn" data-go="konf" data-id="${o.id}">Konfirmasi pesanan</button>`:o.s==="konf"?`<button class="btn" data-go="proses" data-id="${o.id}">Mulai proses</button>`:o.s==="proses"?`<button class="btn" data-go="selesai" data-id="${o.id}">Tandai selesai</button>`:"";
+  return `<article class="card ${o.s==='proses'?'proc':o.s==='konf'?'konf':o.s==='selesai'?'done':''}">
+   <div class="card-h"><div><h3>${o.who}</h3><div class="meta">${o.id} · ${o.type} · ${o.t}</div></div>${tag(o.s)}</div>
+   ${items(o)}${o.memo?`<div class="meta">Catatan: ${o.memo}</div>`:""}
+   <div class="acts"><button class="btn ghost" data-open="${o.id}">Lihat detail</button>${next}</div></article>`}
+function list(s,empty){const a=orders.filter(o=>o.s===s);return a.length?`<div class="grid">${a.map(card).join("")}</div>`:`<div class="empty">${empty}</div>`}
+let auto=true,ptr=0;
+const head=(t,sub)=>`<div class="top"><div><h2>${t}</h2><span>${sub}</span></div><div style="text-align:right"><div class="clock" id="clk"></div><label style="font-size:13px;color:var(--mute);cursor:pointer"><input type="checkbox" id="au" ${auto?"checked":""}> Status berjalan otomatis</label></div></div>`;
+
+function screen(){
+  const n=s=>orders.filter(o=>o.s===s).length;
+  if(view==="dashboard"){
+    const recent=orders.slice().sort((a,b)=>b.t.localeCompare(a.t)).slice(0,5);
+    return head("Dashboard","Ringkasan dapur hari ini")+
+    `<div class="stats"><div class="stat"><b>${n('belum')}</b><small>Belum dibayar</small></div><div class="stat"><b>${n('dibayar')}</b><small>Sudah dibayar</small></div><div class="stat"><b>${n('proses')}</b><small>Sedang diproses</small></div><div class="stat"><b>${n('konf')}</b><small>Dikonfirmasi</small></div><div class="stat"><b>${n('selesai')}</b><small>Selesai hari ini</small></div><div class="stat"><b>7 mnt</b><small>Rata-rata waktu konf</small></div></div>
+    <div class="sec"><h3>Perlu diproses</h3><button class="link" data-v="dibayar">Lihat semua</button></div>${list('dibayar','Belum ada pesanan baru.').replace(/<article/g,'<article')}
+    <div class="sec" style="margin-top:28px"><h3>Aktivitas terbaru</h3></div>
+    <div class="panel wrap" style="padding:0"><table><tr><th>No.</th><th>Pemesan</th><th>Tipe</th><th>Jam</th><th>Status</th></tr>${recent.map(o=>`<tr class="row" data-open="${o.id}"><td>${o.id}</td><td>${o.who}</td><td>${o.type}</td><td>${o.t}</td><td>${tag(o.s)}</td></tr>`).join("")}</table></div>`;
+  }
+  if(view==="dibayar")return head("Pesanan Baru",`${n('dibayar')} pesanan menunggu`)+list("dibayar","Tidak ada pesanan baru. Kerja bagus!");
+  if(view==="proses")return head("Pesanan Diproses",`${n('proses')} pesanan sedang dibuat`)+list("proses","Belum ada pesanan yang diproses. Konfirmasi pesanan dari Pesanan Baru.");
+  if(view==="konf")return head("Dikonfirmasi Dapur",`${n('konf')} pesanan menunggu mulai diproses`)+list("konf","Belum ada pesanan yang dikonfirmasi.");
+  if(view==="selesai")return head("Pesanan Selesai",`${n('selesai')} pesanan sudah diantar`)+
+    (n('selesai')?`<div class="panel wrap" style="padding:0"><table><tr><th>No.</th><th>Pemesan</th><th>Item</th><th>Masuk</th><th>Selesai</th><th></th></tr>${orders.filter(o=>o.s==='selesai').map(o=>`<tr class="row" data-open="${o.id}"><td>${o.id}</td><td>${o.who}<div class="meta">${o.type}</div></td><td>${o.items.map(i=>i.q+"× "+i.n).join(", ")}</td><td>${o.t}</td><td>${o.done||"-"}</td><td>${tag('selesai')}</td></tr>`).join("")}</table></div>`:`<div class="empty">Belum ada pesanan selesai.</div>`);
+  if(view==="detail"){
+    const o=orders.find(x=>x.id===sel),st=["belum","dibayar","konf","proses","selesai"],ix=st.indexOf(o.s);
+    const act=o.s==="dibayar"?`<button class="btn lg" data-go="konf" data-id="${o.id}">Konfirmasi pesanan</button>`:o.s==="konf"?`<button class="btn lg" data-go="proses" data-id="${o.id}">Mulai proses</button>`:o.s==="proses"?`<button class="btn lg" data-go="selesai" data-id="${o.id}">Tandai selesai</button>`:o.s==="belum"?`<div class="meta">Menunggu pembayaran, status berubah otomatis.</div>`:"";
+    return `<div class="top"><div><button class="link" data-back>← Kembali</button><h2>Pesanan ${o.id}</h2><span>${o.who} · ${o.type} · masuk ${o.t}</span></div>${tag(o.s)}</div>
+    <div class="detail"><div class="panel"><h3>Daftar item</h3>${items(o)}${o.memo?`<div class="note">Catatan pelanggan: ${o.memo}</div>`:""}<div class="acts" style="margin-top:20px">${act}</div></div>
+    <div class="panel"><h3>Status pesanan</h3><div class="tl"><div class="${ix>=0?'on':''}">Belum dibayar · ${o.t}</div><div class="${ix>=1?'on':''}">Sudah dibayar</div><div class="${ix>=2?'on':''}">Dikonfirmasi dapur</div><div class="${ix>=3?'on':''}">Sedang diproses</div><div class="${ix>=4?'on':''}">Selesai${o.done?" · "+o.done:""}</div></div></div></div>`;
+  }
+}
+function render(keep){
+  document.querySelectorAll(".nav").forEach(b=>b.classList.toggle("on",b.dataset.v===(view==="detail"?prev:view)));
+  const n=s=>orders.filter(o=>o.s===s).length;
+  $("#c-dibayar").textContent=n("dibayar");$("#c-dibayar").classList.toggle("hide",!n("dibayar"));
+  $("#c-proses").textContent=n("proses")||"";$("#c-konf").textContent=n("konf")||"";$("#c-selesai").textContent=n("selesai")||"";
+  $("#main").innerHTML=screen();tick();if(!keep)window.scrollTo(0,0);
+}
+let prev="dashboard";
+function tick(){const c=$("#clk");if(c)c.textContent=new Date().toLocaleTimeString("id-ID",{hour:"2-digit",minute:"2-digit"})}
+setInterval(tick,30000);
+const NEXT={belum:"dibayar",dibayar:"konf",konf:"proses",proses:"selesai"};
+document.addEventListener("change",e=>{if(e.target.id==="au")auto=e.target.checked});
+/* demo otomatis: pembayaran terkonfirmasi sistem, lalu dapur mengonfirmasi dan memproses */
+setInterval(()=>{if(!auto||$("#app").classList.contains("hide"))return;const live=orders.filter(o=>o.s!=="selesai");if(!live.length)return;const o=live[ptr++%live.length];o.s=NEXT[o.s];if(o.s==="selesai")o.done=new Date().toLocaleTimeString("id-ID",{hour:"2-digit",minute:"2-digit"}).replace(".",":");render(true)},8000);
+document.addEventListener("click",e=>{
+  const t=e.target.closest("[data-v],[data-open],[data-go],[data-back]");if(!t)return;
+  if(t.dataset.v){view=t.dataset.v;prev=view;render()}
+  else if(t.dataset.open){if(view!=="detail")prev=view;sel=t.dataset.open;view="detail";render()}
+  else if(t.dataset.go){const o=orders.find(x=>x.id===t.dataset.id);o.s=t.dataset.go;if(o.s==="selesai")o.done=new Date().toLocaleTimeString("id-ID",{hour:"2-digit",minute:"2-digit"}).replace(".",":");e.stopPropagation();if(view!=="detail")render();else render()}
+  else if(t.hasAttribute("data-back")){view=prev;render()}
+});
+$("#lf").addEventListener("submit",e=>{e.preventDefault();
+  if($("#u").value.trim()&&$("#p").value){$("#login").classList.add("hide");$("#app").classList.remove("hide");view="dashboard";prev="dashboard";render()}
+  else $("#err").textContent="Isi username dan kata sandi terlebih dahulu."});
+$("#out").onclick=()=>{$("#app").classList.add("hide");$("#login").classList.remove("hide")};
+</script>
+</body>
+</html>
