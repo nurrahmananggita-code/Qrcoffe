@@ -1,0 +1,516 @@
+<html>
+
+<head>
+    <title>Kelola Menu - Qrcoffee</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<table width="100%" height="100%" border="0">
+    <tr>
+
+        <!-- ===== SIDEBAR ===== -->
+        <td width="250px" valign="top" class="sidebar">
+
+            <h2 class="brand">
+                Qrcoffe
+            </h2>
+
+            <p class="brand-sub">
+                Admin Outlet
+            </p>
+
+            <p class="nav-label">
+                Ringkasan
+            </p>
+
+            <p class="nav-item">
+                <a href="Dashboard.html" class="nav-link">
+                    <img src="dashboard.png" width="20" class="nav-icon">
+                    Dashboard
+                </a>
+            </p>
+
+            <p class="nav-label">
+                Menu
+            </p>
+
+            <p class="nav-item nav-active">
+                <a href="Kelola_menu.html" class="nav-link">
+                    <img src="menu.png" width="20" class="nav-icon">
+                    Kelola Menu
+                </a>
+            </p>
+
+            <p class="nav-item">
+                <a href="Kelola_kategori.html" class="nav-link">
+                    <img src="kelola kategori.png" width="20" class="nav-icon">
+                    Kelola Kategori
+                </a>
+            </p>
+
+            <p class="nav-label">
+                Pesanan
+            </p>
+
+            <p class="nav-item">
+                <a href="Riwayat_transaksi.html" class="nav-link">
+                    <img src="riwayat transaksi.png" width="20" class="nav-icon">
+                    Riwayat Transaksi
+                </a>
+            </p>
+
+        </td>
+
+        <!-- ===== KONTEN ===== -->
+        <td valign="top" class="content">
+
+            <!-- TOP BAR -->
+            <div class="topbar">
+                <table width="100%" border="0">
+                    <tr>
+                        <td valign="middle">
+                            <p class="breadcrumb">
+                                Admin Outlet / <b class="breadcrumb-active">Kelola Menu</b>
+                            </p>
+                        </td>
+
+                        <td align="right" valign="middle">
+
+                            <div class="profile">
+                                <span class="avatar">M</span>
+                                <span class="profile-name">Marie</span>
+                            </div>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- JUDUL + TOMBOL -->
+            <table width="100%" border="0">
+                <tr>
+
+                    <td valign="top">
+
+                        <h1 class="greeting">
+                            Kelola Menu
+                        </h1>
+
+                        <p class="date">
+                            14 menu, 12 tersedia untuk dipesan.
+                        </p>
+
+                    </td>
+
+                    <td align="right" valign="middle">
+
+                        <a href="Tambah_menu.html" class="btn-primary btn-link">
+                            + Tambah menu
+                        </a>
+
+                    </td>
+
+                </tr>
+            </table>
+
+            <!-- KOTAK TABEL -->
+            <div class="panel">
+
+                <!-- BAR PENCARIAN -->
+                <div class="toolbar">
+
+                    <input type="text" class="search" placeholder="Cari nama menu">
+
+                    <select class="select-category">
+                        <option>Semua kategori</option>
+                        <option>Kopi</option>
+                        <option>Non-kopi</option>
+                        <option>Makanan Berat</option>
+                        <option>Camilan</option>
+                        <option>Dessert</option>
+                        <option>Paket Hemat</option>
+                    </select>
+
+                </div>
+
+                <!-- TABEL MENU -->
+                <table class="menu-table">
+
+                    <thead>
+                        <tr>
+                            <th class="col-menu">Menu</th>
+                            <th class="col-category">Kategori</th>
+                            <th class="col-price">Harga</th>
+                            <th class="col-avail">Tersedia</th>
+                            <th class="col-action"></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+<!-- MENU 1 -->
+<tr>
+    <td class="col-menu">
+        <div class="menu-cell">
+            <div class="item-icon icon-kopi">K</div>
+            <div class="menu-text">
+                <p class="item-name">Kopi Susu Gula Aren</p>
+                <p class="item-sub">Espresso, susu segar, gula aren cair.</p>
+            </div>
+        </div>
+    </td>
+    <td class="col-category">Kopi</td>
+    <td class="col-price">Rp 24.000</td>
+    <td class="col-avail">
+        <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+        </label>
+    </td>
+    <td class="col-action">
+        <a href="Ubah_menu.html" class="icon-btn" title="Edit">✎</a>
+        <button class="icon-btn icon-delete" title="Hapus">✕</button>
+    </td>
+</tr>
+
+<!-- MENU 2 -->
+<tr>
+    <td class="col-menu">
+        <div class="menu-cell">
+            <div class="item-icon icon-kopi">A</div>
+            <div class="menu-text">
+                <p class="item-name">Americano</p>
+                <p class="item-sub">Double shot espresso dengan air panas.</p>
+            </div>
+        </div>
+    </td>
+    <td class="col-category">Kopi</td>
+    <td class="col-price">Rp 20.000</td>
+    <td class="col-avail">
+        <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+        </label>
+    </td>
+    <td class="col-action">
+        <a href="Ubah_menu.html" class="icon-btn" title="Edit">✎</a>
+        <button class="icon-btn icon-delete" title="Hapus">✕</button>
+    </td>
+</tr>
+
+<!-- MENU 3 -->
+<tr>
+    <td class="col-menu">
+        <div class="menu-cell">
+            <div class="item-icon icon-kopi">K</div>
+            <div class="menu-text">
+                <p class="item-name">Kopi Tubruk</p>
+                <p class="item-sub">Kopi tubruk tradisional, disajikan panas.</p>
+            </div>
+        </div>
+    </td>
+    <td class="col-category">Kopi</td>
+    <td class="col-price">Rp 15.000</td>
+    <td class="col-avail">
+        <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+        </label>
+    </td>
+    <td class="col-action">
+        <a href="Ubah_menu.html" class="icon-btn" title="Edit">✎</a>
+        <button class="icon-btn icon-delete" title="Hapus">✕</button>
+    </td>
+</tr>
+
+<!-- MENU 4 -->
+<tr>
+    <td class="col-menu">
+        <div class="menu-cell">
+            <div class="item-icon icon-nonkopi">M</div>
+            <div class="menu-text">
+                <p class="item-name">Matcha Latte</p>
+                <p class="item-sub">Matcha Jepang dengan susu, bisa panas atau dingin.</p>
+            </div>
+        </div>
+    </td>
+    <td class="col-category">Non-kopi</td>
+    <td class="col-price">Rp 28.000</td>
+    <td class="col-avail">
+        <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+        </label>
+    </td>
+    <td class="col-action">
+        <a href="Ubah_menu.html" class="icon-btn" title="Edit">✎</a>
+        <button class="icon-btn icon-delete" title="Hapus">✕</button>
+    </td>
+</tr>
+
+<!-- MENU 5 -->
+<tr>
+    <td class="col-menu">
+        <div class="menu-cell">
+            <div class="item-icon icon-nonkopi">T</div>
+            <div class="menu-text">
+                <p class="item-name">Teh Tarik</p>
+                <p class="item-sub">Teh pekat dengan susu, ditarik sampai berbusa.</p>
+            </div>
+        </div>
+    </td>
+    <td class="col-category">Non-kopi</td>
+    <td class="col-price">Rp 18.000</td>
+    <td class="col-avail">
+        <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+        </label>
+    </td>
+    <td class="col-action">
+        <a href="Ubah_menu.html" class="icon-btn" title="Edit">✎</a>
+        <button class="icon-btn icon-delete" title="Hapus">✕</button>
+    </td>
+</tr>
+
+<!-- MENU 6 -->
+<tr>
+    <td class="col-menu">
+        <div class="menu-cell">
+            <div class="item-icon icon-nonkopi">E</div>
+            <div class="menu-text">
+                <p class="item-name">Es Jeruk Peras</p>
+                <p class="item-sub">Jeruk peras segar dengan es batu.</p>
+            </div>
+        </div>
+    </td>
+    <td class="col-category">Non-kopi</td>
+    <td class="col-price">Rp 16.000</td>
+    <td class="col-avail">
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+        </label>
+    </td>
+    <td class="col-action">
+        <a href="Ubah_menu.html" class="icon-btn" title="Edit">✎</a>
+        <button class="icon-btn icon-delete" title="Hapus">✕</button>
+    </td>
+</tr>
+
+<!-- MENU 7 -->
+<tr>
+    <td class="col-menu">
+        <div class="menu-cell">
+            <div class="item-icon icon-makanan">N</div>
+            <div class="menu-text">
+                <p class="item-name">Nasi Goreng Kampung</p>
+                <p class="item-sub">Nasi goreng bumbu rempah, telur, ayam suwir, kerupuk.</p>
+            </div>
+        </div>
+    </td>
+    <td class="col-category">Makanan Berat</td>
+    <td class="col-price">Rp 32.000</td>
+    <td class="col-avail">
+        <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+        </label>
+    </td>
+    <td class="col-action">
+        <a href="Ubah_menu.html" class="icon-btn" title="Edit">✎</a>
+        <button class="icon-btn icon-delete" title="Hapus">✕</button>
+    </td>
+</tr>
+
+<!-- MENU 8 -->
+<tr>
+    <td class="col-menu">
+        <div class="menu-cell">
+            <div class="item-icon icon-makanan">M</div>
+            <div class="menu-text">
+                <p class="item-name">Mie Goreng Jawa</p>
+                <p class="item-sub">Mie kuning dengan bumbu kecap manis dan sayur.</p>
+            </div>
+        </div>
+    </td>
+    <td class="col-category">Makanan Berat</td>
+    <td class="col-price">Rp 30.000</td>
+    <td class="col-avail">
+        <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+        </label>
+    </td>
+    <td class="col-action">
+        <a href="Ubah_menu.html" class="icon-btn" title="Edit">✎</a>
+        <button class="icon-btn icon-delete" title="Hapus">✕</button>
+    </td>
+</tr>
+
+<!-- MENU 9 -->
+<tr>
+    <td class="col-menu">
+        <div class="menu-cell">
+            <div class="item-icon icon-makanan">A</div>
+            <div class="menu-text">
+                <p class="item-name">Ayam Bakar Madu</p>
+                <p class="item-sub">Ayam bakar dengan olesan madu, nasi, dan lalapan.</p>
+            </div>
+        </div>
+    </td>
+    <td class="col-category">Makanan Berat</td>
+    <td class="col-price">Rp 38.000</td>
+    <td class="col-avail">
+        <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+        </label>
+    </td>
+    <td class="col-action">
+        <a href="Ubah_menu.html" class="icon-btn" title="Edit">✎</a>
+        <button class="icon-btn icon-delete" title="Hapus">✕</button>
+    </td>
+</tr>
+
+<!-- MENU 10 -->
+<tr>
+    <td class="col-menu">
+        <div class="menu-cell">
+            <div class="item-icon icon-camilan">P</div>
+            <div class="menu-text">
+                <p class="item-name">Pisang Goreng Keju</p>
+                <p class="item-sub">Pisang kepok goreng dengan parutan keju dan susu kental manis.</p>
+            </div>
+        </div>
+    </td>
+    <td class="col-category">Camilan</td>
+    <td class="col-price">Rp 22.000</td>
+    <td class="col-avail">
+        <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+        </label>
+    </td>
+    <td class="col-action">
+        <a href="Ubah_menu.html" class="icon-btn" title="Edit">✎</a>
+        <button class="icon-btn icon-delete" title="Hapus">✕</button>
+    </td>
+</tr>
+
+<!-- MENU 11 -->
+<tr>
+    <td class="col-menu">
+        <div class="menu-cell">
+            <div class="item-icon icon-camilan">K</div>
+            <div class="menu-text">
+                <p class="item-name">Kentang Goreng</p>
+                <p class="item-sub">Kentang goreng renyah dengan saus sambal.</p>
+            </div>
+        </div>
+    </td>
+    <td class="col-category">Camilan</td>
+    <td class="col-price">Rp 20.000</td>
+    <td class="col-avail">
+        <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+        </label>
+    </td>
+    <td class="col-action">
+        <a href="Ubah_menu.html" class="icon-btn" title="Edit">✎</a>
+        <button class="icon-btn icon-delete" title="Hapus">✕</button>
+    </td>
+</tr>
+
+<!-- MENU 12 -->
+<tr>
+    <td class="col-menu">
+        <div class="menu-cell">
+            <div class="item-icon icon-dessert">R</div>
+            <div class="menu-text">
+                <p class="item-name">Roti Bakar Cokelat</p>
+                <p class="item-sub">Roti tebal panggang dengan selai cokelat dan keju.</p>
+            </div>
+        </div>
+    </td>
+    <td class="col-category">Dessert</td>
+    <td class="col-price">Rp 21.000</td>
+    <td class="col-avail">
+        <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+        </label>
+    </td>
+    <td class="col-action">
+        <a href="Ubah_menu.html" class="icon-btn" title="Edit">✎</a>
+        <button class="icon-btn icon-delete" title="Hapus">✕</button>
+    </td>
+</tr>
+
+<!-- MENU 13 -->
+<tr>
+    <td class="col-menu">
+        <div class="menu-cell">
+            <div class="item-icon icon-dessert">P</div>
+            <div class="menu-text">
+                <p class="item-name">Pudding Cokelat</p>
+                <p class="item-sub">Puding cokelat lembut dengan vla vanila.</p>
+            </div>
+        </div>
+    </td>
+    <td class="col-category">Dessert</td>
+    <td class="col-price">Rp 17.000</td>
+    <td class="col-avail">
+        <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+        </label>
+    </td>
+    <td class="col-action">
+        <a href="Ubah_menu.html" class="icon-btn" title="Edit">✎</a>
+        <button class="icon-btn icon-delete" title="Hapus">✕</button>
+    </td>
+</tr>
+
+<!-- MENU 14 -->
+<tr>
+    <td class="col-menu">
+        <div class="menu-cell">
+            <div class="item-icon icon-paket">P</div>
+            <div class="menu-text">
+                <p class="item-name">Paket Nasgor + Es Teh</p>
+                <p class="item-sub">Nasi goreng kampung dengan es teh manis.</p>
+            </div>
+        </div>
+    </td>
+    <td class="col-category">Paket Hemat</td>
+    <td class="col-price">Rp 35.000</td>
+    <td class="col-avail">
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+        </label>
+    </td>
+    <td class="col-action">
+        <a href="Ubah_menu.html" class="icon-btn" title="Edit">✎</a>
+        <button class="icon-btn icon-delete" title="Hapus">✕</button>
+    </td>
+</tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </td>
+
+    </tr>
+</table>
+
+</body>
+</html>
