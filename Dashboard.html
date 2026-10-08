@@ -1,0 +1,697 @@
+<html>
+
+<head>
+    <title>Admin Outlet - Qrcoffee</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<table width="100%" height="100%" border="0">
+    <tr>
+
+        <!-- ===== SIDEBAR ===== -->
+       <td width="250px" valign="top" class="sidebar">
+
+    <h2 class="brand">
+        Qrcoffe
+    </h2>
+
+    <p class="brand-sub">
+        Admin Outlet
+    </p>
+
+    <p class="nav-label">
+        Ringkasan
+    </p>
+
+    <p class="nav-item nav-active">
+        <a href="Dashboard.html" class="nav-link">
+            <img src="dashboard.png" width="20" class="nav-icon">
+            Dashboard
+        </a>
+    </p>
+
+    <p class="nav-label">
+        Menu
+    </p>
+
+    <p class="nav-item">
+        <a href="Kelola_menu.html" class="nav-link">
+            <img src="menu.png" width="20" class="nav-icon">
+            Kelola Menu
+        </a>
+    </p>
+
+    <p class="nav-item">
+        <a href="Kelola_kategori.html" class="nav-link">
+            <img src="kelola kategori.png" width="20" class="nav-icon">
+            Kelola Kategori
+        </a>
+    </p>
+
+    <p class="nav-label">
+        Pesanan
+    </p>
+
+    <p class="nav-item">
+        <a href="Riwayat_transaksi.html" class="nav-link">
+            <img src="riwayat transaksi.png" width="20" class="nav-icon">
+            Riwayat Transaksi
+        </a>
+    </p>
+
+</td>
+
+        <!-- ===== KONTEN ===== -->
+        <td valign="top" class="content">
+
+            <!-- TOP BAR -->
+            <div class="topbar">
+                <table width="100%" border="0">
+                    <tr>
+                        <td valign="middle">
+                            <p class="breadcrumb">
+                                Admin Outlet / <b class="breadcrumb-active">Dashboard</b>
+                            </p>
+                        </td>
+
+                        <td align="right" valign="middle">
+
+                            <div class="profile">
+                                <span class="avatar">M</span>
+                                <span class="profile-name">Marie</span>
+                            </div>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- SAPAAN + TOMBOL -->
+            <table width="100%" border="0">
+                <tr>
+
+                    <td valign="top">
+
+                        <h1 class="greeting">
+                            Halo, Marie & Esti
+                        </h1>
+
+                        <p class="date">
+                            Kamis, 1 Oktober 2026. Outlet buka sampai 22.00.
+                        </p>
+
+                    </td>
+
+                    <td align="right" valign="middle">
+
+                        <button class="btn-secondary">
+                            QR Code Meja
+                        </button>
+
+                        <a href="Tambah_menu.html" class="btn-primary btn-link">
+    + Tambah menu
+</a>
+
+                    </td>
+
+                </tr>
+            </table>
+
+
+            <!-- ================================================= -->
+            <!-- BARIS 1: PENJUALAN + STATUS MEJA -->
+            <!-- ================================================= -->
+
+            <table width="100%" border="0" class="row">
+                <tr>
+
+                    <!-- PENJUALAN HARI INI -->
+                    <td width="68%" valign="top" class="card">
+
+                        <p class="card-title-sm">
+                            Penjualan hari ini
+                        </p>
+
+                        <h1 class="sales-total">
+                            Rp 3.980.000
+                        </h1>
+
+                        <p class="sales-growth">
+                            +12% dari Senin lalu
+                        </p>
+
+                        <table width="100%" border="0">
+    <tr>
+
+        <td width="33%" valign="top">
+            <p class="stat-label">
+                Pesanan
+            </p>
+
+            <p class="stat-value">
+                44
+            </p>
+        </td>
+
+        <td width="45%" valign="top">
+            <p class="stat-label">
+                Rata-rata per pesanan
+            </p>
+
+            <p class="stat-value">
+                Rp 90.455
+            </p>
+        </td>
+
+        <td width="33%" valign="top">
+            <p class="stat-label">
+                Menu terjual
+            </p>
+
+            <p class="stat-value">
+                121
+            </p>
+        </td>
+
+    </tr>
+</table>
+
+                        <div class="chart">
+
+                            <!-- AREA GRAFIK -->
+                            <table width="100%" border="0">
+                                <tr>
+
+                                    <!-- ANGKA RUPIAH -->
+                                    <td width="45" valign="top">
+
+                                        <div class="y-axis">
+                                            <span class="y-label">1 jt</span>
+                                            <span class="y-label">750 rb</span>
+                                            <span class="y-label">500 rb</span>
+                                            <span class="y-label">250 rb</span>
+                                            <span class="y-label">0</span>
+                                        </div>
+
+                                    </td>
+
+                                    <!-- BAGIAN BATANG -->
+                                    <td>
+
+                                        <div class="plot">
+
+                                            <!-- GARIS BANTU -->
+                                            <div class="grid-line grid-1"></div>
+                                            <div class="grid-line grid-2"></div>
+                                            <div class="grid-line grid-3"></div>
+                                            <div class="grid-line grid-4"></div>
+
+                                            <!-- BATANG -->
+                                            <div class="bars">
+
+                                                <div class="bar-col">
+                                                    <div class="bar h25"></div>
+                                                </div>
+
+                                                <div class="bar-col">
+                                                    <div class="bar h50"></div>
+                                                </div>
+
+                                                <div class="bar-col">
+                                                    <div class="bar h75"></div>
+                                                </div>
+
+                                                <div class="bar-col">
+                                                    <div class="bar h62"></div>
+                                                </div>
+
+                                                <div class="bar-col">
+                                                    <div class="bar h105"></div>
+                                                </div>
+
+                                                <div class="bar-col">
+                                                    <div class="bar h175"></div>
+                                                </div>
+
+                                                <div class="bar-col">
+                                                    <div class="bar bar-selected h188"></div>
+                                                </div>
+
+                                                <div class="bar-col">
+                                                    <div class="bar h125"></div>
+                                                </div>
+
+                                                <div class="bar-col">
+                                                    <div class="bar-empty"></div>
+                                                </div>
+
+                                                <div class="bar-col">
+                                                    <div class="bar-empty"></div>
+                                                </div>
+
+                                                <div class="bar-col">
+                                                    <div class="bar-empty"></div>
+                                                </div>
+
+                                                <div class="bar-col">
+                                                    <div class="bar-empty"></div>
+                                                </div>
+
+                                                <div class="bar-col">
+                                                    <div class="bar-empty"></div>
+                                                </div>
+
+                                                <div class="bar-col">
+                                                    <div class="bar-empty"></div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <!-- JAM -->
+                                        <table width="100%" border="0">
+                                            <tr>
+                                                <td align="center"><span class="hour">08</span></td>
+                                                <td align="center"><span class="hour">09</span></td>
+                                                <td align="center"><span class="hour">10</span></td>
+                                                <td align="center"><span class="hour">11</span></td>
+                                                <td align="center"><span class="hour">12</span></td>
+                                                <td align="center"><span class="hour">13</span></td>
+                                                <td align="center"><span class="hour">14</span></td>
+                                                <td align="center"><span class="hour">15</span></td>
+                                                <td align="center"><span class="hour">16</span></td>
+                                                <td align="center"><span class="hour">17</span></td>
+                                                <td align="center"><span class="hour">18</span></td>
+                                                <td align="center"><span class="hour">19</span></td>
+                                                <td align="center"><span class="hour">20</span></td>
+                                                <td align="center"><span class="hour">21</span></td>
+                                            </tr>
+                                        </table>
+
+                                    </td>
+
+                                </tr>
+                            </table>
+
+                        </div>
+
+                    </td>
+
+
+                    <td width="20px"></td>
+
+
+                    <!-- STATUS MEJA -->
+                    <td width="32%" valign="top" class="card">
+
+                        <table width="100%" border="0">
+                            <tr>
+
+                                <td>
+                                    <p class="card-title">
+                                        Status meja
+                                    </p>
+                                </td>
+
+                                <td align="right">
+    <p class="link">
+        Kelola
+    </p>
+</td>
+
+                            </tr>
+                        </table>
+
+
+                        <table width="100%" border="0" class="mt-25">
+                            <tr>
+
+                                <!-- MEJA 1 - KOSONG -->
+                                <td align="center">
+                                    <div class="table-box">1</div>
+                                </td>
+
+                                <!-- MEJA 2 - TERISI -->
+                                <td align="center">
+                                    <div class="table-box filled">2</div>
+                                </td>
+
+                                <!-- MEJA 3 - TERISI -->
+                                <td align="center">
+                                    <div class="table-box filled">3</div>
+                                </td>
+
+                                <!-- MEJA 4 - KOSONG -->
+                                <td align="center">
+                                    <div class="table-box">4</div>
+                                </td>
+
+                                <!-- MEJA 5 - TERISI -->
+                                <td align="center">
+                                    <div class="table-box filled">5</div>
+                                </td>
+
+                                <!-- MEJA 6 - TERISI -->
+                                <td align="center">
+                                    <div class="table-box filled">6</div>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <!-- MEJA 7 - KOSONG -->
+                                <td align="center">
+                                    <div class="table-box">7</div>
+                                </td>
+
+                                <!-- MEJA 8 - TERISI -->
+                                <td align="center">
+                                    <div class="table-box filled">8</div>
+                                </td>
+
+                                <!-- MEJA 9 - DIBERSIHKAN -->
+                                <td align="center">
+                                    <div class="table-box clean">9</div>
+                                </td>
+
+                                <!-- MEJA 10 - KOSONG -->
+                                <td align="center">
+                                    <div class="table-box">10</div>
+                                </td>
+
+                                <!-- MEJA 11 - TERISI -->
+                                <td align="center">
+                                    <div class="table-box filled">11</div>
+                                </td>
+
+                                <!-- MEJA 12 - KOSONG -->
+                                <td align="center">
+                                    <div class="table-box disabled">12</div>
+                                </td>
+
+                            </tr>
+                        </table>
+
+
+                        <p class="legend">
+
+                            <span class="swatch sw-empty"></span>
+                            Kosong
+
+                            &nbsp;&nbsp;
+
+                            <span class="swatch sw-filled"></span>
+                            Terisi
+
+                            &nbsp;&nbsp;
+
+                            <span class="swatch sw-clean"></span>
+                            Dibersihkan
+
+                        </p>
+
+                    </td>
+
+                </tr>
+            </table>
+
+
+            <!-- ================================================= -->
+            <!-- BARIS 2: MENU TERLARIS + MENU TIDAK TERSEDIA -->
+            <!-- ================================================= -->
+
+            <table width="100%" border="0" class="row">
+                <tr>
+
+                    <!-- MENU TERLARIS -->
+                    <td width="49%" valign="top" class="card">
+
+                        <table width="100%" border="0">
+                            <tr>
+
+                                <td>
+                                    <p class="card-title">
+                                        Menu terlaris hari ini
+                                    </p>
+                                </td>
+
+                                <td align="right">
+                                    <p class="link">&nbsp;</p>
+                                </td>
+
+                            </tr>
+                        </table>
+
+
+                        <table width="100%" border="0" class="mt-25">
+
+                            <!-- MENU 1 -->
+                            <tr>
+
+                                <td width="55%">
+                                    <p class="menu-name">
+                                        Kopi Susu Gula Aren
+                                    </p>
+                                </td>
+
+                                <td width="35%" class="bar-cell">
+                                    <div class="track">
+                                        <div class="fill w100"></div>
+                                    </div>
+                                </td>
+
+                                <td width="10%" align="right">
+                                    <span class="count">
+                                        32x
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+                                <td colspan="3">
+                                    <div class="divider"></div>
+                                </td>
+                            </tr>
+
+
+                            <!-- MENU 2 -->
+                            <tr>
+
+                                <td width="55%">
+                                    <p class="menu-name ellipsis">
+                                        Nasi Goreng Kampung
+                                    </p>
+                                </td>
+
+                                <td width="35%" class="bar-cell">
+                                    <div class="track">
+                                        <div class="fill w75"></div>
+                                    </div>
+                                </td>
+
+                                <td width="10%" align="right">
+                                    <span class="count">
+                                        24x
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+                                <td colspan="3">
+                                    <div class="divider"></div>
+                                </td>
+                            </tr>
+
+
+                            <!-- MENU 3 -->
+                            <tr>
+
+                                <td width="55%">
+                                    <p class="menu-name">
+                                        Ayam Bakar Madu
+                                    </p>
+                                </td>
+
+                                <td width="35%" class="bar-cell">
+                                    <div class="track">
+                                        <div class="fill w53"></div>
+                                    </div>
+                                </td>
+
+                                <td width="10%" align="right">
+                                    <span class="count">
+                                        17x
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+                                <td colspan="3">
+                                    <div class="divider"></div>
+                                </td>
+                            </tr>
+
+
+                            <!-- MENU 4 -->
+                            <tr>
+
+                                <td width="55%">
+                                    <p class="menu-name">
+                                        Matcha Latte
+                                    </p>
+                                </td>
+
+                                <td width="35%" class="bar-cell">
+                                    <div class="track">
+                                        <div class="fill w44"></div>
+                                    </div>
+                                </td>
+
+                                <td width="10%" align="right">
+                                    <span class="count">
+                                        14x
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+                                <td colspan="3">
+                                    <div class="divider"></div>
+                                </td>
+                            </tr>
+
+
+                            <!-- MENU 5 -->
+                            <tr>
+
+                                <td width="55%">
+                                    <p class="menu-name">
+                                        Pisang Goreng Keju
+                                    </p>
+                                </td>
+
+                                <td width="35%" class="bar-cell">
+                                    <div class="track">
+                                        <div class="fill w34"></div>
+                                    </div>
+                                </td>
+
+                                <td width="10%" align="right">
+                                    <span class="count">
+                                        11x
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                    </td>
+
+
+                    <td width="20px"></td>
+
+
+                    <!-- MENU TIDAK TERSEDIA -->
+                    <td width="49%" valign="top" class="card">
+
+                        <table width="100%" border="0">
+                            <tr>
+
+                                <td>
+                                    <p class="card-title-18">
+                                        Menu tidak tersedia
+                                    </p>
+                                </td>
+
+                                <td align="right">
+    <a href="Kelola_menu.html" class="link link-a">
+        Kelola
+    </a>
+</td>
+
+                            </tr>
+                        </table>
+
+
+                        <table width="100%" border="0" class="mt-25">
+
+                            <!-- ITEM 1 -->
+                            <tr>
+
+                                <td width="56" valign="middle">
+                                    <div class="item-icon icon-blue">
+                                        E
+                                    </div>
+                                </td>
+
+                                <td valign="middle">
+
+                                    <p class="item-name">
+                                        Es Jeruk Peras
+                                    </p>
+
+                                    <p class="item-sub">
+                                        Non-kopi
+                                    </p>
+
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+                                <td colspan="2" class="spacer-18"></td>
+                            </tr>
+
+
+                            <!-- ITEM 2 -->
+                            <tr>
+
+                                <td width="56" valign="middle">
+                                    <div class="item-icon icon-gray">
+                                        P
+                                    </div>
+                                </td>
+
+                                <td valign="middle">
+
+                                    <p class="item-name">
+                                        Paket Nasgor + Es Teh
+                                    </p>
+
+                                    <p class="item-sub">
+                                        Paket Hemat
+                                    </p>
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                    </td>
+
+                </tr>
+            </table>
+
+        </td>
+
+    </tr>
+</table>
+
+</body>
+</html> 
