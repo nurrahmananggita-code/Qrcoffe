@@ -1,0 +1,1157 @@
+/* ===== UMUM ===== */
+
+body {
+    background: #0B1526;
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #E6EEF8;
+}
+
+
+/* ===== BINGKAI HP ===== */
+
+.phone {
+    max-width: 420px;
+    min-height: 100vh;
+    margin: 0 auto;
+    background: #0B1526;
+}
+
+
+/* ===== HALAMAN UMUM ===== */
+
+.page-center {
+    padding: 60px 24px;
+    text-align: center;
+}
+
+.big-icon {
+    margin: 0;
+    font-size: 56px;
+}
+
+.title {
+    margin: 8px 0;
+    font-size: 24px;
+}
+
+.muted {
+    color: #93A6C0;
+    font-size: 14px;
+}
+
+
+/* ===== KOTAK SCAN ===== */
+
+.scan-box {
+    width: 220px;
+    height: 220px;
+    margin: 32px auto;
+    background: #162235;
+    border: 3px solid #6EA8FE;
+    border-radius: 24px;
+}
+
+
+/* ===== TOMBOL UMUM ===== */
+
+.btn {
+    display: block;
+    padding: 14px;
+    background: #6EA8FE;
+    border-radius: 14px;
+    color: #0B1526;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+}
+
+
+/* ===== HALAMAN MEJA ===== */
+
+.table-no {
+    margin: 4px 0 10px 0;
+    font-size: 34px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #17345A;
+    border-radius: 20px;
+    color: #6EA8FE;
+    font-size: 12px;
+}
+
+.form-name {
+    margin-top: 32px;
+    text-align: left;
+}
+
+.form-label {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.input {
+    display: block;
+    width: 100%;
+    height: 46px;
+    box-sizing: border-box;
+    padding: 0 16px;
+    background: #162235;
+    border: 1px solid #293B54;
+    border-radius: 12px;
+    color: #E6EEF8;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #6EA8FE;
+}
+
+.btn-full {
+    width: 100%;
+    margin-top: 20px;
+    border: 0;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+
+/* ===== HALAMAN MENU: KEPALA ===== */
+
+.menu-head {
+    padding: 24px 18px 20px 18px;
+    background: linear-gradient(
+        180deg,
+        #65A9DC 0%,
+        #3576B5 100%
+    );
+    border-radius: 0 0 26px 26px;
+}
+
+.head-small {
+    margin: 0;
+    color: #93A6C0;
+    font-size: 13px;
+}
+
+.head-title {
+    margin: 4px 0 16px 0;
+    font-size: 22px;
+}
+
+
+/* ===== HALAMAN MENU: ISI ===== */
+
+.menu-body {
+    padding: 18px 18px 100px 18px;
+    background: #0B1526;
+}
+
+
+/* ===== KATEGORI ===== */
+
+.chips {
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.chip {
+    display: inline-block;
+    margin-right: 8px;
+    padding: 8px 16px;
+    background: #162235;
+    border: 1px solid #293B54;
+    border-radius: 30px;
+    color: #E6EEF8;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.chip-on {
+    background: #6EA8FE;
+    border-color: #6EA8FE;
+    color: #0B1526;
+    font-weight: bold;
+}
+
+
+/* ===== KARTU MENU ===== */
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    margin-top: 14px;
+    padding: 14px;
+    background: #15233A;
+    border: 1px solid #263957;
+    border-radius: 16px;
+}
+
+.menu-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.item-emoji {
+    width: 64px;
+    height: 64px;
+    line-height: 64px;
+    text-align: center;
+    background: #17345A;
+    border-radius: 14px;
+    font-size: 32px;
+}
+
+.item-info {
+    flex: 1;
+    margin-left: 14px;
+}
+
+.item-name {
+    margin: 0;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.item-desc {
+    margin: 2px 0 6px 0;
+    color: #93A6C0;
+    font-size: 12px;
+}
+
+.item-price {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.plus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: #6EA8FE;
+    border-radius: 50%;
+    color: #0C1524;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.item-photo {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    background: #17345A;
+    border-radius: 14px;
+}
+
+
+/* ===== HALAMAN DETAIL MENU ===== */
+
+.detail-page {
+    padding: 0 18px 30px 18px;
+}
+
+
+/* ===== FOTO MENU ===== */
+
+.detail-photo {
+    display: block;
+    width: 100px;
+    height: 100px;
+    margin: 20px auto 30px auto;
+    object-fit: contain;
+    background: #17345A;
+    border-radius: 20px;
+}
+
+
+/* ===== NAMA + HARGA ===== */
+
+.detail-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.detail-name {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.detail-price {
+    margin: 0;
+    font-size: 15px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+
+/* ===== DESKRIPSI ===== */
+
+.detail-desc {
+    margin: 8px 0 0 0;
+    color: #93A6C0;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+
+/* ===== TAG MENU ===== */
+
+.detail-tags {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.detail-tags span {
+    padding: 4px 10px;
+    background: #17345A;
+    border-radius: 20px;
+    color: #6EA8FE;
+    font-size: 13px;
+}
+
+
+/* ===== PILIHAN MENU ===== */
+
+.detail-section {
+    margin-top: 24px;
+}
+
+.detail-section h3 {
+    margin: 0 0 12px 0;
+    font-size: 18px;
+}
+
+
+/* ===== PILIHAN UKURAN / LEVEL GULA ===== */
+
+.option-group {
+    display: flex;
+    gap: 10px;
+}
+
+.option {
+    padding: 12px 20px;
+    background: #15233A;
+    border: 1px solid #263957;
+    border-radius: 24px;
+    color: #E6EEF8;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.option.active {
+    background: #8ACCF5;
+    border-color: #8ACCF5;
+    color: #102039;
+}
+
+.option-note {
+    margin: 8px 0 0 0;
+    color: #6EA8FE;
+    font-size: 12px;
+}
+
+
+/* ===== CATATAN ===== */
+
+.note-input {
+    width: 100%;
+    height: 70px;
+    box-sizing: border-box;
+    padding: 12px;
+    background: #15233A;
+    border: 1px solid #263957;
+    border-radius: 12px;
+    color: #E6EEF8;
+    font-family: inherit;
+    font-size: 14px;
+    resize: none;
+}
+
+.note-input::placeholder {
+    color: #93A6C0;
+}
+
+
+/* ===== JUMLAH + TAMBAH ===== */
+
+.detail-bottom {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.quantity-btn {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #263957;
+    border-radius: 50%;
+    background: #15233A;
+    color: #E6EEF8;
+    font-size: 20px;
+}
+
+.quantity span {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.add-cart {
+    flex: 1;
+    margin: 0;
+    padding: 14px;
+    border: 0;
+    border-radius: 14px;
+    background: #8ACCF5;
+    color: #102039;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.menu-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ===== TOMBOL KERANJANG ===== */
+.cart-bar {
+    display: none;
+    position: fixed;
+    left: 50%;
+    bottom: 14px;
+    transform: translateX(-50%);
+    width: calc(100% - 28px);
+    max-width: 392px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    padding: 16px 18px;
+    background: #6EA8FE;
+    border-radius: 13px;
+    color: #0C1524;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.cart-photo {
+    width: 53px;
+    height: 53px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* ===== HALAMAN KERANJANG ===== */
+.cart-head {
+    display: flex;
+    align-items: center;
+    padding: 18px;
+}
+
+.back-btn {
+    padding: 9px 16px;
+    background: #162235;
+    border: 1px solid #293B54;
+    border-radius: 30px;
+    color: #E6EEF8;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.cart-title {
+    flex: 1;
+    margin: 0 90px 0 0;
+    font-size: 15px;
+    text-align: center;
+}
+
+.cart-body {
+    padding: 0 17px 100px 17px;
+}
+
+.checkout-bar {
+    display: flex;
+    position: fixed;
+    left: 50%;
+    bottom: 13px;
+    transform: translateX(-50%);
+    width: calc(100% - 28px);
+    max-width: 392px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    padding: 15px 17px;
+    background: #6EA8FE;
+    border-radius: 13px;
+    color: #0C1524;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* ===== UKURAN KHUSUS HALAMAN KERANJANG ===== */
+.cart-body .menu-item {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.cart-body .quantity {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cart-body .quantity-btn {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1;
+}
+
+/* ===== HALAMAN CHECKOUT ===== */
+.checkout-body {
+    padding: 0 18px 100px 18px;
+}
+
+.info-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px;
+    background: #162235;
+    border: 1px solid #293B54;
+    border-radius: 16px;
+}
+
+.info-label {
+    margin: 0;
+    color: #93A6C0;
+    font-size: 12px;
+}
+
+.info-value {
+    margin: 2px 0 0 0;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* ===== RINGKASAN PESANAN ===== */
+.section-title {
+    margin: 24px 0 10px 0;
+    font-size: 16px;
+}
+
+.summary-card {
+    padding: 14px;
+    background: #162235;
+    border: 1px solid #293B54;
+    border-radius: 16px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+    font-size: 15px;
+}
+
+.summary-line {
+    margin: 12px 0;
+    border: 0;
+    border-top: 1px solid #293B54;
+}
+
+.summary-muted {
+    color: #93A6C0;
+}
+
+.summary-total {
+    margin-top: 12px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.checkout-note {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    height: 90px;
+    padding: 14px 16px;
+    background: #162235;
+    border: 1px solid #293B54;
+    border-radius: 14px;
+    color: #E6EEF8;
+    font-family: inherit;
+    font-size: 15px;
+    resize: none;
+}
+
+.checkout-note:focus {
+    outline: none;
+    border-color: #6EA8FE;
+}
+
+.btn-bayar {
+    display: block;
+    margin-top: 20px;
+    padding: 16px 18px;
+    background: #6EA8FE;
+    border-radius: 14px;
+    color: #0C1524;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+}
+
+.total-card {
+    margin-top: 16px;
+    padding: 20px 18px;
+    background: #6EA8FE;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.total-label {
+    font-size: 13px;
+    color: #17345A;
+}
+
+.total-angka {
+    margin-top: 6px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #0C1524;
+}
+
+.order-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.order-status {
+    text-align: right;
+}
+
+.status-belum {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 4px 12px;
+    background: #17345A;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #6EA8FE;
+}
+
+/* ===== METODE PEMBAYARAN ===== */
+.metode-card {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    padding: 14px;
+    background: #162235;
+    border: 1px solid #293B54;
+    border-radius: 16px;
+}
+
+.metode-on {
+    background: #17345A;
+    border-color: #6EA8FE;
+}
+
+.metode-icon {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.metode-info {
+    margin-left: 12px;
+}
+
+.metode-nama {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.metode-desc {
+    margin-top: 2px;
+    color: #93A6C0;
+    font-size: 13px;
+}
+
+
+/* ===== KARTU QR ===== */
+.qr-card {
+    margin-top: 12px;
+    padding: 22px 18px;
+    background: #162235;
+    border: 1px solid #293B54;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.qr-box {
+    display: inline-block;
+    padding: 10px;
+    background: #FFFFFF;
+    border-radius: 14px;
+}
+
+.qr-gambar {
+    width: 200px;
+    height: 200px;
+    background: repeating-conic-gradient(#0B1526 0% 25%, #FFFFFF 0% 50%) 0 0 / 20px 20px;
+}
+
+.qr-note {
+    margin-top: 14px;
+    color: #93A6C0;
+    font-size: 13px;
+}
+
+/* ===== TOMBOL SAYA SUDAH BAYAR ===== */
+.bayar-bar {
+    display: block;
+    position: fixed;
+    left: 50%;
+    bottom: 14px;
+    transform: translateX(-50%);
+    width: calc(100% - 28px);
+    max-width: 392px;
+    box-sizing: border-box;
+    padding: 16px 18px;
+    background: #8ACCF5;
+    border-radius: 14px;
+    color: #102039;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* ===== GAMBAR METODE PEMBAYARAN ===== */
+.metode-img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+/* ===== PENYESUAIAN SESUAI REFERENSI ===== */
+.cart-title { font-weight: bold; }
+.section-title { font-weight: bold; }
+
+.total-card {
+    padding: 18px;
+    background: #8ACCF5;
+    text-align: center;
+}
+
+.order-box {
+    margin-top: 12px;
+    padding: 14px 16px;
+    background: #162235;
+    border: 1px solid #293B54;
+    border-radius: 16px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 6px 0;
+}
+
+.info-row .info-label { font-size: 15px; }
+.info-row .info-value { margin: 0; font-size: 15px; font-weight: bold; }
+
+.status-belum { margin-top: 0; font-size: 13px; font-weight: normal; }
+
+.metode-img { width: 56px; height: 40px; object-fit: contain; }
+
+/* ===== RAPIKAN SESUAI REFERENSI ===== */
+.cart-head { padding: 14px 18px 18px 18px; }
+.total-card { margin-top: 0; }
+.order-box { padding: 10px 16px; }
+.info-row { margin: 4px 0; }
+.status-belum { padding: 3px 12px; }
+
+.metode-card { cursor: pointer; }
+
+/* ===== HALAMAN PEMBAYARAN BERHASIL ===== */
+.sukses-body {
+    padding: 76px 18px 30px 18px;
+    text-align: center;
+}
+
+.sukses-icon {
+    width: 96px;
+    height: 96px;
+    line-height: 96px;
+    margin: 0 auto;
+    background: #1C3A64;
+    border-radius: 50%;
+    color: #8ACCF5;
+    font-size: 48px;
+}
+
+.sukses-title {
+    margin-top: 24px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.sukses-desc {
+    margin: 14px 0 16px 0;
+    color: #93A6C0;
+    font-size: 15px;
+}
+
+.badge-lunas {
+    display: inline-block;
+    padding: 3px 12px;
+    background: #17345A;
+    border-radius: 20px;
+    color: #6EA8FE;
+    font-size: 13px;
+}
+
+.sukses-card {
+    margin-top: 22px;
+    padding: 14px 16px;
+    background: #162235;
+    border: 1px solid #293B54;
+    border-radius: 16px;
+}
+
+.sukses-row {
+    display: flex;
+    justify-content: space-between;
+    line-height: 22px;
+    font-size: 15px;
+}
+
+.sukses-label {
+    color: #93A6C0;
+}
+
+.btn-status {
+    display: block;
+    margin-top: 20px;
+    padding: 16px 18px;
+    background: #8ACCF5;
+    border-radius: 14px;
+    color: #102039;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* ===== HALAMAN STATUS PESANAN ===== */
+.status-head {
+    padding: 46px 18px 32px 18px;
+    background: linear-gradient(180deg, #8ACCF5 0%, #3576B5 100%);
+    border-radius: 0 0 26px 26px;
+    text-align: center;
+}
+
+.status-img {
+    display: block;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 12px auto;
+    object-fit: contain;
+}
+
+.status-head-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.status-head-sub {
+    margin-top: 4px;
+    font-size: 15px;
+    color: #E6EEF8;
+}
+
+.status-body {
+    padding: 18px;
+}
+
+.status-card {
+    padding: 14px 15px 4px 15px;
+    background: #162235;
+    border: 1px solid #293B54;
+    border-radius: 16px;
+}
+
+.status-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 13px;
+}
+
+.status-card-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.badge-status {
+    padding: 3px 12px;
+    background: #17345A;
+    border-radius: 20px;
+    color: #6EA8FE;
+    font-size: 13px;
+}
+
+.step {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.step-dot {
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    flex-shrink: 0;
+    margin-right: 12px;
+    background: #3F7BDB;
+    border-radius: 50%;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.step-dot-off {
+    background: #1C3A64;
+}
+
+.step-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.step-desc {
+    margin-top: 2px;
+    color: #93A6C0;
+    font-size: 13px;
+}
+
+.order-list {
+    margin-top: 12px;
+    padding: 8px 15px;
+    background: #162235;
+    border: 1px solid #293B54;
+    border-radius: 16px;
+}
+
+.order-line {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+    font-size: 15px;
+}
+
+.order-line-opt {
+    color: #93A6C0;
+}
+
+/* ===== HALAMAN SCAN: SESUAI REFERENSI ===== */
+.scan-page { padding-left: 18px; padding-right: 18px; }
+.scan-page .title { font-size: 20px; }
+.scan-page .muted { font-size: 15px; }
+
+.scan-box {
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 192px;
+    height: 192px;
+    margin: 48px auto 44px auto;
+    background: #0B1526;
+    border: 3px solid #5CB3F0;
+    border-radius: 24px;
+    box-shadow: 0 0 0 18px rgba(92, 179, 240, 0.07), 0 0 40px rgba(92, 179, 240, 0.12);
+}
+
+.scan-box::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #5CB3F0;
+    box-shadow: 0 -12px 22px rgba(92, 179, 240, 0.35);
+    animation: scan-gerak 2.4s ease-in-out infinite alternate;
+}
+
+@keyframes scan-gerak {
+    from { top: 8%; }
+    to   { top: 92%; }
+}
+
+.btn-scan {
+    padding: 16px 18px;
+    background: #8ACCF5;
+    color: #102039;
+    font-size: 16px;
+}
+
+.demo-row {
+    margin: 16px 0 0 0;
+    color: #93A6C0;
+    font-size: 14px;
+    text-align: center;
+}
+
+.demo-row select {
+    margin-left: 6px;
+    padding: 4px 6px;
+    font-size: 15px;
+}
+
+.demo-check { display: block; }
+
+
+/* Teks informasi di halaman status */
+.status-note {
+    color: #93B9E5;
+    font-size: 14px;
+    line-height: 1.7;
+    text-align: center;
+    margin: 22px 4px 18px;
+}
+
+/* Tombol pesan lagi */
+.status-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 11px;
+    background-color: #1D3B60;
+    color: #8ACFFF;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 18px;
+    text-align: center;
+}
+
+
+/* Isi halaman status pesanan */
+.status-body {
+    padding: 24px;
+}
+
+/* Kartu status pesanan */
+.status-card {
+    margin-bottom: 16px;
+}
+
+/* Daftar menu yang dipesan */
+.order-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Setiap baris pesanan */
+.order-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 26px 20px;
+    background-color: #16253C;
+    border: 1px solid #263A57;
+    border-radius: 22px;
+    color: #F0F5FF;
+    font-size: 16px;
+}
+
+/* Ukuran atau pilihan menu */
+.order-line-opt {
+    color: #93B9E5;
+    white-space: nowrap;
+}
+
+
+/* PANEL DETAIL MENU */
+.detail-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    justify-content: center;
+    align-items: flex-end;
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.detail-panel {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    height: 85vh;
+    overflow: hidden;
+    background: #0B1526;
+    border-radius: 28px 28px 0 0;
+}
+
+.detail-panel iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+.detail-close {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    z-index: 2;
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 50%;
+    background: #203957;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}

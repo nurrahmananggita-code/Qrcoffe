@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Checkout - Qrcoffee</title>
+    <link rel="stylesheet" href="customer.css">
+</head>
+<body>
+
+<div class="phone">
+
+    <!-- KEPALA -->
+    <div class="cart-head">
+        <a href="customer_keranjang.html" class="back-btn">← Kembali</a>
+        <h2 class="cart-title">Checkout</h2>
+    </div>
+
+    <!-- ISI CHECKOUT -->
+    <div class="checkout-body">
+
+        <!-- Dipesan untuk -->
+        <div class="info-card">
+            <div>
+                <p class="info-label">Dipesan untuk</p>
+                <p class="info-value">Tamu · Meja 5</p>
+            </div>
+            <span class="tag">Dine in</span>
+        </div>
+
+        <!-- Ringkasan pesanan -->
+        <h3 class="section-title">Ringkasan pesanan</h3>
+
+        <div class="summary-card">
+            <div id="daftar-ringkasan"></div>
+
+            <hr class="summary-line">
+
+            <div class="summary-row summary-muted">
+                <span>Subtotal</span>
+                <span id="subtotal">Rp0</span>
+            </div>
+            <div class="summary-row summary-muted">
+                <span>Pajak 10%</span>
+                <span id="pajak">Rp0</span>
+            </div>
+            <div class="summary-row summary-total">
+                <span>Total</span>
+                <span id="total">Rp0</span>
+            </div>
+        </div>
+
+        <!-- LANGKAH 1: Catatan untuk barista -->
+        <h3 class="section-title">Catatan untuk barista</h3>
+
+        <textarea id="catatan-pesanan"
+                  class="checkout-note"
+                  placeholder="Opsional, contoh: pedas sedang, tanpa telur"></textarea>
+
+        <!-- Tombol Pilih Pembayaran -->
+        <a href="customer_pembayaran.html" class="btn-bayar" id="tombol-bayar">
+            Pilih Pembayaran
+        </a>
+    </div>
+
+</div>
+
+<script>
+    const keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+
+    // Kalau keranjang kosong, kembalikan ke halaman keranjang
+    if (keranjang.length === 0) {
+        window.location.href = "customer_keranjang.html";
+    }
+
+    const daftar = document.getElementById("daftar-ringkasan");
+    let subtotal = 0;
+
+    // Satu baris untuk tiap menu
+    keranjang.forEach(function(item) {
+        const harga = item.hargaSatuan * item.jumlah;
+        subtotal += harga;
+
+        daftar.innerHTML += `
+            <div class="summary-row">
+                <span>${item.jumlah}× ${item.nama}</span>
+                <span>Rp${harga.toLocaleString("id-ID")}</span>
+            </div>
+        `;
+    });
+
+    // Hitung pajak 10% dan total
+    const pajak = Math.round(subtotal * 0.1);
+    const total = subtotal + pajak;
+
+    document.getElementById("subtotal").textContent = "Rp" + subtotal.toLocaleString("id-ID");
+    document.getElementById("pajak").textContent = "Rp" + pajak.toLocaleString("id-ID");
+    document.getElementById("total").textContent = "Rp" + total.toLocaleString("id-ID");
+
+    // LANGKAH 3: Simpan catatan sebelum pindah ke halaman pembayaran
+    document.getElementById("tombol-bayar").addEventListener("click", function() {
+        localStorage.setItem(
+            "catatanPesanan",
+            document.getElementById("catatan-pesanan").value
+        );
+    });
+</script>
+
+</body>
+</html>

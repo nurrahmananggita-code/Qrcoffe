@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Detail Menu - Qrcoffee</title>
+    <link rel="stylesheet" href="customer.css">
+</head>
+
+<body>
+
+<div class="phone">
+
+    <div class="detail-page">
+
+        <!-- Foto menu -->
+        <img id="detail-photo"
+             src="kopi susu gula aren.png"
+             alt="Foto menu"
+             class="detail-photo">
+
+        <!-- Nama dan harga -->
+        <div class="detail-title">
+            <h1 id="detail-name" class="detail-name">
+                Kopi Susu Gula Aren
+            </h1>
+
+            <p id="detail-price" class="detail-price">
+                Rp24.000
+            </p>
+        </div>
+
+        <!-- Deskripsi menu -->
+        <div class="detail-desc">
+            <p id="detail-desc">
+                Espresso, susu segar, gula aren cair.
+            </p>
+        </div>
+
+        <!-- Kategori dan informasi kafein -->
+        <div class="detail-tags" id="detail-tags">
+            <span id="detail-category">Kopi</span>
+            <span id="detail-caffeine">Kafein sedang</span>
+        </div>
+
+        <!-- Pilihan menu akan diisi oleh JavaScript -->
+        <div id="pilihan-menu"></div>
+
+        <!-- Catatan pelanggan -->
+        <div class="detail-section">
+            <h3>Catatan</h3>
+
+            <textarea
+                id="catatan"
+                class="note-input"
+                placeholder="Contoh: tanpa es, less sugar..."></textarea>
+        </div>
+
+        <!-- Jumlah dan tombol tambah -->
+        <div class="detail-bottom">
+
+            <div class="quantity">
+                <button type="button"
+                        class="quantity-btn"
+                        id="kurang">−</button>
+
+                <span id="jumlah">1</span>
+
+                <button type="button"
+                        class="quantity-btn"
+                        id="tambah">+</button>
+            </div>
+
+            <button type="button" class="add-cart" id="tambah-keranjang">
+                Tambah · Rp24.000
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    // 1. Data setiap menu
+    const menus = {
+        "kopi-susu-gula-aren": {
+            nama: "Kopi Susu Gula Aren",
+            foto: "kopi susu gula aren.png",
+            harga: 24000,
+            deskripsi: "Espresso, susu segar, gula aren cair.",
+            kategori: "Kopi",
+            kafein: "Kafein sedang",
+            ukuran: true,
+            levelGula: true
+        },
+
+        "americano": {
+            nama: "Americano",
+            foto: "americano.png",
+            harga: 20000,
+            deskripsi: "Espresso dengan air panas, menghasilkan rasa kopi yang kuat.",
+            kategori: "Kopi",
+            kafein: "Kafein tinggi",
+            ukuran: true,
+            levelGula: true
+        },
+
+        "kopi-tubruk": {
+            nama: "Kopi Tubruk",
+            foto: "kopi tubruk.png",
+            harga: 15000,
+            deskripsi: "Kopi tubruk tradisional, disajikan panas.",
+            kategori: "Kopi",
+            kafein: "Kafein tinggi",
+            ukuran: false,
+            levelGula: false
+        },
+
+        "matcha-latte": {
+            nama: "Matcha Latte",
+            foto: "matcha latte.png",
+            harga: 28000,
+            deskripsi: "Matcha Jepang dengan susu, bisa panas atau dingin.",
+            kategori: "Non-Kopi",
+            kafein: "Kafein sedang",
+            ukuran: true,
+            levelGula: true
+        },
+
+        "teh-tarik": {
+            nama: "Teh Tarik",
+            foto: "teh tarik.png",
+            harga: 18000,
+            deskripsi: "Teh pekat dengan susu, ditarik sampai berbusa.",
+            kategori: "Non-Kopi",
+            kafein: "Kafein rendah",
+            ukuran: true,
+            levelGula: true
+        },
+
+        "nasi-goreng-kampung": {
+            nama: "Nasi Goreng Kampung",
+            foto: "nasi goreng kampung.png",
+            harga: 32000,
+            deskripsi: "Nasi goreng bumbu rempah, telur, ayam suwir, kerupuk.",
+            kategori: "Makanan Berat",
+            kafein: "",
+            ukuran: false,
+            levelGula: false
+        },
+
+        "mie-goreng-jawa": {
+            nama: "Mie Goreng Jawa",
+            foto: "mie goreng jawa.png",
+            harga: 30000,
+            deskripsi: "Mie kuning dengan bumbu kecap manis dan sayur.",
+            kategori: "Makanan Berat",
+            kafein: "",
+            ukuran: false,
+            levelGula: false
+        },
+
+        "ayam-bakar-madu": {
+            nama: "Ayam Bakar Madu",
+            foto: "ayam bakar madu.png",
+            harga: 38000,
+            deskripsi: "Ayam bakar dengan olesan madu, nasi, dan lalapan.",
+            kategori: "Makanan Berat",
+            kafein: "",
+            ukuran: false,
+            levelGula: false
+        },
+
+        "pisang-goreng-keju": {
+            nama: "Pisang Goreng Keju",
+            foto: "pisang goreng keju.png",
+            harga: 22000,
+            deskripsi: "Pisang kepok goreng dengan parutan keju dan susu.",
+            kategori: "Cemilan",
+            kafein: "",
+            ukuran: false,
+            levelGula: false
+        },
+
+        "kentang-goreng": {
+            nama: "Kentang Goreng",
+            foto: "kentang goreng.png",
+            harga: 20000,
+            deskripsi: "Kentang goreng renyah dengan saus sambal.",
+            kategori: "Cemilan",
+            kafein: "",
+            ukuran: false,
+            levelGula: false
+        },
+
+        "roti-bakar-cokelat": {
+            nama: "Roti Bakar Cokelat",
+            foto: "roti bakar cokelat.png",
+            harga: 21000,
+            deskripsi: "Roti tebal panggang dengan selai cokelat dan keju.",
+            kategori: "Dessert",
+            kafein: "",
+            ukuran: false,
+            levelGula: false
+        },
+
+        "puding-cokelat": {
+            nama: "Puding Cokelat",
+            foto: "puding cokelat.png",
+            harga: 17000,
+            deskripsi: "Puding cokelat lembut dengan vla vanila.",
+            kategori: "Dessert",
+            kafein: "",
+            ukuran: false,
+            levelGula: false
+        }
+    };
+
+
+   // 2. Membaca kode menu dari URL
+const parameter = new URLSearchParams(window.location.search);
+const kodeMenu = parameter.get("menu");
+
+console.log("Kode menu dari URL:", kodeMenu);
+console.log("Data menu:", menus[kodeMenu]);
+
+const menu = menus[kodeMenu] || menus["kopi-susu-gula-aren"];
+
+    // 3. Menampilkan informasi menu
+    document.getElementById("detail-name").textContent = menu.nama;
+
+    document.getElementById("detail-photo").src = menu.foto;
+    document.getElementById("detail-photo").alt = menu.nama;
+
+    document.getElementById("detail-price").textContent =
+        "Rp" + menu.harga.toLocaleString("id-ID");
+
+    document.getElementById("detail-desc").textContent = menu.deskripsi;
+
+    document.getElementById("detail-category").textContent = menu.kategori;
+
+
+    // 4. Menampilkan atau menyembunyikan informasi kafein
+    const caffeine = document.getElementById("detail-caffeine");
+
+    if (menu.kafein) {
+        caffeine.textContent = menu.kafein;
+    } else {
+        caffeine.style.display = "none";
+    }
+
+
+    // 5. Membuat pilihan ukuran dan level gula
+    const pilihanMenu = document.getElementById("pilihan-menu");
+
+    if (menu.ukuran) {
+        pilihanMenu.innerHTML += `
+            <div class="detail-section">
+                <h3>Ukuran</h3>
+
+                <div class="option-group" id="grup-ukuran">
+                    <button type="button"
+                            class="option active"
+                            data-harga="0">Regular</button>
+
+                    <button type="button"
+                            class="option"
+                            data-harga="5000">Large</button>
+                </div>
+
+                <p class="option-note">Large + Rp5.000</p>
+            </div>
+        `;
+    }
+
+    if (menu.levelGula) {
+        pilihanMenu.innerHTML += `
+            <div class="detail-section">
+                <h3>Level Gula</h3>
+
+                <div class="option-group" id="grup-gula">
+                    <button type="button" class="option">Less</button>
+                    <button type="button" class="option active">Normal</button>
+                    <button type="button" class="option">Extra</button>
+                </div>
+            </div>
+        `;
+    }
+
+
+    // 6. Mengatur tombol pilihan
+    pilihanMenu.addEventListener("click", function(event) {
+        if (event.target.classList.contains("option")) {
+            const kelompok = event.target.parentElement;
+
+            kelompok.querySelectorAll(".option").forEach(function(tombol) {
+                tombol.classList.remove("active");
+            });
+
+            event.target.classList.add("active");
+
+            if (event.target.dataset.harga !== undefined) {
+                hargaUkuran = Number(event.target.dataset.harga);
+                perbaruiHarga();
+            }
+        }
+    });
+
+
+    // 7. Mengatur jumlah pesanan
+    let jumlah = 1;
+    let hargaUkuran = 0;
+
+    const jumlahTeks = document.getElementById("jumlah");
+
+    document.getElementById("kurang").addEventListener("click", function() {
+        if (jumlah > 1) {
+            jumlah--;
+            jumlahTeks.textContent = jumlah;
+            perbaruiHarga();
+        }
+    });
+
+    document.getElementById("tambah").addEventListener("click", function() {
+        jumlah++;
+        jumlahTeks.textContent = jumlah;
+        perbaruiHarga();
+    });
+
+
+    // 8. Memperbarui harga pada tombol tambah
+    function perbaruiHarga() {
+        const total = (menu.harga + hargaUkuran) * jumlah;
+
+        document.getElementById("tambah-keranjang").textContent =
+            "Tambah · Rp" + total.toLocaleString("id-ID");
+    }
+
+    perbaruiHarga();
+
+
+           // 9. Tombol tambah keranjang
+    document.getElementById("tambah-keranjang").addEventListener("click", function() {
+        const keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+
+        const ukuranAktif = document.querySelector("#grup-ukuran .option.active");
+        const gulaAktif = document.querySelector("#grup-gula .option.active");
+
+        keranjang.push({
+            nama: menu.nama,
+            foto: menu.foto,
+            ukuran: ukuranAktif ? ukuranAktif.textContent : "",
+            gula: gulaAktif ? gulaAktif.textContent : "",
+            catatan: document.getElementById("catatan").value,
+            jumlah: jumlah,
+            hargaSatuan: menu.harga + hargaUkuran
+        });
+
+        localStorage.setItem("keranjang", JSON.stringify(keranjang));
+
+        if (window.parent !== window) {
+            window.parent.tutupDetail();
+            window.parent.location.reload();
+        } else {
+            window.location.href = "customer_menu.html";
+        }
+    });
+</script>
+
+</body>
+</html>

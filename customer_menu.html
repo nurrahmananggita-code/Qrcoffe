@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Menu - Qrcoffee</title>
+    <link rel="stylesheet" href="customer.css">
+</head>
+<body>
+
+<div class="phone">
+
+    <!-- KEPALA BIRU -->
+    <div class="menu-head">
+        <p class="head-small" id="info-tamu">Meja 5 · Halo, Tamu 👋</p>
+        <h2 class="head-title">Mau ngopi apa hari ini?</h2>
+        <input type="text" class="input" placeholder="🔍 Cari menu...">
+    </div>
+
+        <!-- ISI HALAMAN -->
+    <div class="menu-body">
+
+        <!-- KATEGORI -->
+<div class="chips">
+    <button type="button" class="chip chip-on" data-kategori="semua">Semua</button>
+    <button type="button" class="chip" data-kategori="kopi">Kopi</button>
+    <button type="button" class="chip" data-kategori="non-kopi">Non-kopi</button>
+    <button type="button" class="chip" data-kategori="makanan-berat">Makanan Berat</button>
+    <button type="button" class="chip" data-kategori="camilan">Camilan</button>
+    <button type="button" class="chip" data-kategori="dessert">Dessert</button>
+</div>
+
+        <!-- KOPI SUSU GULA AREN -->
+<a href="customer_detail.html?menu=kopi-susu-gula-aren"
+   class="menu-link"
+   data-kategori="kopi"
+   onclick="bukaDetail(event, 'kopi-susu-gula-aren')">
+    <div class="menu-item">
+        <img src="kopi susu gula aren.png"
+             alt="Kopi Susu Gula Aren"
+             class="item-photo">
+
+        <div class="item-info">
+            <p class="item-name">Kopi Susu Gula Aren</p>
+            <p class="item-desc">Espresso, susu segar, gula aren cair.</p>
+            <p class="item-price">Rp24.000</p>
+        </div>
+
+        <span class="plus">+</span>
+    </div>
+</a>
+
+<!-- AMERICANO -->
+<a href="customer_detail.html?menu=americano"
+   class="menu-link"
+   data-kategori="kopi"
+   onclick="bukaDetail(event, 'americano')">
+       <div class="menu-item">
+        <img src="americano.png"
+             alt="Americano"
+             class="item-photo">
+
+        <div class="item-info">
+            <p class="item-name">Americano</p>
+            <p class="item-desc">Espresso dengan air panas, menghasilkan rasa kopi yang kuat.</p>
+            <p class="item-price">Rp20.000</p>
+        </div>
+
+        <span class="plus">+</span>
+    </div>
+</a>
+
+<!-- KOPI TUBRUK -->
+<a href="customer_detail.html?menu=kopi-tubruk"
+   class="menu-link"
+   data-kategori="kopi"
+   onclick="bukaDetail(event, 'kopi-tubruk')">
+    <div class="menu-item">
+        <img src="kopi tubruk.png"
+             alt="Kopi Tubruk"
+             class="item-photo">
+
+        <div class="item-info">
+            <p class="item-name">Kopi Tubruk</p>
+            <p class="item-desc">Kopi tubruk tradisional, disajikan panas.</p>
+            <p class="item-price">Rp15.000</p>
+        </div>
+
+        <span class="plus">+</span>
+    </div>
+</a>
+
+<!-- MATCHA LATTE -->
+<a href="customer_detail.html?menu=matcha-latte"
+   class="menu-link"
+   data-kategori="non-kopi"
+   onclick="bukaDetail(event, 'matcha-latte')">
+    <div class="menu-item">
+        <img src="matcha latte.png"
+             alt="Matcha Latte"
+             class="item-photo">
+
+        <div class="item-info">
+            <p class="item-name">Matcha Latte</p>
+            <p class="item-desc">Matcha Jepang dengan susu, bisa panas atau dingin.</p>
+            <p class="item-price">Rp28.000</p>
+        </div>
+
+        <span class="plus">+</span>
+    </div>
+</a>
+
+<!-- TEH  TARIK -->
+<a href="customer_detail.html?menu=teh-tarik"
+   class="menu-link"
+   data-kategori="non-kopi"
+   onclick="bukaDetail(event, 'teh-tarik')">
+    <div class="menu-item">
+        <img src="teh tarik.png"
+             alt="Teh Tarik"
+             class="item-photo">
+
+        <div class="item-info">
+            <p class="item-name">Teh Tarik</p>
+            <p class="item-desc">Teh pekat dengan susu, ditarik sampai berbusa.</p>
+            <p class="item-price">Rp18.000</p>
+        </div>
+
+        <span class="plus">+</span>
+    </div>
+</a>
+
+<!-- NASI GORENG KAMPUNG -->
+<a href="customer_detail.html?menu=nasi-goreng-kampung"
+   class="menu-link"
+   data-kategori="makanan-berat"
+   onclick="bukaDetail(event, 'nasi-goreng-kampung')">
+    <div class="menu-item">
+        <img src="nasi goreng kampung.png"
+             alt="Nasi Goreng Kampung"
+             class="item-photo">
+
+        <div class="item-info">
+            <p class="item-name">Nasi Goreng Kampung</p>
+            <p class="item-desc">Nasi goreng bumbu rempah, telur, ayam suwir, kerupuk.</p>
+            <p class="item-price">Rp32.000</p>
+        </div>
+
+        <span class="plus">+</span>
+    </div>
+</a>
+
+<!-- MIE GORENG JAWA -->
+<a href="customer_detail.html?menu=mie-goreng-jawa"
+   class="menu-link"
+   data-kategori="makanan-berat"
+   onclick="bukaDetail(event, 'mie-goreng-jawa')">
+    <div class="menu-item">
+        <img src="mie goreng jawa.png" alt="Mie Goreng Jawa" class="item-photo">
+        <div class="item-info">
+            <p class="item-name">Mie Goreng Jawa</p>
+            <p class="item-desc">Mie kuning dengan bumbu kecap manis dan sayur.</p>
+            <p class="item-price">Rp30.000</p>
+        </div>
+        <span class="plus">+</span>
+    </div>
+</a>
+
+<!-- AYAM BAKAR MADU -->
+<a href="customer_detail.html?menu=ayam-bakar-madu"
+   class="menu-link"
+   data-kategori="makanan-berat"
+   onclick="bukaDetail(event, 'ayam-bakar-madu')">
+    <div class="menu-item">
+        <img src="ayam bakar madu.png" alt="Ayam Bakar Madu" class="item-photo">
+        <div class="item-info">
+            <p class="item-name">Ayam Bakar Madu</p>
+            <p class="item-desc">Ayam bakar dengan olesan madu, nasi, dan lalapan.</p>
+            <p class="item-price">Rp38.000</p>
+        </div>
+        <span class="plus">+</span>
+    </div>
+</a>
+
+<!-- PISANG GORENG KEJU -->
+<a href="customer_detail.html?menu=pisang-goreng-keju"
+   class="menu-link"
+   data-kategori="camilan"
+   onclick="bukaDetail(event, 'pisang-goreng-keju')">
+    <div class="menu-item">
+        <img src="pisang goreng keju.png" alt="Pisang Goreng Keju" class="item-photo">
+        <div class="item-info">
+            <p class="item-name">Pisang Goreng Keju</p>
+            <p class="item-desc">Pisang kepok goreng dengan parutan keju dan susu.</p>
+            <p class="item-price">Rp22.000</p>
+        </div>
+        <span class="plus">+</span>
+    </div>
+</a>
+
+<!-- KENTANG GORENG -->
+<a href="customer_detail.html?menu=kentang-goreng"
+   class="menu-link"
+   data-kategori="camilan"
+   onclick="bukaDetail(event, 'kentang-goreng')">
+    <div class="menu-item">
+        <img src="kentang goreng.png" alt="Kentang Goreng" class="item-photo">
+        <div class="item-info">
+            <p class="item-name">Kentang Goreng</p>
+            <p class="item-desc">Kentang goreng renyah dengan saus sambal.</p>
+            <p class="item-price">Rp20.000</p>
+        </div>
+        <span class="plus">+</span>
+    </div>
+</a>
+
+<!-- ROTI BAKAR COKELAT -->
+<a href="customer_detail.html?menu=roti-bakar-cokelat"
+   class="menu-link"
+   data-kategori="dessert"
+   onclick="bukaDetail(event, 'roti-bakar-cokelat')">
+    <div class="menu-item">
+        <img src="roti bakar cokelat.png" alt="Roti Bakar Cokelat" class="item-photo">
+        <div class="item-info">
+            <p class="item-name">Roti Bakar Cokelat</p>
+            <p class="item-desc">Roti tebal panggang dengan selai cokelat dan keju.</p>
+            <p class="item-price">Rp21.000</p>
+        </div>
+        <span class="plus">+</span>
+    </div>
+</a>
+
+<!-- PUDING COKELAT -->
+<a href="customer_detail.html?menu=puding-cokelat"
+   class="menu-link"
+   data-kategori="dessert"
+   onclick="bukaDetail(event, 'puding-cokelat')">
+    <div class="menu-item">
+        <img src="puding cokelat.png" alt="Puding Cokelat" class="item-photo">
+        <div class="item-info">
+            <p class="item-name">Puding Cokelat</p>
+            <p class="item-desc">Puding cokelat lembut dengan vla vanila.</p>
+            <p class="item-price">Rp17.000</p>
+        </div>
+        <span class="plus">+</span>
+    </div>
+</a>
+
+    <!-- TOMBOL KERANJANG -->
+    <a href="customer_keranjang.html" class="cart-bar" id="cart-bar">
+        <span id="cart-count">🛒 2 item</span>
+        <span id="cart-total">Rp34.000 →</span>
+    </a>
+
+</div>
+
+<div class="detail-overlay" id="detail-overlay">
+    <div class="detail-panel">
+        <button type="button" class="detail-close"
+                onclick="tutupDetail()">×</button>
+        <iframe id="detail-frame" title="Detail menu"></iframe>
+    </div>
+</div>
+
+<script>
+    const keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+
+    let totalItem = 0;
+    let totalHarga = 0;
+
+    keranjang.forEach(function(item) {
+        totalItem += item.jumlah;
+        totalHarga += item.hargaSatuan * item.jumlah;
+    });
+
+    if (totalItem > 0) {
+        document.getElementById("cart-count").textContent = "🛒 " + totalItem + " item";
+        document.getElementById("cart-total").textContent =
+            "Rp" + totalHarga.toLocaleString("id-ID") + " →";
+        document.getElementById("cart-bar").style.display = "flex";
+    }
+
+    const nomorMeja = localStorage.getItem("meja") || "-";
+    const namaTamu = localStorage.getItem("nama") || "Tamu";
+    document.getElementById("info-tamu").textContent = "Meja " + nomorMeja + " · Halo, " + namaTamu + " 👋";
+
+    
+    // Membuka panel detail menu
+    function bukaDetail(event, kodeMenu) {
+        event.preventDefault();
+
+        document.getElementById("detail-frame").src =
+            "customer_detail.html?menu=" + kodeMenu;
+
+        document.getElementById("detail-overlay").style.display = "flex";
+    }
+
+    // Menutup panel detail menu
+    function tutupDetail() {
+        document.getElementById("detail-overlay").style.display = "none";
+        document.getElementById("detail-frame").src = "";
+    }
+
+    const tombolKategori = document.querySelectorAll(".chips .chip");
+const daftarMenu = document.querySelectorAll(".menu-link");
+
+tombolKategori.forEach(function(tombol) {
+    tombol.addEventListener("click", function() {
+        const kategoriDipilih = tombol.dataset.kategori;
+
+        tombolKategori.forEach(function(item) {
+            item.classList.remove("chip-on");
+        });
+
+        tombol.classList.add("chip-on");
+
+        daftarMenu.forEach(function(menu) {
+            const kategoriMenu = menu.dataset.kategori;
+
+            if (
+                kategoriDipilih === "semua" ||
+                kategoriMenu === kategoriDipilih
+            ) {
+                menu.style.display = "";
+            } else {
+                menu.style.display = "none";
+            }
+        });
+    });
+});
+
+</script>
+
+</body>
+</html>

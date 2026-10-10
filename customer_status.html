@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status Pesanan</title>
+    <link rel="stylesheet" href="customer.css">
+</head>
+<body>
+    <div class="phone">
+
+        <!-- Langkah 9.1: kepala biru + gambar -->
+        <div class="status-head">
+            <img src="pesanan diterima.png" class="status-img">
+            <div class="status-head-title">Pesanan Diterima!</div>
+            <div class="status-head-sub" id="info-pesanan">A-0000 · Meja -</div>
+        </div>
+
+        <div class="status-body">
+
+            <!-- Langkah 9.2: kartu status pesanan -->
+            <div class="status-card">
+                <div class="status-card-head">
+                    <div class="status-card-title">Status pesanan</div>
+                    <span class="badge-status">Selesai</span>
+                </div>
+
+                <div class="step">
+                    <div class="step-dot">✓</div>
+                    <div>
+                        <div class="step-title">Sudah dibayar</div>
+                        <div class="step-desc">Pembayaran terkonfirmasi otomatis</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-dot">✓</div>
+                    <div>
+                        <div class="step-title">Sedang diproses</div>
+                        <div class="step-desc">Barista sedang meracik pesananmu</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-dot step-dot-off">3</div>
+                    <div>
+                        <div class="step-title">Selesai</div>
+                        <div class="step-desc">Diantar ke meja, selamat menikmati!</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- daftar pesanan -->
+            <div class="order-list" id="daftar-pesanan"></div>
+
+            
+<p class="status-note">
+    Sesi meja selesai setelah pembayaran. Untuk memesan lagi,
+    scan ulang QR di mejamu.
+</p>
+
+<a href="customer_scan.html" class="status-button">
+    📷 Scan QR untuk Pesan Lagi
+</a>
+        </div>
+    </div>
+
+    <script>
+        const keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+        const noPesanan = localStorage.getItem("noPesanan") || "A-0000";
+        const meja = localStorage.getItem("meja") || "-";
+
+        document.getElementById("info-pesanan").textContent = noPesanan + " · Meja " + meja;
+
+        let daftar = "";
+        keranjang.forEach(function(item) {
+            daftar = daftar + '<div class="order-line"><span>' + item.jumlah + '× ' + item.nama + '</span><span class="order-line-opt">' + (item.ukuran || "") + '</span></div>';
+        });
+        document.getElementById("daftar-pesanan").innerHTML = daftar;
+    </script>
+</body>
+</html>
+

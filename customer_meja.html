@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Meja - Qrcoffee</title>
+    <link rel="stylesheet" href="customer.css">
+</head>
+<body>
+
+<div class="phone">
+
+    <div class="page-center">
+        <p class="big-icon">🪑</p>
+        <p class="muted">Kamu duduk di</p>
+        <h1 class="table-no" id="nomor-meja">Meja 5</h1>
+        <span class="tag">Sesi aktif · Qrcoffee</span>
+
+        <form action="customer_menu.html" class="form-name" onsubmit="simpanNama()">
+            <p class="form-label">Nama pemesan</p>
+            <input type="text" class="input" id="input-nama" placeholder="Contoh: Angelika" required>
+            <button type="submit" class="btn btn-full">Mulai Pesan</button>
+                </form>
+    </div>
+
+</div>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const meja = params.get("meja") || localStorage.getItem("meja") || "-";
+
+    localStorage.setItem("meja", meja);
+    document.getElementById("nomor-meja").textContent = "Meja " + meja;
+
+    function simpanNama() {
+        const nama = document.getElementById("input-nama").value.trim();
+        localStorage.setItem("nama", nama);
+    }
+</script>
+
+</body>
+</html>

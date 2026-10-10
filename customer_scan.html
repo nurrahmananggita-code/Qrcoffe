@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scan QR - Qrcoffee</title>
+    <link rel="stylesheet" href="customer.css">
+</head>
+<body>
+
+<div class="phone">
+
+    <div class="page-center scan-page">
+        <p class="big-icon">☕</p>
+        <h2 class="title">Qrcoffee</h2>
+        <p class="muted">Scan QR di meja kamu untuk mulai memesan</p>
+
+        <div class="scan-box"></div>
+
+        <a href="customer_meja.html?meja=5" class="btn btn-scan" id="btn-scan">Simulasikan Scan QR</a>
+
+                <div class="demo-row">
+            Demo: duduk di meja
+            <select id="pilih-meja" onchange="pilihMeja()">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option selected>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+            </select>
+        </div>
+
+        <label class="demo-row demo-check">
+            <input type="checkbox" id="toko-tutup"> Demo: toko sedang tutup
+        </label>
+    </div>
+
+</div>
+
+<script>
+    function pilihMeja() {
+        const meja = document.getElementById("pilih-meja").value;
+        document.getElementById("btn-scan").href = "customer_meja.html?meja=" + meja;
+    }
+
+    // Reset pesanan lama setiap kali halaman scan dibuka
+    localStorage.removeItem("keranjang");
+    localStorage.removeItem("catatanPesanan");
+    localStorage.removeItem("noPesanan");
+</script>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+    <!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Keranjang - Qrcoffee</title>
+    <link rel="stylesheet" href="customer.css">
+</head>
+<body>
+
+<div class="phone">
+
+    <!-- KEPALA -->
+    <div class="cart-head">
+        <a href="customer_menu.html" class="back-btn">← Kembali</a>
+        <h2 class="cart-title">Keranjang</h2>
+    </div>
+
+    <!-- ISI KERANJANG (diisi oleh JavaScript) -->
+    <div class="cart-body" id="daftar-keranjang"></div>
+
+    <!-- TOMBOL CHECKOUT -->
+    <a href="customer_checkout.html" class="checkout-bar" id="checkout-bar">
+        <span>Checkout</span>
+        <span id="total-harga">Rp0</span>
+    </a>
+
+</div>
+
+<script>
+    let keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+    const daftar = document.getElementById("daftar-keranjang");
+
+    // Fungsi untuk menggambar ulang isi keranjang
+    function tampilkan() {
+        daftar.innerHTML = "";
+        let total = 0;
+
+        // Kalau keranjang kosong
+        if (keranjang.length === 0) {
+            daftar.innerHTML = `
+                <div class="cart-empty">
+                    <p class="cart-empty-icon">🛒</p>
+                    <p>Keranjang masih kosong</p>
+                    <a href="customer_menu.html" class="btn">Lihat Menu</a>
+                </div>
+            `;
+            document.getElementById("checkout-bar").style.display = "none";
+            return;
+        }
+
+        // Kalau ada isinya
+        keranjang.forEach(function(item, nomor) {
+            const subtotal = item.hargaSatuan * item.jumlah;
+            total += subtotal;
+
+            let opsi = "";
+            if (item.ukuran) opsi += item.ukuran;
+            if (item.gula) opsi += " · gula " + item.gula;
+            if (item.catatan) opsi += " · " + item.catatan;
+            if (opsi === "") opsi = "Makanan";
+
+            daftar.innerHTML += `
+                <div class="menu-item">
+                    <img src="${item.foto}" alt="${item.nama}" class="cart-photo">
+
+                    <div class="item-info">
+                        <p class="item-name">${item.nama}</p>
+                        <p class="item-desc">${opsi}</p>
+                        <p class="item-price">Rp${subtotal.toLocaleString("id-ID")}</p>
+                    </div>
+
+                    <div class="quantity">
+                        <button type="button" class="quantity-btn"
+                                data-nomor="${nomor}" data-aksi="kurang">−</button>
+                        <span>${item.jumlah}</span>
+                        <button type="button" class="quantity-btn"
+                                data-nomor="${nomor}" data-aksi="tambah">+</button>
+                    </div>
+                </div>
+            `;
+        });
+
+        document.getElementById("total-harga").textContent =
+            "Rp" + total.toLocaleString("id-ID");
+        document.getElementById("checkout-bar").style.display = "flex";
+    }
+
+    // Saat tombol − atau + diklik
+    daftar.addEventListener("click", function(event) {
+        const tombol = event.target;
+
+        if (!tombol.classList.contains("quantity-btn")) {
+            return;
+        }
+
+        const nomor = Number(tombol.dataset.nomor);
+
+        if (tombol.dataset.aksi === "tambah") {
+            keranjang[nomor].jumlah++;
+        } else {
+            keranjang[nomor].jumlah--;
+
+            // Kalau jumlah jadi 0, hapus dari keranjang
+            if (keranjang[nomor].jumlah === 0) {
+                keranjang.splice(nomor, 1);
+            }
+        }
+
+        // Simpan perubahan, lalu gambar ulang
+        localStorage.setItem("keranjang", JSON.stringify(keranjang));
+        tampilkan();
+    });
+
+    // Tampilkan pertama kali
+    tampilkan();
+</script>
+
+</body>
+</html>
+

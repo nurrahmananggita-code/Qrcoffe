@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran Berhasil</title>
+    <link rel="stylesheet" href="customer.css">
+</head>
+<body>
+    <div class="phone">
+        <div class="sukses-body">
+
+            <!-- Langkah 8.1: ikon centang -->
+            <div class="sukses-icon">✓</div>
+
+            <!-- Langkah 8.2: judul dan keterangan -->
+            <div class="sukses-title">Pembayaran Berhasil</div>
+            <div class="sukses-desc">Terima kasih, pembayaran kamu sudah kami terima.</div>
+            <span class="badge-lunas">Sudah dibayar</span>
+
+            <!-- Langkah 8.3: ringkasan transaksi -->
+            <div class="sukses-card">
+                <div class="sukses-row">
+                    <span class="sukses-label">Metode</span>
+                    <b id="metode-bayar">QRIS</b>
+                </div>
+                <div class="sukses-row">
+                    <span class="sukses-label">Total</span>
+                    <b id="total-bayar">Rp0</b>
+                </div>
+                <div class="sukses-row">
+                    <span class="sukses-label">No. transaksi</span>
+                    <b id="no-transaksi">TRX-0000</b>
+                </div>
+            </div>
+
+            <!-- Langkah 8.4: tombol -->
+            <a href="customer_status.html" class="btn-status">Lihat Status Pesanan</a>
+
+        </div>
+    </div>
+
+    <script>
+        const totalBayar = Number(localStorage.getItem("totalBayar")) || 0;
+        document.getElementById("total-bayar").textContent = "Rp" + totalBayar.toLocaleString("id-ID");
+
+        document.getElementById("metode-bayar").textContent = localStorage.getItem("metode") || "QRIS";
+
+        let noTransaksi = localStorage.getItem("noTransaksi");
+        if (!noTransaksi) {
+            noTransaksi = "TRX-" + Math.floor(1000 + Math.random() * 9000);
+            localStorage.setItem("noTransaksi", noTransaksi);
+        }
+        document.getElementById("no-transaksi").textContent = noTransaksi;
+    </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran</title>
+    <link rel="stylesheet" href="customer.css">
+</head>
+<body>
+    <div class="phone">
+
+        <div class="cart-head">
+            <a href="customer_checkout.html" class="back-btn">← Kembali</a>
+            <div class="cart-title">Pembayaran</div>
+        </div>
+
+        <div class="checkout-body">
+
+            <!-- kartu total -->
+            <div class="total-card">
+                <div class="total-label">Total pembayaran</div>
+                <div class="total-angka" id="total-bayar">Rp0</div>
+            </div>
+
+            <!-- nomor pesanan dan status -->
+            <div class="order-box">
+                <div class="info-row">
+                    <div class="info-label">No. pesanan</div>
+                    <div class="info-value" id="no-pesanan">A-0000</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Status</div>
+                    <div class="status-belum">Belum dibayar</div>
+                </div>
+            </div>
+
+            <!-- metode pembayaran -->
+                        <div class="section-title">Metode pembayaran</div>
+
+            <div class="metode-card metode-on" id="metode-qris" onclick="pilihMetode('qris')">
+                <img src="qris.png" class="metode-img">
+                <div class="metode-info">
+                    <div class="metode-nama">QRIS</div>
+                    <div class="metode-desc">Scan dengan e-wallet atau mobile banking</div>
+                </div>
+            </div>
+
+             <!-- metode Transfer -->
+            <div class="metode-card" id="metode-transfer" onclick="pilihMetode('transfer')">
+                <img src="transfer.png" class="metode-img">
+                <div class="metode-info">
+                    <div class="metode-nama">Transfer</div>
+                    <div class="metode-desc">Virtual account bank</div>
+                </div>
+            </div>
+
+            <!-- kartu QR -->
+            <div class="qr-card" id="qr-card">
+                <div class="qr-box">
+                    <div class="qr-gambar"></div>
+                </div>
+                <div class="qr-note">QR contoh · berlaku 15 menit</div>
+            </div>
+
+            <!-- tombol Saya Sudah Bayar -->
+            <a href="customer_selesai.html" class="bayar-bar">
+                Saya Sudah Bayar
+            </a>
+
+        </div>
+    </div>
+
+    <script>
+        const keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+
+        let subtotal = 0;
+        keranjang.forEach(function(item) {
+            subtotal = subtotal + item.hargaSatuan * item.jumlah;
+        });
+
+        const total = subtotal + Math.round(subtotal * 0.1);
+
+        document.getElementById("total-bayar").textContent = "Rp" + total.toLocaleString("id-ID");
+                localStorage.setItem("totalBayar", total);
+        localStorage.setItem("metode", "QRIS");
+
+        let noPesanan = localStorage.getItem("noPesanan");
+        if (!noPesanan) {
+            noPesanan = "A-" + Math.floor(1000 + Math.random() * 9000);
+            localStorage.setItem("noPesanan", noPesanan);
+        }
+        document.getElementById("no-pesanan").textContent = noPesanan;
+
+                function pilihMetode(metode) {
+            const kartuQris = document.getElementById("metode-qris");
+            const kartuTransfer = document.getElementById("metode-transfer");
+            const kartuQr = document.getElementById("qr-card");
+
+                 if (metode === "qris") {
+                localStorage.setItem("metode", "QRIS");
+                kartuQris.classList.add("metode-on");
+                kartuTransfer.classList.remove("metode-on");
+                kartuQr.style.display = "block";
+            }   else {
+                localStorage.setItem("metode", "Transfer");
+                kartuTransfer.classList.add("metode-on");
+                kartuQris.classList.remove("metode-on");
+                kartuQr.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
