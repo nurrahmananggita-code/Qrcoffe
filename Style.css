@@ -1081,3 +1081,280 @@ body {
     background: #293B54;
     color: #E6EEF8;
 }
+
+
+/* =====================================================================
+   TAMBAHAN: HALAMAN KELOLA MEJA, LAPORAN, SALDO, DAN PROFIL OUTLET
+   (digabung dari blok <style> di masing-masing halaman)
+   ===================================================================== */
+
+/* ===== TOMBOL & KOMPONEN KECIL ===== */
+.btn-outline {
+    background: transparent;
+    color: inherit;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    padding: 9px 16px;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+button.btn-save {
+    border: 0;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.chip {
+    display: inline-block;
+    background: transparent;
+    color: inherit;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
+    padding: 6px 14px;
+    margin: 0 6px 8px 0;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.plus { color: #4ade80; font-weight: 700; }
+.minus { color: #f87171; font-weight: 700; }
+.nowrap { white-space: nowrap; }
+.muted { font-size: 13px; opacity: 0.65; }
+.sub { display: block; font-size: 12px; opacity: 0.6; }
+
+.badge-show, .badge-hide { white-space: nowrap; }
+
+/* kolom isian tambahan */
+.form-textarea-sm { height: 72px; }
+
+/* ===== TABEL DATA (Kelola Meja, Laporan, Saldo) ===== */
+.table-wrap { overflow-x: auto; }
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+    padding: 14px 18px;
+    text-align: left;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.data-table th {
+    color: #93A6C0;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.data-table td {
+    border-top: 1px solid #293B54;
+    font-size: 14px;
+}
+
+.data-table td.ket { white-space: normal; }
+
+.data-table th.num,
+.data-table td.num { text-align: right; }
+
+/* ===== TATA LETAK HALAMAN LAPORAN & SALDO ===== */
+.page-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.page-head .greeting,
+.page-head .date { margin: 0; }
+
+.head-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.tabs {
+    display: inline-flex;
+    padding: 4px;
+    gap: 2px;
+    border: 1px solid #293B54;
+    border-radius: 12px;
+}
+
+.tab {
+    background: transparent;
+    color: inherit;
+    border: 0;
+    border-radius: 9px;
+    padding: 8px 16px;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.tab-active {
+    background: rgba(255, 255, 255, 0.12);
+    opacity: 1;
+}
+
+/* kartu ringkasan 4 kolom */
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin: 22px 0;
+}
+
+.stat-grid .card {
+    margin: 0;
+    padding: 18px 22px;
+}
+
+.stat-hi { background: #1b3358; }
+
+.sum-label { margin: 0 0 6px; font-size: 14px; opacity: 0.75; }
+.sum-value { margin: 0 0 6px; font-size: 24px; font-weight: 800; white-space: nowrap; }
+.sum-hint  { margin: 0; font-size: 12px; opacity: 0.65; }
+
+/* dua kolom utama */
+.main-grid,
+.two-col {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    gap: 24px;
+    align-items: start;
+}
+
+.main-grid .card { margin: 0; padding: 22px 24px; }
+.two-col .section { margin: 0; }
+
+.stack { display: grid; gap: 16px; }
+.stack-lg { display: grid; gap: 20px; }
+
+/* kotak bagian */
+.section { margin: 0 0 20px; padding: 22px 24px; }
+
+.section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.section-head h2 { margin: 0; }
+
+/* grafik SVG di halaman laporan */
+.chart-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* bar persentase (kategori & metode pembayaran) */
+.bar-row {
+    display: grid;
+    grid-template-columns: 120px minmax(0, 1fr) 44px;
+    gap: 14px;
+    align-items: center;
+    margin: 14px 0;
+    font-size: 14px;
+}
+
+.bar-row .track {
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.10);
+    overflow: hidden;
+}
+
+.bar-row .fill {
+    display: block;
+    height: 8px;
+    border-radius: 999px;
+}
+
+.bar-row .pct { text-align: right; font-weight: 700; }
+
+.fill-blue { background: #6ea8fe; }
+.fill-slate { background: #8fa3bf; }
+
+/* ===== HALAMAN SALDO ===== */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin: 14px 0 18px;
+}
+
+.filter-bar .form-input {
+    width: auto;
+    min-width: 150px;
+    margin: 0;
+}
+
+.filter-bar select.form-input { min-width: 170px; }
+
+.pager {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+    font-size: 14px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 6px 0;
+    font-size: 14px;
+}
+
+.bank-box {
+    border: 1px solid #293B54;
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+}
+
+/* ===== HALAMAN PROFIL OUTLET ===== */
+.logo-box {
+    width: 96px;
+    height: 96px;
+    border-radius: 16px;
+    background: #f0b323;
+    color: #1a1a1a;
+    font-size: 32px;
+    font-weight: 800;
+    text-align: center;
+    line-height: 96px;
+}
+
+.avatar-sm {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f0b323;
+    color: #1a1a1a;
+    font-weight: 700;
+    text-align: center;
+    line-height: 40px;
+}
+
+.avatar-green { background: #7dd3c0; }
+
+.day-table td { padding: 8px 6px; }
+.time-input { width: 110px; }

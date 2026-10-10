@@ -1,0 +1,441 @@
+<html>
+
+<head>
+    <title>Laporan Penjualan - Qrcoffee</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<table width="100%" height="100%" border="0">
+    <tr>
+
+        <!-- ===== SIDEBAR ===== -->
+        <td width="250px" valign="top" class="sidebar">
+
+            <h2 class="brand">
+                Qrcoffe
+            </h2>
+
+            <p class="brand-sub">
+                Admin Outlet
+            </p>
+
+            <p class="nav-label">
+                Ringkasan
+            </p>
+
+            <p class="nav-item">
+                <a href="Dashboard.html" class="nav-link">
+                    <img src="dashboard.png" width="20" class="nav-icon">
+                    Dashboard
+                </a>
+            </p>
+
+            <p class="nav-label">
+                Menu
+            </p>
+
+            <p class="nav-item">
+                <a href="Kelola_menu.html" class="nav-link">
+                    <img src="menu.png" width="20" class="nav-icon">
+                    Kelola Menu
+                </a>
+            </p>
+
+            <p class="nav-item">
+                <a href="Kelola_kategori.html" class="nav-link">
+                    <img src="kelola kategori.png" width="20" class="nav-icon">
+                    Kelola Kategori
+                </a>
+            </p>
+
+            <p class="nav-label">
+                Meja
+            </p>
+
+            <p class="nav-item">
+                <a href="Kelola_meja.html" class="nav-link">
+                    <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round" style="vertical-align:middle;">
+                        <path d="M3 9h18"></path>
+                        <path d="M3 9l1-5h16l1 5"></path>
+                        <path d="M5 9v10"></path>
+                        <path d="M19 9v10"></path>
+                    </svg>
+                    Kelola Meja
+                </a>
+            </p>
+
+            <p class="nav-item">
+                <a href="QR_meja.html" class="nav-link">
+                    <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round" style="vertical-align:middle;">
+                        <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+                        <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+                        <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+                        <path d="M14 14h3v3h-3z"></path>
+                        <path d="M20 14v7"></path>
+                        <path d="M14 21h3"></path>
+                    </svg>
+                    QR Code Meja
+                </a>
+            </p>
+
+            <p class="nav-label">
+                Pesanan
+            </p>
+
+            <p class="nav-item">
+                <a href="Riwayat_transaksi.html" class="nav-link">
+                    <img src="riwayat transaksi.png" width="20" class="nav-icon">
+                    Riwayat Transaksi
+                </a>
+            </p>
+
+            <p class="nav-label">
+                Keuangan
+            </p>
+
+            <p class="nav-item nav-active">
+                <a href="Laporan_penjualan.html" class="nav-link">
+                    <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round" style="vertical-align:middle;">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                    Laporan Penjualan
+                </a>
+            </p>
+
+            <p class="nav-item">
+                <a href="Saldo_outlet.html" class="nav-link">
+                    <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round" style="vertical-align:middle;">
+                        <rect x="2" y="6" width="20" height="14" rx="2"></rect>
+                        <path d="M2 10h20"></path>
+                        <circle cx="17" cy="15" r="1"></circle>
+                    </svg>
+                    Saldo Outlet
+                </a>
+            </p>
+
+            <p class="nav-label">
+                Pengaturan
+            </p>
+
+            <p class="nav-item">
+                <a href="Profil_outlet.html" class="nav-link">
+                    <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round" style="vertical-align:middle;">
+                        <path d="M3 9l1-5h16l1 5"></path>
+                        <path d="M4 9v11h16V9"></path>
+                        <path d="M9 20v-6h6v6"></path>
+                    </svg>
+                    Profil Outlet
+                </a>
+            </p>
+
+        </td>
+
+        <!-- ===== KONTEN ===== -->
+        <td valign="top" class="content">
+
+            <!-- TOP BAR -->
+            <div class="topbar">
+                <table width="100%" border="0">
+                    <tr>
+                        <td valign="middle">
+                            <p class="breadcrumb">
+                                Admin Outlet / <b class="breadcrumb-active">Laporan Penjualan</b>
+                            </p>
+                        </td>
+
+                        <td align="right" valign="middle">
+
+                            <div class="profile">
+                                <span class="avatar">M</span>
+                                <span class="profile-name">Marie</span>
+                            </div>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- JUDUL + FILTER PERIODE -->
+            <div class="page-head">
+
+                <div>
+                    <h1 class="greeting">Laporan Penjualan</h1>
+                    <p class="date">
+                        7 hari terakhir, sampai Senin 28 September 2026.
+                    </p>
+                </div>
+
+                <div class="head-actions">
+                    <div class="tabs">
+                        <button class="tab">Hari ini</button>
+                        <button class="tab tab-active">7 hari</button>
+                        <button class="tab">30 hari</button>
+                    </div>
+                    <button class="btn-outline">⬇ Ekspor</button>
+                </div>
+
+            </div>
+
+            <!-- RINGKASAN -->
+            <div class="stat-grid">
+
+                <div class="card stat-hi">
+                    <p class="sum-label">Total penjualan</p>
+                    <p class="sum-value">Rp 31.620.000</p>
+                </div>
+
+                <div class="card">
+                    <p class="sum-label">Jumlah pesanan</p>
+                    <p class="sum-value">353</p>
+                </div>
+
+                <div class="card">
+                    <p class="sum-label">Rata-rata per pesanan</p>
+                    <p class="sum-value">Rp 89.575</p>
+                </div>
+
+                <div class="card">
+                    <p class="sum-label">Menu terjual</p>
+                    <p class="sum-value">953</p>
+                </div>
+
+            </div>
+
+            <!-- GRAFIK PENJUALAN PER HARI -->
+            <div class="card section">
+
+                <div class="section-head">
+                    <h2 class="card-title-sm">Penjualan per hari</h2>
+                    <span class="muted">Batang abu-abu menandai puncak penjualan</span>
+                </div>
+
+                <svg class="chart-svg"
+                     viewBox="0 0 900 340"
+                     xmlns="http://www.w3.org/2000/svg"
+                     role="img"
+                     aria-label="Grafik penjualan per hari">
+                    <line x1="70" y1="300" x2="880" y2="300" stroke="#2a3a52"></line>
+                    <text x="58" y="305" text-anchor="end" font-size="13" fill="#8fa3bf">0</text>
+                    <line x1="70" y1="230" x2="880" y2="230" stroke="#2a3a52"></line>
+                    <text x="58" y="235" text-anchor="end" font-size="13" fill="#8fa3bf">1,8 jt</text>
+                    <line x1="70" y1="160" x2="880" y2="160" stroke="#2a3a52"></line>
+                    <text x="58" y="165" text-anchor="end" font-size="13" fill="#8fa3bf">3,5 jt</text>
+                    <line x1="70" y1="90" x2="880" y2="90" stroke="#2a3a52"></line>
+                    <text x="58" y="95" text-anchor="end" font-size="13" fill="#8fa3bf">5,3 jt</text>
+                    <line x1="70" y1="20" x2="880" y2="20" stroke="#2a3a52"></line>
+                    <text x="58" y="25" text-anchor="end" font-size="13" fill="#8fa3bf">7 jt</text>
+                    <rect x="100" y="164" width="56" height="136" rx="6" fill="#6ea8fe">
+                        <title>Sel 22: Rp 3.400.000</title>
+                    </rect>
+                    <text x="128" y="326" text-anchor="middle" font-size="13" fill="#8fa3bf">Sel 22</text>
+                    <rect x="216" y="173" width="56" height="127" rx="6" fill="#6ea8fe">
+                        <title>Rab 23: Rp 3.170.000</title>
+                    </rect>
+                    <text x="244" y="326" text-anchor="middle" font-size="13" fill="#8fa3bf">Rab 23</text>
+                    <rect x="331" y="155" width="56" height="145" rx="6" fill="#6ea8fe">
+                        <title>Kam 24: Rp 3.620.000</title>
+                    </rect>
+                    <text x="359" y="326" text-anchor="middle" font-size="13" fill="#8fa3bf">Kam 24</text>
+                    <rect x="447" y="121" width="56" height="179" rx="6" fill="#6ea8fe">
+                        <title>Jum 25: Rp 4.480.000</title>
+                    </rect>
+                    <text x="475" y="326" text-anchor="middle" font-size="13" fill="#8fa3bf">Jum 25</text>
+                    <rect x="563" y="55" width="56" height="245" rx="6" fill="#6ea8fe">
+                        <title>Sab 26: Rp 6.130.000</title>
+                    </rect>
+                    <text x="591" y="326" text-anchor="middle" font-size="13" fill="#8fa3bf">Sab 26</text>
+                    <rect x="678" y="26" width="56" height="274" rx="6" fill="#526579">
+                        <title>Min 27: Rp 6.850.000</title>
+                    </rect>
+                    <text x="706" y="326" text-anchor="middle" font-size="13" fill="#8fa3bf">Min 27</text>
+                    <rect x="794" y="141" width="56" height="159" rx="6" fill="#6ea8fe">
+                        <title>Sen 28: Rp 3.970.000</title>
+                    </rect>
+                    <text x="822" y="326" text-anchor="middle" font-size="13" fill="#8fa3bf">Sen 28</text>
+                </svg>
+
+            </div>
+
+            <!-- MENU TERLARIS + PORSI KATEGORI + METODE PEMBAYARAN -->
+            <div class="two-col">
+
+                <!-- ===== MENU TERLARIS ===== -->
+                <div class="card section">
+
+                    <div class="section-head">
+                        <h2 class="card-title-sm">Menu terlaris</h2>
+                    </div>
+
+                    <div class="panel">
+
+                        <table width="100%" class="data-table">
+
+                            <tr>
+                                <th>Menu</th>
+                                <th class="num">Terjual</th>
+                                <th class="num">Pendapatan</th>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <b>Kopi Susu Gula Aren</b>
+                                </td>
+                                <td class="num">257</td>
+                                <td class="num">Rp 6.168.000</td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <b>Nasi Goreng Kampung</b>
+                                </td>
+                                <td class="num">193</td>
+                                <td class="num">Rp 6.176.000</td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <b>Ayam Bakar Madu</b>
+                                </td>
+                                <td class="num">136</td>
+                                <td class="num">Rp 5.168.000</td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <b>Matcha Latte</b>
+                                </td>
+                                <td class="num">112</td>
+                                <td class="num">Rp 3.136.000</td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <b>Pisang Goreng Keju</b>
+                                </td>
+                                <td class="num">88</td>
+                                <td class="num">Rp 1.936.000</td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <b>Mie Goreng Jawa</b>
+                                </td>
+                                <td class="num">72</td>
+                                <td class="num">Rp 2.160.000</td>
+                            </tr>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+                <!-- ===== KATEGORI + PEMBAYARAN ===== -->
+                <div class="stack-lg">
+
+                    <div class="card section">
+
+                        <div class="section-head">
+                            <h2 class="card-title-sm">Porsi per kategori</h2>
+                        </div>
+
+                        <div class="bar-row">
+                            <span>Kopi</span>
+                            <span class="track">
+                                <span class="fill fill-blue" style="width:100%;"></span>
+                            </span>
+                            <span class="pct">38%</span>
+                        </div>
+
+                        <div class="bar-row">
+                            <span>Makanan Berat</span>
+                            <span class="track">
+                                <span class="fill fill-blue" style="width:82%;"></span>
+                            </span>
+                            <span class="pct">31%</span>
+                        </div>
+
+                        <div class="bar-row">
+                            <span>Non-kopi</span>
+                            <span class="track">
+                                <span class="fill fill-blue" style="width:37%;"></span>
+                            </span>
+                            <span class="pct">14%</span>
+                        </div>
+
+                        <div class="bar-row">
+                            <span>Camilan</span>
+                            <span class="track">
+                                <span class="fill fill-blue" style="width:29%;"></span>
+                            </span>
+                            <span class="pct">11%</span>
+                        </div>
+
+                        <div class="bar-row">
+                            <span>Dessert</span>
+                            <span class="track">
+                                <span class="fill fill-blue" style="width:16%;"></span>
+                            </span>
+                            <span class="pct">6%</span>
+                        </div>
+
+                    </div>
+
+                    <div class="card section">
+
+                        <div class="section-head">
+                            <h2 class="card-title-sm">Metode pembayaran</h2>
+                        </div>
+
+                        <div class="bar-row">
+                            <span>QRIS</span>
+                            <span class="track">
+                                <span class="fill fill-slate" style="width:100%;"></span>
+                            </span>
+                            <span class="pct">62%</span>
+                        </div>
+
+                        <div class="bar-row">
+                            <span>Bayar di kasir</span>
+                            <span class="track">
+                                <span class="fill fill-slate" style="width:50%;"></span>
+                            </span>
+                            <span class="pct">31%</span>
+                        </div>
+
+                        <div class="bar-row">
+                            <span>Transfer</span>
+                            <span class="track">
+                                <span class="fill fill-slate" style="width:11%;"></span>
+                            </span>
+                            <span class="pct">7%</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </td>
+
+    </tr>
+</table>
+
+</body>
+</html>
