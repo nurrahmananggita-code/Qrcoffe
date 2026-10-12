@@ -1,0 +1,228 @@
+<html>
+
+<head>
+    <title>Ubah Menu - Qrcoffee</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<table width="100%" height="100%" border="0">
+    <tr>
+
+        <!-- ===== SIDEBAR ===== -->
+        <td width="250px" valign="top" class="sidebar">
+
+            <h2 class="brand">
+                Qrcoffe
+            </h2>
+
+            <p class="brand-sub">
+                Admin Outlet
+            </p>
+
+            <p class="nav-label">
+                Ringkasan
+            </p>
+
+            <p class="nav-item">
+                <a href="Dashboard.html" class="nav-link">
+                    <img src="dashboard.png" width="20" class="nav-icon">
+                    Dashboard
+                </a>
+            </p>
+
+            <p class="nav-label">
+                Menu
+            </p>
+
+            <p class="nav-item nav-active">
+                <a href="Kelola_menu.html" class="nav-link">
+                    <img src="menu.png" width="20" class="nav-icon">
+                    Kelola Menu
+                </a>
+            </p>
+
+            <p class="nav-item">
+                <a href="Kelola_kategori.html" class="nav-link">
+                    <img src="kelola kategori.png" width="20" class="nav-icon">
+                    Kelola Kategori
+                </a>
+            </p>
+
+            <p class="nav-label">
+                Pesanan
+            </p>
+
+            <p class="nav-item">
+                <a href="Riwayat_transaksi.html" class="nav-link">
+                    <img src="riwayat transaksi.png" width="20" class="nav-icon">
+                    Riwayat Transaksi
+                </a>
+            </p>
+
+        </td>
+
+        <!-- ===== KONTEN ===== -->
+        <td valign="top" class="content">
+
+            <!-- TOP BAR -->
+            <div class="topbar">
+                <table width="100%" border="0">
+                    <tr>
+                        <td valign="middle">
+                            <p class="breadcrumb">
+                                Admin Outlet /
+                                <b class="breadcrumb-active">Kelola Menu</b> /
+                                <b class="breadcrumb-active">Ubah menu</b>
+                            </p>
+                        </td>
+
+                        <td align="right" valign="middle">
+
+
+                            <div class="profile">
+                                <span class="avatar">M</span>
+                                <span class="profile-name">Marie</span>
+                            </div>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- LINK KEMBALI + JUDUL -->
+            <a href="Kelola_menu.html" class="back-link">&larr; Kembali ke daftar menu</a>
+
+            <h1 class="greeting">Ubah menu</h1>
+
+            <p class="date">
+                Perubahan langsung terlihat oleh pelanggan setelah disimpan.
+            </p>
+
+            <!-- DUA KOLOM: FORM (kiri) + FOTO (kanan) -->
+            <table width="100%" border="0" class="form-layout">
+                <tr>
+
+                    <!-- ===== KIRI: DETAIL MENU ===== -->
+                    <td valign="top">
+
+                        <div class="card form-card">
+
+                            <h2 class="card-title-sm form-title">Detail menu</h2>
+
+                            <label class="form-label">Nama menu</label>
+                            <input type="text" class="form-input" value="Kopi Susu Gula Aren">
+
+                            <table width="100%" border="0" class="form-two">
+                                <tr>
+                                    <td valign="top" width="50%">
+                                        <label class="form-label">Kategori</label>
+                                        <select class="form-input">
+                                            <option selected>Kopi</option>
+                                            <option>Non-kopi</option>
+                                            <option>Makanan Berat</option>
+                                            <option>Camilan</option>
+                                            <option>Dessert</option>
+                                            <option>Paket Hemat</option>
+                                        </select>
+                                    </td>
+
+                                    <td width="16px"></td>
+
+                                    <td valign="top" width="50%">
+                                        <label class="form-label">Harga</label>
+                                        <div class="input-prefix">
+                                            <span class="prefix">Rp</span>
+                                            <input type="text" class="input-bare" value="24000">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <label class="form-label">Deskripsi</label>
+                            <textarea class="form-input form-textarea">Espresso, susu segar, gula aren cair.</textarea>
+
+                            <p class="form-hint">Maksimal 120 karakter. Tampil di bawah nama menu.</p>
+
+                            <label class="form-label">Pengaturan</label>
+
+                            <label class="check-box">
+                                <input type="checkbox" checked>
+                                Tersedia untuk dipesan
+                            </label>
+
+                            <label class="check-box">
+                                <input type="checkbox">
+                                Tandai sebagai andalan
+                            </label>
+
+                            <label class="check-box">
+                                <input type="checkbox">
+                                Boleh tambah catatan
+                            </label>
+
+                        </div>
+
+                    </td>
+
+                    <td width="24px"></td>
+
+                    <!-- ===== KANAN: FOTO MENU ===== -->
+                    <td valign="top" width="440px">
+
+                        <div class="card form-card">
+
+                            <h2 class="card-title-sm form-title">Foto menu</h2>
+
+                            <div class="upload-box">
+                                <div class="upload-icon">🖼</div>
+                                <p class="upload-title">Unggah foto</p>
+                                <p class="upload-sub">JPG atau PNG, rasio 4:3, maksimal 2 MB</p>
+                            </div>
+
+                        </div>
+
+                        <div class="card form-card preview-card">
+
+                            <h2 class="card-title-sm form-title">Tampilan di HP pelanggan</h2>
+
+                            <div class="preview">
+
+                                <div class="preview-photo">K</div>
+
+                                <div class="preview-body">
+                                    <p class="preview-name">Kopi Susu Gula Aren</p>
+                                    <p class="preview-desc">Espresso, susu segar, gula aren cair.</p>
+
+                                    <table width="100%" border="0" class="preview-bottom">
+                                        <tr>
+                                            <td class="preview-price">Rp 24.000</td>
+                                            <td align="right"><span class="preview-btn">Tambah</span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+            </table>
+
+            <!-- TOMBOL -->
+            <div class="action-bar">
+                <a href="Kelola_menu.html" class="btn-cancel">Batalkan</a>
+                <a href="Kelola_menu.html" class="btn-save">Simpan perubahan</a>
+            </div>
+
+        </td>
+
+    </tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,359 @@
+<html>
+
+<head>
+    <title>Riwayat Pesanan - Qrcoffee</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<table width="100%" height="100%" border="0">
+    <tr>
+
+        <!-- ===== SIDEBAR ===== -->
+        <td width="250px" valign="top" class="sidebar">
+
+            <h2 class="brand">
+                Qrcoffe
+            </h2>
+
+            <p class="brand-sub">
+                Admin Outlet
+            </p>
+
+            <p class="nav-label">
+                Ringkasan
+            </p>
+
+            <p class="nav-item">
+                <a href="Dashboard.html" class="nav-link">
+                    <img src="dashboard.png" width="20" class="nav-icon">
+                    Dashboard
+                </a>
+            </p>
+
+            <p class="nav-label">
+                Menu
+            </p>
+
+            <p class="nav-item">
+                <a href="Kelola_menu.html" class="nav-link">
+                    <img src="menu.png" width="20" class="nav-icon">
+                    Kelola Menu
+                </a>
+            </p>
+
+            <p class="nav-item">
+                <a href="Kelola_kategori.html" class="nav-link">
+                    <img src="kelola kategori.png" width="20" class="nav-icon">
+                    Kelola Kategori
+                </a>
+            </p>
+
+            <p class="nav-label">
+                Pesanan
+            </p>
+
+            <p class="nav-item nav-active">
+                <a href="Riwayat_transaksi.html" class="nav-link">
+                    <img src="riwayat transaksi.png" width="20" class="nav-icon">
+                    Riwayat Transaksi
+                </a>
+            </p>
+
+        </td>
+
+        <!-- ===== KONTEN ===== -->
+        <td valign="top" class="content">
+
+            <!-- TOP BAR -->
+            <div class="topbar">
+                <table width="100%" border="0">
+                    <tr>
+                        <td valign="middle">
+                            <p class="breadcrumb">
+                                Admin Outlet / <b class="breadcrumb-active">Riwayat Pesanan</b>
+                            </p>
+                        </td>
+
+                        <td align="right" valign="middle">
+
+                            <div class="profile">
+                                <span class="avatar">M</span>
+                                <span class="profile-name">Marie</span>
+                            </div>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- JUDUL + TOMBOL EKSPOR -->
+            <table width="100%" border="0">
+                <tr>
+
+                    <td valign="top">
+
+                        <h1 class="greeting">
+                            Riwayat Pesanan
+                        </h1>
+
+                        <p class="date">
+                            Semua pesanan yang sudah selesai atau dibatalkan.
+                        </p>
+
+                    </td>
+
+                    <td align="right" valign="middle">
+
+                        <a href="#" class="btn-export">↓ Ekspor</a>
+
+                    </td>
+
+                </tr>
+            </table>
+
+            <!-- KOTAK TABEL -->
+            <div class="panel">
+
+                <!-- BAR PENCARIAN -->
+                <div class="toolbar">
+
+                    <input type="text" class="search" placeholder="Cari no. pesanan, nama, atau meja">
+
+                    <select class="select-category">
+                        <option>Semua status</option>
+                        <option>Selesai</option>
+                        <option>Dibatalkan</option>
+                    </select>
+
+                    <select class="select-category">
+                        <option>7 hari terakhir</option>
+                        <option>Hari ini</option>
+                        <option>30 hari terakhir</option>
+                    </select>
+
+                </div>
+
+                <!-- TABEL RIWAYAT -->
+                <table class="hist-table">
+
+                    <thead>
+                        <tr>
+                            <th>No. pesanan</th>
+                            <th>Waktu</th>
+                            <th>Meja</th>
+                            <th>Nama</th>
+                            <th>Pembayaran</th>
+                            <th class="h-total">Total</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+<tr>
+    <td class="h-no">A-1036</td>
+    <td>Hari ini, 20.00</td>
+    <td>Meja 1</td>
+    <td>Andi</td>
+    <td>QRIS</td>
+    <td class="h-total">Rp 59.400</td>
+    <td><span class="status-done">● Selesai</span></td>
+</tr>
+
+<tr>
+    <td class="h-no">A-1035</td>
+    <td>Hari ini, 19.07</td>
+    <td>Meja 6</td>
+    <td>Maya</td>
+    <td>QRIS</td>
+    <td class="h-total">Rp 94.600</td>
+    <td><span class="status-done">● Selesai</span></td>
+</tr>
+
+<tr>
+    <td class="h-no">A-1034</td>
+    <td>Hari ini, 18.14</td>
+    <td>Meja 11</td>
+    <td>Fajar</td>
+    <td>Bayar di kasir</td>
+    <td class="h-total">Rp 53.900</td>
+    <td><span class="status-done">● Selesai</span></td>
+</tr>
+
+<tr>
+    <td class="h-no">A-1033</td>
+    <td>Hari ini, 17.21</td>
+    <td>Meja 5</td>
+    <td>Lisa</td>
+    <td>QRIS</td>
+    <td class="h-total">Rp 88.000</td>
+    <td><span class="status-done">● Selesai</span></td>
+</tr>
+
+<tr>
+    <td class="h-no">A-1032</td>
+    <td>Hari ini, 16.28</td>
+    <td>Meja 10</td>
+    <td>Rudi</td>
+    <td>Transfer</td>
+    <td class="h-total">Rp 42.900</td>
+    <td><span class="status-cancel">● Dibatalkan</span></td>
+</tr>
+
+<tr>
+    <td class="h-no">A-1031</td>
+    <td>Hari ini, 15.35</td>
+    <td>Meja 4</td>
+    <td>Nia</td>
+    <td>QRIS</td>
+    <td class="h-total">Rp 55.000</td>
+    <td><span class="status-done">● Selesai</span></td>
+</tr>
+
+<tr>
+    <td class="h-no">A-1030</td>
+    <td>Kemarin, 14.42</td>
+    <td>Meja 9</td>
+    <td>Tono</td>
+    <td>QRIS</td>
+    <td class="h-total">Rp 88.000</td>
+    <td><span class="status-done">● Selesai</span></td>
+</tr>
+
+<tr>
+    <td class="h-no">A-1029</td>
+    <td>Kemarin, 13.49</td>
+    <td>Meja 3</td>
+    <td>Wulan</td>
+    <td>Bayar di kasir</td>
+    <td class="h-total">Rp 106.700</td>
+    <td><span class="status-done">● Selesai</span></td>
+</tr>
+
+<tr>
+    <td class="h-no">A-1028</td>
+    <td>Kemarin, 12.56</td>
+    <td>Meja 8</td>
+    <td>Dimas</td>
+    <td>QRIS</td>
+    <td class="h-total">Rp 53.900</td>
+    <td><span class="status-done">● Selesai</span></td>
+</tr>
+
+<tr>
+    <td class="h-no">A-1027</td>
+    <td>Kemarin, 20.03</td>
+    <td>Meja 2</td>
+    <td>Andi</td>
+    <td>Transfer</td>
+    <td class="h-total">Rp 127.600</td>
+    <td><span class="status-done">● Selesai</span></td>
+</tr>
+
+<tr>
+    <td class="h-no">A-1026</td>
+    <td>Kemarin, 19.10</td>
+    <td>Meja 7</td>
+    <td>Maya</td>
+    <td>QRIS</td>
+    <td class="h-total">Rp 46.200</td>
+    <td><span class="status-done">● Selesai</span></td>
+</tr>
+
+<tr>
+    <td class="h-no">A-1025</td>
+    <td>Kemarin, 18.17</td>
+    <td>Meja 1</td>
+    <td>Fajar</td>
+    <td>QRIS</td>
+    <td class="h-total">Rp 83.600</td>
+    <td><span class="status-cancel">● Dibatalkan</span></td>
+</tr>
+
+<tr>
+    <td class="h-no">A-1024</td>
+    <td>26 Sep, 17.24</td>
+    <td>Meja 6</td>
+    <td>Lisa</td>
+    <td>Bayar di kasir</td>
+    <td class="h-total">Rp 66.000</td>
+    <td><span class="status-done">● Selesai</span></td>
+</tr>
+
+<tr>
+    <td class="h-no">A-1023</td>
+    <td>26 Sep, 16.31</td>
+    <td>Meja 11</td>
+    <td>Rudi</td>
+    <td>QRIS</td>
+    <td class="h-total">Rp 69.300</td>
+    <td><span class="status-done">● Selesai</span></td>
+</tr>
+
+<tr>
+    <td class="h-no">A-1022</td>
+    <td>26 Sep, 15.38</td>
+    <td>Meja 5</td>
+    <td>Nia</td>
+    <td>Transfer</td>
+    <td class="h-total">Rp 63.800</td>
+    <td><span class="status-done">● Selesai</span></td>
+</tr>
+
+<tr>
+    <td class="h-no">A-1021</td>
+    <td>26 Sep, 14.45</td>
+    <td>Meja 10</td>
+    <td>Tono</td>
+    <td>QRIS</td>
+    <td class="h-total">Rp 107.800</td>
+    <td><span class="status-done">● Selesai</span></td>
+</tr>
+
+<tr>
+    <td class="h-no">A-1020</td>
+    <td>26 Sep, 13.52</td>
+    <td>Meja 4</td>
+    <td>Wulan</td>
+    <td>QRIS</td>
+    <td class="h-total">Rp 44.000</td>
+    <td><span class="status-done">● Selesai</span></td>
+</tr>
+
+<tr>
+    <td class="h-no">A-1019</td>
+    <td>26 Sep, 12.59</td>
+    <td>Meja 9</td>
+    <td>Dimas</td>
+    <td>Bayar di kasir</td>
+    <td class="h-total">Rp 61.600</td>
+    <td><span class="status-done">● Selesai</span></td>
+</tr>
+
+                    </tbody>
+
+                </table>
+
+                <!-- BAGIAN BAWAH TABEL -->
+                <table class="hist-footer" width="100%" border="0">
+                    <tr>
+                        <td>Menampilkan 1-18 dari 312 pesanan</td>
+                        <td align="right">
+                            <a href="#" class="btn-page">Sebelumnya</a>
+                            <a href="#" class="btn-page">Berikutnya</a>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+
+        </td>
+
+    </tr>
+</table>
+
+</body>
+</html>

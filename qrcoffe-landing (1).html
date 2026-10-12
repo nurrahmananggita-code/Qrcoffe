@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Qrcoffe – Sistem Pemesanan QR untuk Coffee Shop</title>
+<meta name="description" content="Pelanggan scan QR di meja, pesan, bayar, dan pesanan langsung masuk ke dapur. Untuk satu outlet maupun brand multi-outlet.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#EAF2FA;
+  --surface:#FFFFFF;
+  --soft:#DCEAF7;
+  --ink:#0F1E33;
+  --muted:#5F7189;
+  --line:#D3DFEC;
+  --accent:#16335F;
+  --accent-ink:#EAF2FA;
+  --deep:#16335F;
+  --deep-ink:#EAF2FA;
+  --deep-muted:#A9C1E3;
+  --crema:#5AAEE8;
+  --crema-ink:#0B1B30;
+  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0C1524;--surface:#14213A;--soft:#19294A;--ink:#E6EEF8;--muted:#93A6C0;--line:#24365A;
+    --accent:#5AAEE8;--accent-ink:#0B1B30;--deep:#08101D;--deep-ink:#E6EEF8;--deep-muted:#8FA6C6;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0C1524;--surface:#14213A;--soft:#19294A;--ink:#E6EEF8;--muted:#93A6C0;--line:#24365A;
+  --accent:#5AAEE8;--accent-ink:#0B1B30;--deep:#08101D;--deep-ink:#E6EEF8;--deep-muted:#8FA6C6;
+}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--display);line-height:1.08;letter-spacing:-.02em;margin:0;font-weight:700}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+:focus-visible{outline:3px solid var(--crema);outline-offset:3px;border-radius:6px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:600;font-size:1rem;padding:14px 24px;border-radius:999px;border:0;cursor:pointer;font-family:var(--body);transition:transform .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn.small{padding:10px 18px;font-size:.95rem}
+.btn.crema{background:var(--crema);color:var(--crema-ink)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{font-family:var(--display);font-weight:800;font-size:1.4rem;letter-spacing:-.03em;text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo i{width:26px;height:26px;border-radius:8px;background:var(--accent);display:grid;place-items:center}
+.logo i::after{content:"";width:10px;height:10px;border-radius:3px;background:var(--crema)}
+.nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+.nav ul a{text-decoration:none;color:var(--muted);font-size:.95rem;font-weight:500}
+.nav ul a:hover{color:var(--ink)}
+
+/* hero */
+.hero{padding:64px 0 88px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,6.2vw,4.7rem);font-weight:800;letter-spacing:-.035em}
+.hero .lead{margin-top:24px;font-size:1.15rem;color:var(--muted);max-width:34em}
+.hero .cta{margin-top:36px;display:flex;flex-wrap:wrap;gap:12px}
+.hero .note{margin-top:18px;font-size:.92rem;color:var(--muted)}
+
+/* phone demo */
+.demo{display:flex;flex-direction:column;align-items:center;gap:22px}
+.stage{position:relative;width:100%;max-width:340px;padding:34px 0;display:grid;place-items:center}
+.stage::before{content:"";position:absolute;inset:0;border-radius:44% 56% 48% 52% / 46% 44% 56% 54%;background:var(--deep)}
+.phone{position:relative;width:250px;height:500px;background:var(--surface);border-radius:34px;border:7px solid #0B1B30;box-shadow:0 24px 50px rgba(0,0,0,.35);overflow:hidden;color:#0F1E33}
+.phone .screen{position:absolute;inset:0;padding:38px 16px 16px;opacity:0;visibility:hidden;transition:opacity .35s ease,visibility .35s;background:#F6FAFE;display:flex;flex-direction:column;gap:10px;font-size:13px;line-height:1.4}
+.phone .screen.on{opacity:1;visibility:visible}
+.phone::before{content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);width:70px;height:18px;border-radius:12px;background:#0B1B30;z-index:3}
+.s-head{font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:-.01em}
+.s-sub{color:#5F7189;font-size:12px}
+.qr{display:grid;grid-template-columns:repeat(11,1fr);gap:2px;width:170px;height:170px;margin:8px auto 4px;padding:10px;background:#fff;border-radius:14px;border:1.5px solid #D3DFEC;position:relative}
+.qr b{background:#0F1E33;border-radius:1px}
+.qr b.o{background:transparent}
+.scan{position:absolute;left:8px;right:8px;top:10px;height:2px;background:#5AAEE8;box-shadow:0 0 10px #5AAEE8;animation:scan 2.4s ease-in-out infinite}
+@keyframes scan{0%,100%{top:10px}50%{top:calc(100% - 12px)}}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{padding:4px 10px;border-radius:99px;background:#DCEAF7;font-size:11.5px;font-weight:500}
+.chip.act{background:#16335F;color:#fff}
+.item{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:14px;background:#fff;border:1px solid #DCE7F3}
+.item .ph{width:38px;height:38px;border-radius:11px;background:#DCEAF7;flex:none}
+.item .ph.b{background:#8FC3F0}.item .ph.c{background:#B9DCF7}.item .ph.d{background:#6FA6D8}
+.item .t{flex:1;min-width:0}
+.item .t strong{display:block;font-weight:600;font-size:12.5px}
+.item .t span{font-size:11.5px;color:#5F7189}
+.item .add{width:24px;height:24px;border-radius:50%;background:#16335F;color:#fff;display:grid;place-items:center;font-size:15px;flex:none}
+.bubble{background:#DCEAF7;border-radius:14px 14px 4px 14px;padding:9px 12px;align-self:flex-end;max-width:88%;font-size:12.5px}
+.reco{border:1.5px solid #5AAEE8;border-radius:14px;padding:10px;background:#EAF4FD}
+.reco small{display:block;color:#1D4F91;font-size:11px;margin-bottom:4px;font-weight:600}
+.pay{margin-top:auto;background:#16335F;color:#fff;text-align:center;padding:11px;border-radius:12px;font-weight:600;font-size:13px}
+.row{display:flex;justify-content:space-between;font-size:12.5px}
+.row.total{font-weight:700;font-size:14px;border-top:1px dashed #BFD3EA;padding-top:8px;margin-top:2px}
+.ticket{background:#fff;border:1px solid #DCE7F3;border-left:5px solid #5AAEE8;border-radius:12px;padding:11px}
+.ticket strong{font-family:var(--display);font-size:15px;display:block}
+.ticket ul{margin:6px 0 0;padding-left:16px;font-size:12.5px}
+.status{display:flex;gap:6px;margin-top:auto}
+.status span{flex:1;text-align:center;padding:8px 0;border-radius:10px;font-size:11.5px;font-weight:600;background:#DCEAF7;color:#5F7189}
+.status span.act{background:#16335F;color:#fff}
+.steps{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.steps button{font-family:var(--body);font-size:.88rem;font-weight:500;padding:8px 14px;border-radius:99px;border:1.5px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.steps button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+
+/* generic sections */
+.block{padding:96px 0}
+.block h2{font-size:clamp(2rem,4.2vw,3.1rem);max-width:16em}
+.block .intro{margin-top:20px;color:var(--muted);max-width:38em;font-size:1.08rem}
+
+/* masalah */
+.problems{margin-top:48px;display:grid;grid-template-columns:repeat(2,1fr);gap:0 56px}
+.problems li{list-style:none;padding:22px 0;border-top:1px solid var(--line);display:flex;gap:16px}
+.problems li::before{content:"";flex:none;width:10px;height:10px;margin-top:9px;border-radius:50%;background:var(--crema)}
+.problems{padding:0}
+
+/* solusi */
+.solusi{background:var(--soft)}
+.solusi .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
+.solusi .big{font-family:var(--display);font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.25;letter-spacing:-.015em;font-weight:600}
+.solusi .big span{color:var(--muted)}
+
+/* penawaran (tabs) */
+.tabs{margin-top:44px;display:grid;grid-template-columns:260px 1fr;gap:0;border:1.5px solid var(--line);border-radius:24px;overflow:hidden;background:var(--surface)}
+.tablist{display:flex;flex-direction:column;background:var(--soft);padding:12px;gap:6px}
+.tablist button{text-align:left;font-family:var(--display);font-size:1.15rem;font-weight:600;padding:18px 18px;border:0;border-radius:14px;background:transparent;color:var(--muted);cursor:pointer;line-height:1.2}
+.tablist button small{display:block;font-family:var(--body);font-weight:400;font-size:.85rem;margin-top:4px}
+.tablist button[aria-selected="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 0 var(--line)}
+.panel{padding:40px 44px}
+.panel[hidden]{display:none}
+.panel h3{font-size:1.7rem}
+.panel p.d{color:var(--muted);margin-top:10px;max-width:34em}
+.panel ul{list-style:none;padding:0;margin:26px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:14px 32px}
+.panel li{padding-left:26px;position:relative}
+.panel li::before{content:"";position:absolute;left:0;top:.5em;width:12px;height:7px;border-left:2.5px solid var(--crema);border-bottom:2.5px solid var(--crema);transform:rotate(-45deg)}
+
+/* cara kerja */
+.kerja{background:var(--deep);color:var(--deep-ink)}
+.kerja .intro{color:var(--deep-muted)}
+.timeline{margin:52px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:20px;counter-reset:s}
+.timeline li{counter-increment:s;position:relative;padding-top:54px}
+.timeline li::before{content:counter(s);position:absolute;top:0;left:0;width:38px;height:38px;border-radius:50%;background:var(--crema);color:var(--crema-ink);display:grid;place-items:center;font-family:var(--display);font-weight:800}
+.timeline li::after{content:"";position:absolute;top:19px;left:50px;right:-8px;height:2px;background:color-mix(in srgb,var(--deep-ink) 22%,transparent)}
+.timeline li:last-child::after{display:none}
+.timeline strong{display:block;font-family:var(--display);font-size:1.15rem;margin-bottom:6px}
+.timeline span{color:var(--deep-muted);font-size:.95rem;display:block}
+
+/* kenapa */
+.dua{margin-top:48px;display:grid;grid-template-columns:1fr 1.15fr;gap:24px}
+.dua > div{border-radius:26px;padding:38px}
+.dua .a{background:var(--surface);border:1.5px solid var(--line)}
+.dua .b{background:var(--accent);color:var(--accent-ink)}
+.dua h3{font-size:1.6rem}
+.dua p{margin-top:12px;opacity:.85}
+.dua ul{margin:22px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.dua li{padding-left:24px;position:relative}
+.dua li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:9px;border-radius:50%;background:var(--crema)}
+.poin{margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.poin h3{font-size:1.2rem;margin-bottom:8px}
+.poin p{color:var(--muted);font-size:.98rem}
+
+/* faq */
+.faq{background:var(--soft)}
+.faq .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px}
+details{border-top:1px solid var(--line);padding:20px 0}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-family:var(--display);font-weight:600;font-size:1.15rem;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.5rem;line-height:1;color:var(--muted);transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin-top:10px;color:var(--muted);max-width:36em}
+
+/* cta */
+.final{padding:96px 0}
+.final .box{background:var(--deep);color:var(--deep-ink);border-radius:36px;padding:72px 48px;text-align:center}
+.final h2{font-size:clamp(2rem,4.6vw,3.3rem);margin:0 auto;max-width:14em}
+.final p{margin:20px auto 34px;color:var(--deep-muted);max-width:32em;font-size:1.1rem}
+
+footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--muted);font-size:.93rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+/* responsive */
+@media (max-width:900px){
+  .nav ul{display:none}
+  .hero{padding:40px 0 64px}
+  .hero .wrap,.solusi .wrap,.faq .wrap{grid-template-columns:1fr;gap:40px}
+  .problems{grid-template-columns:1fr}
+  .tabs{grid-template-columns:1fr}
+  .tablist{flex-direction:row;overflow-x:auto}
+  .tablist button{white-space:nowrap;flex:none}
+  .tablist button small{display:none}
+  .panel{padding:28px 22px}
+  .panel ul{grid-template-columns:1fr}
+  .timeline{grid-template-columns:1fr;gap:28px}
+  .timeline li{padding:0 0 0 56px}
+  .timeline li::after{top:44px;bottom:-24px;left:18px;right:auto;width:2px;height:auto}
+  .dua,.poin{grid-template-columns:1fr}
+  .block,.final{padding:64px 0}
+  .final .box{padding:52px 24px;border-radius:28px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#atas" aria-label="Qrcoffe, ke atas"><i></i>Qrcoffe</a>
+    <ul>
+      <li><a href="#masalah">Masalah</a></li>
+      <li><a href="#tawaran">Yang kami tawarkan</a></li>
+      <li><a href="#cara">Cara kerja</a></li>
+      <li><a href="#faq">Tanya jawab</a></li>
+    </ul>
+    <a class="btn small" data-wa href="https://wa.me/6281234567890">Hubungi kami</a>
+  </div>
+</header>
+
+<main id="atas">
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Pesan kopi dari meja, tanpa antre.</h1>
+      <p class="lead">Sistem pemesanan berbasis web untuk outlet dan brand kopi. Pelanggan scan QR di meja, pilih menu, bayar, lalu pesanan langsung muncul di layar dapur. Tanpa install aplikasi.</p>
+      <div class="cta">
+        <a class="btn" data-wa href="https://wa.me/6281234567890">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.98L2 22l5.17-1.5A9.9 9.9 0 1 0 12.04 2Zm5.8 14.1c-.25.7-1.45 1.33-2 1.4-.52.07-1.17.1-1.9-.12a17 17 0 0 1-1.72-.63c-3.03-1.3-5-4.35-5.15-4.55-.15-.2-1.23-1.63-1.23-3.1 0-1.48.77-2.2 1.05-2.5.27-.3.6-.37.8-.37h.57c.18 0 .43-.07.67.5.25.6.85 2.07.92 2.22.08.15.13.32.03.52-.1.2-.15.32-.3.5-.15.17-.32.38-.45.51-.15.15-.3.3-.13.6.17.3.77 1.27 1.65 2.05 1.13 1 2.08 1.32 2.38 1.47.3.15.47.12.65-.07.17-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.28.1 1.75.83 2.05.98.3.15.5.22.57.35.08.12.08.72-.17 1.4Z"/></svg>
+          Konsultasi lewat WhatsApp
+        </a>
+        <a class="btn ghost" href="#cara">Lihat cara kerjanya</a>
+      </div>
+      <p class="note">Untuk satu outlet maupun brand dengan banyak cabang.</p>
+    </div>
+
+    <div class="demo" aria-label="Contoh alur pemesanan di HP">
+      <div class="stage">
+        <div class="phone" role="img" aria-label="Simulasi layar HP pelanggan yang memesan kopi lewat QR">
+          <div class="screen on" data-i="0">
+            <div class="s-head">Selamat datang</div>
+            <div class="s-sub">Outlet Pusat, Meja 7</div>
+            <div class="qr" id="qr"><span class="scan"></span></div>
+            <div class="s-sub" style="text-align:center">Arahkan kamera ke QR di meja Anda</div>
+          </div>
+          <div class="screen" data-i="1">
+            <div class="s-head">Menu Outlet Pusat</div>
+            <div class="chips"><span class="chip act">Kopi</span><span class="chip">Non-kopi</span><span class="chip">Camilan</span></div>
+            <div class="item"><div class="ph b"></div><div class="t"><strong>Es Kopi Susu</strong><span>Rp22.000</span></div><div class="add">+</div></div>
+            <div class="item"><div class="ph c"></div><div class="t"><strong>Caramel Latte</strong><span>Rp28.000</span></div><div class="add">+</div></div>
+            <div class="item"><div class="ph d"></div><div class="t"><strong>Americano</strong><span>Rp20.000</span></div><div class="add">+</div></div>
+          </div>
+          <div class="screen" data-i="2">
+            <div class="s-head">Bingung pilih?</div>
+            <div class="bubble">Mau yang manis dan dingin, budget Rp30.000</div>
+            <div class="reco"><small>Rekomendasi untuk Anda</small>
+              <div class="item"><div class="ph b"></div><div class="t"><strong>Es Kopi Gula Aren</strong><span>Rp25.000</span></div><div class="add">+</div></div>
+            </div>
+            <div class="s-sub">Manis, dingin, dan di bawah budget Anda.</div>
+          </div>
+          <div class="screen" data-i="3">
+            <div class="s-head">Keranjang</div>
+            <div class="row"><span>1x Es Kopi Gula Aren</span><span>25.000</span></div>
+            <div class="row"><span>1x Croissant</span><span>20.000</span></div>
+            <div class="row total"><span>Total</span><span>Rp45.000</span></div>
+            <div class="pay">Bayar sekarang</div>
+          </div>
+          <div class="screen" data-i="4">
+            <div class="s-head">Layar dapur</div>
+            <div class="ticket"><strong>Pesanan baru, Meja 7</strong>
+              <ul><li>Es Kopi Gula Aren</li><li>Croissant</li></ul></div>
+            <div class="status"><span class="act">Baru</span><span>Diproses</span><span>Selesai</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="steps" id="steps"></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="masalah">
+  <div class="wrap">
+    <h2>Masalah yang sering terjadi di coffee shop</h2>
+    <ul class="problems">
+      <li>Pelanggan harus antre atau menunggu pelayan hanya untuk memesan.</li>
+      <li>Pesanan salah catat atau terlambat sampai ke bar.</li>
+      <li>Pemilik sulit memantau penjualan, apalagi kalau punya lebih dari satu outlet.</li>
+      <li>Pelanggan bingung memilih karena menunya banyak.</li>
+      <li>Brand dengan banyak cabang sulit menjaga proses pemesanan tetap seragam.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="block solusi">
+  <div class="wrap">
+    <h2>Satu sistem yang menghubungkan pelanggan, admin, dan dapur.</h2>
+    <p class="big">Pelanggan memesan sendiri lewat QR di meja. Pesanan otomatis diteruskan ke bar. <span>Pemilik bisa melihat pesanan dan laporan penjualan kapan saja.</span></p>
+  </div>
+</section>
+
+<section class="block" id="tawaran">
+  <div class="wrap">
+    <h2>Yang kami tawarkan</h2>
+    <p class="intro">Tiga tampilan untuk tiga pengguna. Pilih salah satu untuk melihat isinya.</p>
+
+    <div class="tabs">
+      <div class="tablist" role="tablist" aria-label="Pilih pengguna">
+        <button role="tab" id="t0" aria-selected="true" aria-controls="p0">Pelanggan<small>Yang memesan di meja</small></button>
+        <button role="tab" id="t1" aria-selected="false" aria-controls="p1" tabindex="-1">Admin outlet<small>Yang mengelola toko</small></button>
+        <button role="tab" id="t2" aria-selected="false" aria-controls="p2" tabindex="-1">Dapur dan bar<small>Yang menyiapkan pesanan</small></button>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p0" aria-labelledby="t0">
+        <h3>Pesan dari meja, tanpa antre</h3>
+        <p class="d">Pelanggan cukup memakai HP sendiri. Tidak ada aplikasi yang perlu diunduh.</p>
+        <ul>
+          <li>Scan QR di meja</li>
+          <li>Menu digital dengan pencarian dan kategori</li>
+          <li>Rekomendasi menu dari AI sesuai selera dan budget</li>
+          <li>Keranjang dan checkout</li>
+          <li>Pembayaran online</li>
+          <li>Konfirmasi pesanan berhasil</li>
+        </ul>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1" hidden>
+        <h3>Kelola outlet dari satu tempat</h3>
+        <p class="d">Semua yang biasanya dicatat manual, sekarang rapi di dashboard.</p>
+        <ul>
+          <li>Kelola menu dan kategori</li>
+          <li>Atur meja dan cetak QR code tiap meja</li>
+          <li>Pantau pesanan masuk dan riwayat pesanan</li>
+          <li>Laporan penjualan per outlet</li>
+          <li>Ubah profil outlet</li>
+          <li>Buka atau tutup toko dengan satu tombol</li>
+        </ul>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+        <h3>Pesanan tampil langsung di bar</h3>
+        <p class="d">Tidak ada lagi catatan yang terlewat atau pesanan yang tertahan.</p>
+        <ul>
+          <li>Pesanan baru muncul otomatis</li>
+          <li>Detail pesanan lengkap dengan nomor meja</li>
+          <li>Status jelas: baru, diproses, selesai</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block kerja" id="cara">
+  <div class="wrap">
+    <h2>Dari scan sampai pesanan selesai</h2>
+    <p class="intro">Lima langkah, semuanya terjadi di HP pelanggan dan layar dapur.</p>
+    <ol class="timeline">
+      <li><strong>Scan QR</strong><span>Pelanggan scan QR di meja. Sistem langsung tahu outlet dan nomor mejanya.</span></li>
+      <li><strong>Pilih menu</strong><span>Lihat menu outlet tersebut, atau minta rekomendasi AI.</span></li>
+      <li><strong>Bayar</strong><span>Cek keranjang, checkout, lalu bayar online.</span></li>
+      <li><strong>Masuk dapur</strong><span>Pesanan muncul di layar bar untuk diproses.</span></li>
+      <li><strong>Selesai</strong><span>Pesanan diantar ke meja dan tercatat di laporan.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Untuk satu outlet, atau seluruh cabang Anda</h2>
+    <div class="dua">
+      <div class="a">
+        <h3>Outlet tunggal</h3>
+        <p>Coffee shop atau kafe yang ingin pemesanannya lebih cepat dan rapi.</p>
+        <ul>
+          <li>Kurangi antrean di kasir</li>
+          <li>Pesanan tercatat otomatis</li>
+          <li>Laporan penjualan siap dilihat</li>
+        </ul>
+      </div>
+      <div class="b">
+        <h3>Brand multi-outlet</h3>
+        <p>Brand dengan beberapa cabang yang ingin satu sistem yang seragam.</p>
+        <ul>
+          <li>Satu sistem untuk banyak cabang, tambah outlet baru tanpa membuat dari nol</li>
+          <li>Menu, meja, pesanan, dan laporan tiap outlet terpisah dan tidak tercampur</li>
+          <li>Rekomendasi AI menyesuaikan menu outlet yang sedang dibuka pelanggan</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="poin">
+      <div><h3>Rekomendasi AI</h3><p>Membantu pelanggan menemukan menu yang cocok, dan bisa mendorong penjualan.</p></div>
+      <div><h3>Berbasis web</h3><p>Dibuka dari browser HP. Pelanggan tidak perlu mengunduh apa pun.</p></div>
+      <div><h3>Ada dukungan perbaikan</h3><p>Kalau ada kendala atau perubahan, tim pengembang siap membantu.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block faq" id="faq">
+  <div class="wrap">
+    <h2>Pertanyaan yang sering muncul</h2>
+    <div>
+      <details><summary>Apakah pelanggan perlu install aplikasi?</summary><p>Tidak. Pelanggan cukup scan QR di meja dan memesan lewat browser di HP mereka.</p></details>
+      <details><summary>Bisa dipakai untuk lebih dari satu outlet?</summary><p>Bisa. Tiap outlet punya menu, meja, pesanan, dan laporan sendiri dalam satu sistem yang sama.</p></details>
+      <details><summary>Bagaimana kalau ada kendala pada sistem?</summary><p>Tim kami siap membantu perbaikan dan pengembangan saat dibutuhkan.</p></details>
+      <details><summary>Bagaimana cara mulai?</summary><p>Hubungi kami lewat WhatsApp, ceritakan kebutuhan outlet atau brand Anda, lalu kita diskusikan bersama.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <div class="box">
+      <h2>Punya satu outlet atau banyak cabang? Kami bisa bantu.</h2>
+      <p>Ceritakan kebutuhan outlet atau brand Anda, kami bantu carikan solusinya.</p>
+      <a class="btn crema" data-wa href="https://wa.me/6281234567890">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.98L2 22l5.17-1.5A9.9 9.9 0 1 0 12.04 2Zm5.8 14.1c-.25.7-1.45 1.33-2 1.4-.52.07-1.17.1-1.9-.12a17 17 0 0 1-1.72-.63c-3.03-1.3-5-4.35-5.15-4.55-.15-.2-1.23-1.63-1.23-3.1 0-1.48.77-2.2 1.05-2.5.27-.3.6-.37.8-.37h.57c.18 0 .43-.07.67.5.25.6.85 2.07.92 2.22.08.15.13.32.03.52-.1.2-.15.32-.3.5-.15.17-.32.38-.45.51-.15.15-.3.3-.13.6.17.3.77 1.27 1.65 2.05 1.13 1 2.08 1.32 2.38 1.47.3.15.47.12.65-.07.17-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.28.1 1.75.83 2.05.98.3.15.5.22.57.35.08.12.08.72-.17 1.4Z"/></svg>
+        Chat WhatsApp sekarang
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Qrcoffe, dibuat oleh Team 3</span>
+    <span>WhatsApp: +62 812 3456 7890</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* ====== GANTI DI SINI ====== */
+  var WA_NUMBER = "6281234567890"; // awali 62, tanpa + atau 0
+  var WA_TEXT = "Halo, saya tertarik dengan sistem pemesanan QR untuk coffee shop";
+  /* =========================== */
+  var link = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(WA_TEXT);
+  document.querySelectorAll("a[data-wa]").forEach(function(a){ a.href = link; a.target = "_blank"; a.rel = "noopener"; });
+
+  /* QR dekoratif */
+  var qr = document.getElementById("qr"), n = 11, html = "";
+  function finder(r,c){
+    var boxes=[[0,0],[0,n-3],[n-3,0]];
+    for(var i=0;i<boxes.length;i++){
+      var br=boxes[i][0], bc=boxes[i][1];
+      if(r>=br && r<br+3 && c>=bc && c<bc+3){ return !(r===br+1 && c===bc+1) ? 1 : 0; }
+    }
+    return -1;
+  }
+  for(var r=0;r<n;r++){for(var c=0;c<n;c++){
+    var f=finder(r,c), on = f>=0 ? f : ((r*7+c*13+r*c)%3!==0 ? 1:0);
+    html += '<b class="'+(on?'':'o')+'"></b>';
+  }}
+  qr.insertAdjacentHTML("afterbegin", html);
+
+  /* demo HP */
+  var labels=["Scan QR","Pilih menu","Tanya AI","Bayar","Masuk dapur"];
+  var screens=document.querySelectorAll(".phone .screen");
+  var box=document.getElementById("steps"), cur=0, timer=null;
+  labels.forEach(function(l,i){
+    var b=document.createElement("button"); b.type="button"; b.textContent=l;
+    b.setAttribute("aria-pressed", i===0 ? "true":"false");
+    b.addEventListener("click", function(){ stop(); show(i); });
+    box.appendChild(b);
+  });
+  var btns=box.querySelectorAll("button");
+  function show(i){
+    cur=i;
+    screens.forEach(function(s,k){ s.classList.toggle("on", k===i); });
+    btns.forEach(function(b,k){ b.setAttribute("aria-pressed", k===i ? "true":"false"); });
+  }
+  function stop(){ if(timer){ clearInterval(timer); timer=null; } }
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(!reduce){ timer=setInterval(function(){ show((cur+1)%screens.length); }, 3800); }
+
+  /* tabs */
+  var tabs=document.querySelectorAll('[role="tab"]');
+  function pick(t){
+    tabs.forEach(function(x){
+      var on = x===t;
+      x.setAttribute("aria-selected", on?"true":"false");
+      x.tabIndex = on?0:-1;
+      document.getElementById(x.getAttribute("aria-controls")).hidden = !on;
+    });
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener("click", function(){ pick(t); });
+    t.addEventListener("keydown", function(e){
+      var k=e.key, j=-1;
+      if(k==="ArrowRight"||k==="ArrowDown") j=(i+1)%tabs.length;
+      if(k==="ArrowLeft"||k==="ArrowUp") j=(i-1+tabs.length)%tabs.length;
+      if(j>=0){ e.preventDefault(); tabs[j].focus(); pick(tabs[j]); }
+    });
+  });
+})();
+</script>
+</body>
+</html>

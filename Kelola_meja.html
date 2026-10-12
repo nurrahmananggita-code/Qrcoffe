@@ -1,0 +1,281 @@
+<html>
+
+<head>
+    <title>Kelola Meja - Qrcoffee</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<table width="100%" height="100%" border="0">
+    <tr>
+
+        <!-- ===== SIDEBAR ===== -->
+        <td width="250px" valign="top" class="sidebar">
+
+            <h2 class="brand">
+                Qrcoffe
+            </h2>
+
+            <p class="brand-sub">
+                Admin Outlet
+            </p>
+
+            <p class="nav-label">
+                Ringkasan
+            </p>
+
+            <p class="nav-item">
+                <a href="Dashboard.html" class="nav-link">
+                    <img src="dashboard.png" width="20" class="nav-icon">
+                    Dashboard
+                </a>
+            </p>
+
+            <p class="nav-label">
+                Menu
+            </p>
+
+            <p class="nav-item">
+                <a href="Kelola_menu.html" class="nav-link">
+                    <img src="menu.png" width="20" class="nav-icon">
+                    Kelola Menu
+                </a>
+            </p>
+
+            <p class="nav-item">
+                <a href="Kelola_kategori.html" class="nav-link">
+                    <img src="kelola kategori.png" width="20" class="nav-icon">
+                    Kelola Kategori
+                </a>
+            </p>
+
+            <p class="nav-label">
+                Meja
+            </p>
+
+            <p class="nav-item nav-active">
+                <a href="Kelola_meja.html" class="nav-link">
+                    <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round" style="vertical-align:middle;">
+                        <path d="M3 9h18"></path>
+                        <path d="M3 9l1-5h16l1 5"></path>
+                        <path d="M5 9v10"></path>
+                        <path d="M19 9v10"></path>
+                    </svg>
+                    Kelola Meja
+                </a>
+            </p>
+
+            <p class="nav-item">
+                <a href="QR_meja.html" class="nav-link">
+                    <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round" style="vertical-align:middle;">
+                        <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+                        <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+                        <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+                        <path d="M14 14h3v3h-3z"></path>
+                        <path d="M20 14v7"></path>
+                        <path d="M14 21h3"></path>
+                    </svg>
+                    QR Code Meja
+                </a>
+            </p>
+
+            <p class="nav-label">
+                Pesanan
+            </p>
+
+            <p class="nav-item">
+                <a href="Riwayat_transaksi.html" class="nav-link">
+                    <img src="riwayat transaksi.png" width="20" class="nav-icon">
+                    Riwayat Transaksi
+                </a>
+            </p>
+
+            <p class="nav-label">
+                Keuangan
+            </p>
+
+            <p class="nav-item">
+                <a href="Laporan_penjualan.html" class="nav-link">
+                    <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round" style="vertical-align:middle;">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                    Laporan Penjualan
+                </a>
+            </p>
+
+            <p class="nav-item">
+                <a href="Saldo_outlet.html" class="nav-link">
+                    <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round" style="vertical-align:middle;">
+                        <rect x="2" y="6" width="20" height="14" rx="2"></rect>
+                        <path d="M2 10h20"></path>
+                        <circle cx="17" cy="15" r="1"></circle>
+                    </svg>
+                    Saldo Outlet
+                </a>
+            </p>
+
+            <p class="nav-label">
+                Pengaturan
+            </p>
+
+            <p class="nav-item">
+                <a href="Profil_outlet.html" class="nav-link">
+                    <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round" style="vertical-align:middle;">
+                        <path d="M3 9l1-5h16l1 5"></path>
+                        <path d="M4 9v11h16V9"></path>
+                        <path d="M9 20v-6h6v6"></path>
+                    </svg>
+                    Profil Outlet
+                </a>
+            </p>
+
+        </td>
+
+        <!-- ===== KONTEN ===== -->
+        <td valign="top" class="content">
+
+            <!-- TOP BAR -->
+            <div class="topbar">
+                <table width="100%" border="0">
+                    <tr>
+                        <td valign="middle">
+                            <p class="breadcrumb">
+                                Admin Outlet / <b class="breadcrumb-active">Kelola Meja</b>
+                            </p>
+                        </td>
+
+                        <td align="right" valign="middle">
+
+                            <div class="profile">
+                                <span class="avatar">M</span>
+                                <span class="profile-name">Marie</span>
+                            </div>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- JUDUL -->
+            <h1 class="greeting">Kelola Meja</h1>
+
+            <p class="date">
+                Atur daftar meja yang tersedia di outlet.
+            </p>
+
+            <table width="100%" border="0" class="form-layout">
+                <tr>
+
+                    <!-- ===== KIRI: DAFTAR MEJA ===== -->
+                    <td valign="top">
+
+                        <div class="panel">
+
+                            <table width="100%" class="data-table">
+
+                                <tr>
+                                    <th align="left">Nomor</th>
+                                    <th align="left">Kapasitas</th>
+                                    <th align="left">Status</th>
+                                    <th align="left">Aksi</th>
+                                </tr>
+
+                                <tr>
+                                    <td>Meja 1</td>
+                                    <td>2 orang</td>
+                                    <td>
+                                        <span class="badge-show">● Tersedia</span>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="icon-btn" title="Edit">✎</a>
+                                        <button class="icon-btn icon-delete" title="Hapus">✕</button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Meja 2</td>
+                                    <td>4 orang</td>
+                                    <td>
+                                        <span class="badge-hide">● Terisi</span>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="icon-btn" title="Edit">✎</a>
+                                        <button class="icon-btn icon-delete" title="Hapus">✕</button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Meja 3</td>
+                                    <td>4 orang</td>
+                                    <td>
+                                        <span class="badge-show">● Tersedia</span>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="icon-btn" title="Edit">✎</a>
+                                        <button class="icon-btn icon-delete" title="Hapus">✕</button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Meja 4</td>
+                                    <td>6 orang</td>
+                                    <td>
+                                        <span class="badge-show">● Tersedia</span>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="icon-btn" title="Edit">✎</a>
+                                        <button class="icon-btn icon-delete" title="Hapus">✕</button>
+                                    </td>
+                                </tr>
+
+                            </table>
+
+                        </div>
+
+                    </td>
+
+                    <td width="24px"></td>
+
+                    <!-- ===== KANAN: TAMBAH MEJA ===== -->
+                    <td valign="top" width="400px">
+
+                        <div class="card form-card">
+
+                            <h2 class="card-title-sm form-title">Tambah meja</h2>
+
+                            <label class="form-label">Nomor / nama meja</label>
+                            <input type="text" class="form-input" placeholder="Contoh: Meja 5">
+
+                            <label class="form-label">Kapasitas</label>
+                            <input type="number" class="form-input" placeholder="Contoh: 4">
+
+                            <button class="btn-wide">+ Tambah meja</button>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+            </table>
+
+        </td>
+
+    </tr>
+</table>
+
+</body>
+</html>
