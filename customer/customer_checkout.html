@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Checkout - Qrcoffee</title>
+    <link rel="stylesheet" href="../assets/css/customer.css">
+</head>
+<body>
+
+<div class="phone">
+
+    <!-- KEPALA -->
+    <div class="cart-head">
+        <a href="customer_keranjang.html" class="back-btn">← Kembali</a>
+        <h2 class="cart-title">Checkout</h2>
+    </div>
+
+    <!-- ISI CHECKOUT -->
+    <div class="checkout-body">
+
+        <!-- Dipesan untuk -->
+        <div class="info-card">
+            <div>
+                <p class="info-label">Dipesan untuk</p>
+                <p class="info-value" id="info-pemesan">Tamu · Meja 5</p>
+            </div>
+            <span class="tag">Dine in</span>
+        </div>
+
+        <!-- Ringkasan pesanan -->
+        <h3 class="section-title">Ringkasan pesanan</h3>
+
+        <div class="summary-card">
+            <div id="daftar-ringkasan"></div>
+
+            <hr class="summary-line">
+
+            <div class="summary-row summary-muted">
+                <span>Subtotal</span>
+                <span id="subtotal">Rp0</span>
+            </div>
+            <div class="summary-row summary-muted">
+                <span>Pajak 10%</span>
+                <span id="pajak">Rp0</span>
+            </div>
+            <div class="summary-row summary-total">
+                <span>Total</span>
+                <span id="total">Rp0</span>
+            </div>
+        </div>
+
+        <!-- LANGKAH 1: Catatan untuk barista -->
+        <h3 class="section-title">Catatan untuk barista</h3>
+
+        <textarea id="catatan-pesanan"
+                  class="checkout-note"
+                  placeholder="Opsional, contoh: pedas sedang, tanpa telur"></textarea>
+
+        <!-- Tombol Pilih Pembayaran -->
+        <a href="customer_pembayaran.html" class="btn-bayar" id="tombol-bayar">
+            Pilih Pembayaran
+        </a>
+    </div>
+
+</div>
+
+<script src="../assets/js/customer_checkout.js"></script>
+
+</body>
+</html>
