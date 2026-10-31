@@ -1,0 +1,575 @@
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Laporan Penjualan - Qrcoffee</title>
+
+<link rel="stylesheet" href="../assets/css/admin.css">
+<link rel="stylesheet" href="../assets/css/adminE.css">
+<link rel="stylesheet" href="../assets/css/tarik_saldo.css">
+</head>
+
+<body>
+
+<table width="100%" height="100%" border="0">
+<tr>
+
+<!-- ===== SIDEBAR ===== -->
+<td width="250px" valign="top" class="sidebar">
+
+<h2 class="brand">Qrcoffee</h2>
+<p class="brand-sub">Admin Outlet</p>
+
+<p class="nav-label">Ringkasan</p>
+<p class="nav-item">
+    <a href="dashboard.html" class="nav-link">
+        <img src="../assets/images/dashboard.png" width="20" class="nav-icon">
+        Dashboard
+    </a>
+</p>
+
+<p class="nav-label">Menu</p>
+<p class="nav-item">
+    <a href="kelola_menu.html" class="nav-link">
+        <img src="../assets/images/menu.png" width="20" class="nav-icon">
+        Kelola Menu
+    </a>
+</p>
+<p class="nav-item">
+    <a href="kelola_kategori.html" class="nav-link">
+        <img src="../assets/images/kelola_kategori.png" width="20" class="nav-icon">
+        Kelola Kategori
+    </a>
+</p>
+
+<p class="nav-label">Meja</p>
+<p class="nav-item">
+    <a href="kelola_meja.html" class="nav-link">
+        <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;"><path d="M3 9h18"></path><path d="M3 9l1-5h16l1 5"></path><path d="M5 9v10"></path><path d="M19 9v10"></path></svg>
+        Kelola Meja
+    </a>
+</p>
+<p class="nav-item">
+    <a href="qr_meja.html" class="nav-link">
+        <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><path d="M14 14h3v3h-3z"></path><path d="M20 14v7"></path><path d="M14 21h3"></path></svg>
+        QR Code Meja
+    </a>
+</p>
+
+<p class="nav-label">Pesanan</p>
+<p class="nav-item">
+    <a href="riwayat_transaksi.html" class="nav-link">
+        <img src="../assets/images/riwayat_transaksi.png" width="20" class="nav-icon">
+        Riwayat Pesanan
+    </a>
+</p>
+
+<p class="nav-label">Laporan</p>
+<p class="nav-item nav-active">
+    <a href="laporan_penjualan.html" class="nav-link">
+        <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+        Laporan Penjualan
+    </a>
+</p>
+
+<p class="nav-label">Pengaturan</p>
+<p class="nav-item">
+    <a href="profil_outlet.html" class="nav-link">
+        <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;"><path d="M3 9l1-5h16l1 5"></path><path d="M4 9v11h16V9"></path><path d="M9 20v-6h6v6"></path></svg>
+        Profil Outlet
+    </a>
+</p>
+
+</td>
+
+<!-- ===== KONTEN ===== -->
+<td valign="top" class="content">
+
+<!-- TOP BAR -->
+<div class="topbar">
+<table width="100%" border="0">
+<tr>
+    <td valign="middle">
+        <p class="breadcrumb">
+            Admin Outlet / <b class="breadcrumb-active">Laporan Penjualan</b>
+        </p>
+    </td>
+    <td align="right" valign="middle">
+        <div class="profile">
+            <span class="avatar">M</span>
+            <span class="profile-name">Marie</span>
+        </div>
+    </td>
+</tr>
+</table>
+</div>
+
+<!-- JUDUL + FILTER PERIODE -->
+<div class="page-head">
+    <div>
+        <h1 class="greeting">Laporan Penjualan</h1>
+        <p class="date" id="infoPeriode"></p>
+    </div>
+    <div class="head-actions">
+        <div class="tabs" id="tabPeriode">
+            <button class="tab" data-periode="1">Hari ini</button>
+            <button class="tab" data-periode="7">7 hari</button>
+            <button class="tab tab-active" data-periode="30">30 hari</button>
+        </div>
+        <button class="btn-outline" onclick="eksporLaporan()">⬇ Ekspor</button>
+    </div>
+</div>
+
+<!-- ===== SALDO OUTLET + SALDO BRAND ===== -->
+<div class="saldo-grid">
+
+    <div class="card section">
+        <div class="section-head">
+            <h2 class="card-title-sm">Saldo outlet</h2>
+            <span class="muted">Outlet Kemang</span>
+        </div>
+
+        <p class="saldo-big" id="saldoBesar">-</p>
+        <p class="sum-hint">Dana pembayaran QRIS dan transfer yang sudah masuk ke sistem dan belum ditarik.</p>
+
+        <div class="saldo-mini">
+            <div>
+                <p class="sum-hint" id="lblMasuk">Dana masuk</p>
+                <p class="saldo-mini-value" id="valMasuk">-</p>
+            </div>
+            <div>
+                <p class="sum-hint">Total sudah ditarik</p>
+                <p class="saldo-mini-value" id="saldoDitarik">-</p>
+            </div>
+        </div>
+
+        <button class="btn-wide saldo-btn" onclick="bukaTarik()">⬇ Tarik saldo</button>
+    </div>
+
+    <div class="card section">
+        <div class="section-head">
+            <h2 class="card-title-sm">Saldo brand</h2>
+            <span class="muted">Dapur Senja</span>
+        </div>
+
+        <p class="saldo-big saldo-big-sm" id="brandTotal">-</p>
+        <p class="sum-hint">Gabungan semua outlet</p>
+
+        <div class="info-row"><span>Outlet Kemang</span><b id="brandKemang">-</b></div>
+        <div class="info-row"><span>Outlet Senopati</span><b>Rp 8.420.000</b></div>
+        <div class="info-row"><span>Outlet BSD</span><b>Rp 5.115.000</b></div>
+    </div>
+
+</div>
+
+<!-- RINGKASAN -->
+<div class="stat-grid">
+    <div class="card stat-hi">
+        <p class="sum-label">Total penjualan</p>
+        <p class="sum-value" id="kpiTotal">-</p>
+    </div>
+    <div class="card">
+        <p class="sum-label">Jumlah pesanan</p>
+        <p class="sum-value" id="kpiPesanan">-</p>
+    </div>
+    <div class="card">
+        <p class="sum-label">Rata-rata per pesanan</p>
+        <p class="sum-value" id="kpiRata">-</p>
+    </div>
+    <div class="card">
+        <p class="sum-label">Menu terjual</p>
+        <p class="sum-value" id="kpiMenu">-</p>
+    </div>
+</div>
+
+<!-- GRAFIK PENJUALAN -->
+<div class="card section">
+
+<div class="section-head">
+    <h2 class="card-title-sm" id="judulChart">Penjualan per hari</h2>
+    <span class="muted">Batang biru muda menandai puncak penjualan</span>
+</div>
+
+<div id="chartWrap"></div>
+
+</div>
+
+<!-- MENU TERLARIS + KATEGORI + PEMBAYARAN -->
+<div class="two-col">
+
+<div class="card section">
+    <div class="section-head">
+        <h2 class="card-title-sm">Menu terlaris</h2>
+    </div>
+    <div class="panel">
+    <table width="100%" class="data-table" id="tabelMenu"></table>
+    </div>
+</div>
+
+<div class="stack-lg">
+
+    <div class="card section">
+        <div class="section-head">
+            <h2 class="card-title-sm">Porsi per kategori</h2>
+        </div>
+<div class="bar-row">
+    <span>Kopi</span>
+    <span class="track"><span class="fill fill-blue" style="width:100%;"></span></span>
+    <span class="pct">38%</span>
+</div>
+<div class="bar-row">
+    <span>Makanan Berat</span>
+    <span class="track"><span class="fill fill-blue" style="width:82%;"></span></span>
+    <span class="pct">31%</span>
+</div>
+<div class="bar-row">
+    <span>Non-kopi</span>
+    <span class="track"><span class="fill fill-blue" style="width:37%;"></span></span>
+    <span class="pct">14%</span>
+</div>
+<div class="bar-row">
+    <span>Camilan</span>
+    <span class="track"><span class="fill fill-blue" style="width:28%;"></span></span>
+    <span class="pct">11%</span>
+</div>
+<div class="bar-row">
+    <span>Dessert</span>
+    <span class="track"><span class="fill fill-blue" style="width:16%;"></span></span>
+    <span class="pct">6%</span>
+</div>
+    </div>
+
+    <div class="card section">
+        <div class="section-head">
+            <h2 class="card-title-sm">Metode pembayaran</h2>
+        </div>
+<div class="bar-row">
+    <span>QRIS</span>
+    <span class="track"><span class="fill fill-slate" style="width:100%;"></span></span>
+    <span class="pct">62%</span>
+</div>
+<div class="bar-row">
+    <span>Transfer</span>
+    <span class="track"><span class="fill fill-slate" style="width:61%;"></span></span>
+    <span class="pct">38%</span>
+</div>
+    </div>
+
+</div>
+
+</div>
+
+</td>
+
+</tr>
+</table>
+
+<div id="modalTarik"></div>
+<div class="toast" id="toast"></div>
+
+<script>
+    // =====================================================
+    //  DATA
+    // =====================================================
+    var SALDO_AWAL = 2350000;
+    var BRAND_LAIN = 8420000 + 5115000;      // Outlet Senopati + Outlet BSD
+    var MIN_TARIK = 50000;
+    var TGL_HARI_INI = "2026-09-28";         // tanggal laporan, sesuaikan jika perlu
+
+    var REKENING = [
+        { label: "BCA 4821 a.n. Dapur Senja",     ket: "Penarikan ke BCA •••• 4821" },
+        { label: "Mandiri 0377 a.n. Dapur Senja", ket: "Penarikan ke Mandiri •••• 0377" }
+    ];
+
+    // saldo awal 2.350.000 + dana masuk - penarikan = saldo outlet 13.760.000
+    var DATA_AWAL = [
+        { tgl: "2026-09-25", ket: "Dana masuk penjualan (QRIS dan transfer)", jenis: "masuk", jumlah: 4470000, status: "Diterima" },
+        { tgl: "2026-09-26", ket: "Dana masuk penjualan (QRIS dan transfer)", jenis: "masuk", jumlah: 6120000, status: "Diterima" },
+        { tgl: "2026-09-26", ket: "Penarikan ke BCA •••• 4821",                 jenis: "tarik", jumlah: 10000000, status: "Berhasil" },
+        { tgl: "2026-09-27", ket: "Dana masuk penjualan (QRIS dan transfer)", jenis: "masuk", jumlah: 6840000, status: "Diterima" },
+        { tgl: "2026-09-28", ket: "Dana masuk penjualan (QRIS dan transfer)", jenis: "masuk", jumlah: 3980000, status: "Diterima" }
+    ];
+
+    // Penarikan baru disimpan di localStorage "penarikanBaru" (dibaca juga oleh Laporan_keuangan.html)
+    var penarikanBaru = [];
+    try { penarikanBaru = JSON.parse(localStorage.getItem("penarikanBaru") || "[]"); } catch (e) {}
+    if (!Array.isArray(penarikanBaru)) { penarikanBaru = []; }
+
+    var semuaData = DATA_AWAL.concat(penarikanBaru);
+    var periode = "30";
+
+    // data penjualan per periode
+    var VAL_30 = [3870000, 4360000, 4760000, 4860000, 3470000, 4860000, 4660000, 4960000, 4860000, 4360000,
+                  4760000, 4060000, 5050000, 3960000, 3670000, 3870000, 4560000, 4560000, 3570000, 3870000,
+                  5150000, 4760000, 3770000, 4160000, 3960000, 3470000, 3870000, 4460000, 4360000, 3870000];
+    var TGL_30 = ["30/8", "31/8", "1/9", "2/9", "3/9", "4/9", "5/9", "6/9", "7/9", "8/9", "9/9", "10/9", "11/9", "12/9", "13/9",
+                  "14/9", "15/9", "16/9", "17/9", "18/9", "19/9", "20/9", "21/9", "22/9", "23/9", "24/9", "25/9", "26/9", "27/9", "28/9"];
+
+    var MENU_TOP = [
+        ["Kopi Susu Gula Aren", 24000, 32], ["Nasi Goreng Kampung", 32000, 24], ["Ayam Bakar Madu", 38000, 17],
+        ["Matcha Latte", 28000, 14], ["Pisang Goreng Keju", 22000, 11], ["Mie Goreng Jawa", 30000, 9]
+    ];
+    var KATEGORI = [["Kopi", 38], ["Makanan Berat", 31], ["Non-kopi", 14], ["Camilan", 11], ["Dessert", 6]];
+    var BAYAR = [["QRIS", 62], ["Transfer", 38]];
+
+    // =====================================================
+    //  HELPER
+    // =====================================================
+    function $(id) { return document.getElementById(id); }
+    function rupiah(n) { return "Rp " + Math.round(Number(n)).toLocaleString("id-ID"); }
+    function tampilToast(pesan) {
+        var t = $("toast");
+        t.textContent = pesan;
+        t.classList.add("show");
+        setTimeout(function () { t.classList.remove("show"); }, 3500);
+    }
+
+    function unduhCsv(baris, namaFile) {
+        var csv = "\ufeff" + baris.map(function (r) { return r.join(";"); }).join("\r\n");
+        var blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement("a");
+        a.href = url;
+        a.download = namaFile;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }
+
+    // =====================================================
+    //  PERIODE: ringkasan, grafik, menu terlaris
+    // =====================================================
+    function dataPeriode(k) {
+        var vals, labels, titles;
+        if (k === "1") {
+            labels = []; titles = [];
+            for (var h = 8; h <= 21; h++) { labels.push((h < 10 ? "0" : "") + h); titles.push("Jam " + (h < 10 ? "0" : "") + h + ".00"); }
+            vals = [120, 240, 380, 310, 520, 860, 940, 610, 420, 380, 520, 690, 480, 210].map(function (v) { return v * 1000; });
+        } else if (k === "7") {
+            labels = ["Sel 22", "Rab 23", "Kam 24", "Jum 25", "Sab 26", "Min 27", "Sen 28"];
+            titles = labels;
+            vals = [3420000, 3180000, 3610000, 4470000, 6120000, 6840000, 3980000];
+        } else {
+            vals = VAL_30;
+            titles = TGL_30;
+            labels = TGL_30.map(function (t) { return t.split("/")[0]; });
+        }
+        var sum = 0;
+        vals.forEach(function (v) { sum += v; });
+        if (k === "30") { sum = 128750000; }   // total resmi 30 hari (nilai batang di grafik sudah dibulatkan)
+        var orders = Math.round(sum / 89500);
+        return {
+            vals: vals, labels: labels, titles: titles, sum: sum,
+            orders: orders, items: Math.round(orders * 2.7),
+            nama: { "1": "Hari ini", "7": "7 hari terakhir", "30": "30 hari terakhir" }[k]
+        };
+    }
+
+    function formatTick(v) {
+        if (v >= 1e6) { return (v / 1e6).toFixed(1).replace(".", ",").replace(",0", "") + " jt"; }
+        if (v >= 1e3) { return Math.round(v / 1e3) + " rb"; }
+        return String(v);
+    }
+
+    function gambarChart(p) {
+        var L = 70, R = 880, T = 20, B = 300, n = p.vals.length;
+        var gw = (R - L) / n, bw = Math.min(34, Math.round(gw * 0.62));
+        var mx = Math.max.apply(null, p.vals);
+        var step = Math.pow(10, Math.floor(Math.log10(mx)));
+        var top = Math.ceil(mx * 1.25 / step) * step;
+        var maxI = p.vals.indexOf(mx);
+
+        var s = '<svg class="chart-svg" viewBox="0 0 900 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Grafik penjualan">';
+        for (var g = 0; g <= 4; g++) {
+            var y = B - (B - T) * g / 4;
+            s += '<line x1="' + L + '" y1="' + y + '" x2="' + R + '" y2="' + y + '" stroke="#2a3a52"></line>';
+            s += '<text x="58" y="' + (y + 5) + '" text-anchor="end" font-size="13" fill="#8fa3bf">' + formatTick(top * g / 4) + '</text>';
+        }
+        p.vals.forEach(function (v, i) {
+            var x = L + gw * i + (gw - bw) / 2;
+            var h = (B - T) * v / top;
+            s += '<rect x="' + x.toFixed(1) + '" y="' + (B - h).toFixed(1) + '" width="' + bw + '" height="' + h.toFixed(1) +
+                 '" rx="5" fill="' + (i === maxI ? "#5aaee8" : "#16335e") + '"><title>' + p.titles[i] + ': ' + rupiah(v) + '</title></rect>';
+            if (n <= 14 || i % 5 === 0 || i === n - 1) {
+                s += '<text x="' + (x + bw / 2).toFixed(1) + '" y="326" text-anchor="middle" font-size="13" fill="#8fa3bf">' + p.labels[i] + '</text>';
+            }
+        });
+        return s + '</svg>';
+    }
+
+    function tampilPeriode() {
+        var p = dataPeriode(periode);
+
+        $("infoPeriode").textContent = p.nama + ", sampai Senin 28 September 2026.";
+        $("lblMasuk").textContent = "Dana masuk (" + p.nama.toLowerCase() + ")";
+        $("valMasuk").textContent = rupiah(p.sum);
+
+        $("kpiTotal").textContent = rupiah(p.sum);
+        $("kpiPesanan").textContent = p.orders.toLocaleString("id-ID");
+        $("kpiRata").textContent = rupiah(p.sum / p.orders);
+        $("kpiMenu").textContent = p.items.toLocaleString("id-ID");
+
+        $("judulChart").textContent = "Penjualan per " + (periode === "1" ? "jam" : "hari");
+        $("chartWrap").innerHTML = gambarChart(p);
+
+        var f = p.orders / 44;
+        var h = '<tr><th>Menu</th><th class="num">Terjual</th><th class="num">Pendapatan</th></tr>';
+        MENU_TOP.forEach(function (m) {
+            var q = Math.round(m[2] * f);
+            h += '<tr><td><b>' + m[0] + '</b></td><td class="num">' + q + '</td><td class="num">' + rupiah(q * m[1]) + '</td></tr>';
+        });
+        $("tabelMenu").innerHTML = h;
+
+        document.querySelectorAll("#tabPeriode .tab").forEach(function (t) {
+            t.classList.toggle("tab-active", t.getAttribute("data-periode") === periode);
+        });
+    }
+
+    document.querySelectorAll("#tabPeriode .tab").forEach(function (tab) {
+        tab.addEventListener("click", function () {
+            periode = tab.getAttribute("data-periode");
+            tampilPeriode();
+        });
+    });
+
+    // =====================================================
+    //  SALDO
+    // =====================================================
+    // hitung saldo berjalan per baris (urut dari yang terlama)
+    function hitungSaldo() {
+        var saldo = SALDO_AWAL;
+        return semuaData.map(function (t) {
+            saldo += (t.jenis === "masuk" ? t.jumlah : -t.jumlah);
+            return { t: t, saldo: saldo };
+        });
+    }
+
+    function saldoSekarang() {
+        var b = hitungSaldo();
+        return b.length ? b[b.length - 1].saldo : SALDO_AWAL;
+    }
+
+    function tampilkan() {
+        var tarik = 0;
+        semuaData.forEach(function (t) { if (t.jenis === "tarik") { tarik += t.jumlah; } });
+        var saldoAkhir = saldoSekarang();
+
+        $("saldoBesar").textContent = rupiah(saldoAkhir);
+        $("saldoDitarik").textContent = rupiah(tarik);
+        $("brandKemang").textContent = rupiah(saldoAkhir);
+        $("brandTotal").textContent = rupiah(saldoAkhir + BRAND_LAIN);
+    }
+
+    // =====================================================
+    //  TARIK SALDO
+    // =====================================================
+    function bukaTarik() {
+        var saldo = saldoSekarang();
+        var opsi = REKENING.map(function (r, i) {
+            return '<option value="' + i + '">' + r.label + '</option>';
+        }).join("");
+
+        $("modalTarik").innerHTML =
+            '<div class="tarik-scrim" id="tarikScrim"><div class="tarik-dlg" role="dialog" aria-modal="true">' +
+            '<h3>Tarik saldo</h3>' +
+            '<p class="tarik-info">Saldo tersedia ' + rupiah(saldo) + '. Dana dikirim ke rekening yang dipilih.</p>' +
+            '<div class="tarik-field"><label for="tarikRek">Rekening tujuan</label>' +
+            '<select id="tarikRek" class="tarik-input">' + opsi + '</select></div>' +
+            '<div class="tarik-field"><label for="tarikJumlah">Jumlah penarikan</label>' +
+            '<div class="tarik-pre"><span>Rp</span>' +
+            '<input id="tarikJumlah" class="tarik-input" inputmode="numeric" placeholder="0" autocomplete="off"></div>' +
+            '<small>Minimal ' + rupiah(MIN_TARIK) + '. ' +
+            '<button type="button" class="tarik-link" id="tarikSemua">Tarik semua saldo</button></small></div>' +
+            '<p class="tarik-error" id="tarikError"></p>' +
+            '<div class="tarik-ft"><button type="button" id="tarikBatal">Batal</button>' +
+            '<button type="button" class="utama" id="tarikOk">Tarik saldo</button></div>' +
+            '</div></div>';
+
+        var input = $("tarikJumlah");
+        input.addEventListener("input", function () {
+            var angka = input.value.replace(/\D/g, "");
+            input.value = angka ? Number(angka).toLocaleString("id-ID") : "";
+            $("tarikError").textContent = "";
+        });
+        input.addEventListener("keydown", function (e) { if (e.key === "Enter") prosesTarik(); });
+        $("tarikSemua").addEventListener("click", function () {
+            var s = saldoSekarang();
+            input.value = s > 0 ? s.toLocaleString("id-ID") : "";
+            $("tarikError").textContent = "";
+        });
+        $("tarikBatal").addEventListener("click", tutupTarik);
+        $("tarikOk").addEventListener("click", prosesTarik);
+        $("tarikScrim").addEventListener("click", function (e) {
+            if (e.target === $("tarikScrim")) { tutupTarik(); }
+        });
+        input.focus();
+    }
+
+    function tutupTarik() { $("modalTarik").innerHTML = ""; }
+
+    function prosesTarik() {
+        var v = parseInt($("tarikJumlah").value.replace(/\D/g, ""), 10);
+        var err = $("tarikError");
+
+        if (!v || v < MIN_TARIK) { err.textContent = "Minimal penarikan " + rupiah(MIN_TARIK) + "."; return; }
+        if (v > saldoSekarang()) { err.textContent = "Jumlah melebihi saldo tersedia."; return; }
+
+        var rek = REKENING[Number($("tarikRek").value)];
+        var baru = { tgl: TGL_HARI_INI, ket: rek.ket, jenis: "tarik", jumlah: v, status: "Diajukan" };
+
+        penarikanBaru.push(baru);
+        semuaData.push(baru);
+        try { localStorage.setItem("penarikanBaru", JSON.stringify(penarikanBaru)); } catch (e) {}
+
+        tutupTarik();
+        tampilkan();
+        tampilToast("Penarikan " + rupiah(v) + " diajukan.");
+    }
+
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && $("tarikScrim")) { tutupTarik(); }
+    });
+
+    // =====================================================
+    //  EKSPOR (CSV, bisa dibuka di Excel)
+    // =====================================================
+    function eksporLaporan() {
+        var p = dataPeriode(periode), f = p.orders / 44;
+        var b = [];
+        b.push(["Laporan Penjualan - Qrcoffee (Outlet Kemang)"]);
+        b.push(["Periode", p.nama + ", sampai 28 September 2026"]);
+        b.push([]);
+        b.push(["Total penjualan (Rp)", Math.round(p.sum)]);
+        b.push(["Jumlah pesanan", p.orders]);
+        b.push(["Rata-rata per pesanan (Rp)", Math.round(p.sum / p.orders)]);
+        b.push(["Menu terjual", p.items]);
+        b.push([]);
+        b.push([periode === "1" ? "Jam" : "Tanggal", "Penjualan (Rp)"]);
+        p.vals.forEach(function (v, i) { b.push([p.titles[i], v]); });
+        b.push([]);
+        b.push(["Menu terlaris", "Terjual", "Pendapatan (Rp)"]);
+        MENU_TOP.forEach(function (m) {
+            var q = Math.round(m[2] * f);
+            b.push([m[0], q, q * m[1]]);
+        });
+        b.push([]);
+        b.push(["Porsi per kategori", "Persen"]);
+        KATEGORI.forEach(function (k) { b.push([k[0], k[1] + "%"]); });
+        b.push([]);
+        b.push(["Metode pembayaran", "Persen"]);
+        BAYAR.forEach(function (k) { b.push([k[0], k[1] + "%"]); });
+
+        unduhCsv(b, "laporan-penjualan.csv");
+        tampilToast("Laporan penjualan berhasil diekspor.");
+    }
+
+    // =====================================================
+    //  MULAI
+    // =====================================================
+    tampilPeriode();
+    tampilkan();
+</script>
+
+</body>
+</html>
