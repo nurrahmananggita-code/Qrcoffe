@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Meja - Qrcoffee</title>
+    <link rel="stylesheet" href="../assets/css/customer.css">
+</head>
+<body>
+
+<div class="phone">
+
+    <div class="page-center">
+        <p class="big-icon">🪑</p>
+        <p class="muted">Kamu duduk di</p>
+        <h1 class="table-no" id="nomor-meja">Meja 5</h1>
+        <span class="tag">Sesi aktif · Qrcoffee</span>
+
+        <form action="customer_menu.html" class="form-name" onsubmit="simpanNama()">
+            <p class="form-label">Nama pemesan</p>
+            <input type="text" class="input" id="input-nama" placeholder="Angelika" required>
+
+            <!-- <p class="form-label">Jumlah Orang</p>  
+            <select id="input-jumlah-orang" class="input" required>
+                <option value="" disabled selected hidden>Pilih jumlah orang</option>
+                <option value="1">1 Orang</option>
+                <option value="2">2 Orang</option>
+                <option value="3">3 Orang</option>
+                <option value="4">4 Orang</option>
+                <option value="5">5 Orang</option>
+                <option value="6">6 Orang</option>
+            </select> -->
+
+            <!-- <div class="form-name">
+                <p class="form-label">Jenis Pesanan</p>
+                <label class="radio-label">
+                    <input type="radio" name="jenis-pesanan" value="dine-in" checked>
+                    <span class="radio-custom"></span>
+                    Dine In
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="jenis-pesanan" value="take-away">
+                    <span class="radio-custom"></span>
+                    Take Away
+                </label>
+            </div>   -->
+
+            <!-- <div class="form-name">
+                <p class="form-label">Catatan atau Permintaan Khusus</p>
+                <textarea class="input" id="catatan"></textarea>
+            </div> -->
+
+            <button type="submit" class="btn btn-full">Mulai Pesan</button>
+                </form>
+    </div>
+
+</div>
+
+<script src="../assets/js/customer_meja.js"></script>
+
+</body>
+</html>
