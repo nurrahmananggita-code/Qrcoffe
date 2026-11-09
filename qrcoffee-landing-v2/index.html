@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f6f4ef">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>QRCoffee | Pemesanan langsung dari meja</title>
+  <meta name="description" content="Sistem pemesanan QR untuk coffee shop. Pelanggan scan, pesan, bayar, lalu pesanan masuk ke bar tanpa aplikasi tambahan.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="topbar" aria-label="Navigasi utama">
+    <div class="topbar-inner">
+      <div class="topbar-mark"><img src="assets/logo.png" alt=""><strong>QR<span>Coffee</span></strong></div>
+      <div class="nav-links" id="nav-links">
+        <a href="#masalah">Masalah</a>
+        <a href="#sistem">Sistem</a>
+        <a href="#pengguna">Pengguna</a>
+        <a href="#cara">Cara kerja</a>
+        <a href="#tentang">Tentang kami</a>
+        <a href="#faq">FAQ</a>
+        <span class="nav-indicator" aria-hidden="true"></span>
+      </div>
+      <button class="menu-toggle" type="button" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="nav-links"><span></span><span></span></button>
+      <button class="nav-action" type="button" data-contact>Bahas kebutuhan</button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="atas">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="hero-kicker">Sistem pemesanan langsung dari meja untuk coffee shop.</p>
+          <h1>Pesan kopi dari meja, <span>tanpa antre.</span></h1>
+          <p class="hero-lead">Pelanggan cukup scan QR, pilih menu, dan bayar lewat HP. Pesanan langsung masuk ke layar bar dengan nomor meja dan status yang jelas.</p>
+          <div class="hero-actions">
+            <button class="primary-button" type="button" data-contact>Mulai lewat WhatsApp <span aria-hidden="true">↗</span></button>
+            <a class="secondary-button" href="#sistem">Lihat alurnya</a>
+          </div>
+          <p class="hero-note"><i></i>Tanpa aplikasi pelanggan. Cocok untuk satu outlet maupun banyak cabang.</p>
+        </div>
+
+        <div class="product-scene" aria-label="Simulasi alur pemesanan QRCoffee">
+          <img class="flow-watermark" src="assets/logo.png" alt="">
+          <div class="scene-meta"><span>Live order flow</span><span>Outlet Pusat • Meja 07</span></div>
+          <div class="scene-grid">
+            <div class="phone">
+              <div class="phone-head"><strong>QRCoffee</strong><span>Meja 07</span></div>
+              <div class="screen-content active" data-screen="0">
+                <div class="phone-title">Arahkan kamera ke QR meja</div>
+                <p class="phone-copy">Sistem mengenali outlet dan nomor meja secara otomatis.</p>
+                <div class="qr-visual" aria-hidden="true">
+                  <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                  <span class="scan-line"></span>
+                </div>
+                <p class="phone-copy" style="text-align:center">Tidak perlu mengunduh aplikasi.</p>
+              </div>
+              <div class="screen-content" data-screen="1">
+                <div class="phone-title">Mau minum apa?</div>
+                <div class="menu-pills"><span>Kopi</span><span>Non-kopi</span><span>Snack</span></div>
+                <div class="menu-row"><b></b><div><strong>Es Kopi Aren</strong><em>Rp25.000</em></div><button type="button" tabindex="-1">+</button></div>
+                <div class="menu-row"><b></b><div><strong>Caramel Latte</strong><em>Rp28.000</em></div><button type="button" tabindex="-1">+</button></div>
+                <div class="menu-row"><b></b><div><strong>Americano</strong><em>Rp20.000</em></div><button type="button" tabindex="-1">+</button></div>
+              </div>
+              <div class="screen-content" data-screen="2">
+                <div class="phone-title">Bingung memilih?</div>
+                <p class="phone-copy">Minta rekomendasi berdasarkan rasa dan budget.</p>
+                <div class="chat-line">Aku mau yang manis, dingin, di bawah Rp30.000.</div>
+                <div class="ai-pick"><strong>Pilihan yang pas</strong>Es Kopi Gula Aren • Rp25.000</div>
+              </div>
+              <div class="screen-content" data-screen="3">
+                <div class="phone-title">Ringkasan pesanan</div>
+                <div class="checkout-line"><span>Es Kopi Gula Aren</span><span>25.000</span></div>
+                <div class="checkout-line"><span>Croissant</span><span>20.000</span></div>
+                <div class="checkout-total"><span>Total</span><span>Rp45.000</span></div>
+                <div class="pay-button">Bayar dengan QRIS</div>
+              </div>
+              <div class="screen-content" data-screen="4">
+                <div class="phone-title">Pesanan selesai</div>
+                <p class="phone-copy">Status pesanan bergerak bersama proses di bar.</p>
+                <div class="kitchen-ticket"><strong>#A017 • Meja 07</strong><p>1× Es Kopi Gula Aren</p><p>1× Croissant</p><div class="status-row"><span>Baru</span><span>Proses</span><span>Selesai</span></div></div>
+              </div>
+            </div>
+
+            <div class="ops-panel">
+              <div class="ops-head"><strong>Alur yang sama, satu sistem</strong><span id="scene-caption">QR dikenali</span></div>
+              <div class="ops-list">
+                <div class="ops-item active" data-op="0"><span class="num">01</span><span>Meja dan outlet terdeteksi</span><i class="signal"></i></div>
+                <div class="ops-item" data-op="1"><span class="num">02</span><span>Menu outlet ditampilkan</span><i class="signal"></i></div>
+                <div class="ops-item" data-op="2"><span class="num">03</span><span>Rekomendasi sesuai selera</span><i class="signal"></i></div>
+                <div class="ops-item" data-op="3"><span class="num">04</span><span>Pembayaran terkonfirmasi</span><i class="signal"></i></div>
+                <div class="ops-item" data-op="4"><span class="num">05</span><span>Tiket masuk ke bar</span><i class="signal"></i></div>
+              </div>
+            </div>
+          </div>
+          <div class="scene-controls" role="tablist" aria-label="Tahapan simulasi">
+            <button class="active" type="button" data-scene="0" aria-selected="true">Scan QR</button>
+            <button type="button" data-scene="1" aria-selected="false">Pilih menu</button>
+            <button type="button" data-scene="2" aria-selected="false">Tanya AI</button>
+            <button type="button" data-scene="3" aria-selected="false">Bayar</button>
+            <button type="button" data-scene="4" aria-selected="false">Masuk bar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="roles-strip" aria-label="Pengguna sistem">
+      <div class="shell roles-strip-inner">
+        <strong class="roles-strip-title">Satu alur. Tiga sisi operasional.</strong>
+        <ol class="roles-strip-list">
+          <li><span class="roles-dot"></span><span>Pelanggan di meja</span></li>
+          <li><span class="roles-dot"></span><span>Admin outlet</span></li>
+          <li><span class="roles-dot"></span><span>Dapur dan bar</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section problem" id="masalah">
+      <div class="shell problem-layout">
+        <div class="problem-copy">
+          <span class="section-label">Masalah</span>
+          <h2 class="section-title">Antrean kecil bisa jadi masalah besar.</h2>
+          <p class="section-copy">Bukan cuma soal lama menunggu. Setiap langkah manual memberi ruang untuk pesanan terlewat, salah catat, dan laporan yang tidak rapi.</p>
+        </div>
+        <div class="receipt-wrap">
+          <ol class="receipt">
+            <li class="receipt-line"><span class="receipt-no">01</span><p>Pelanggan menunggu pelayan atau antre di kasir hanya untuk memesan.</p></li>
+            <li class="receipt-line"><span class="receipt-no">02</span><p>Catatan pesanan bisa salah, terlambat, atau tidak segera sampai ke bar.</p></li>
+            <li class="receipt-line"><span class="receipt-no">03</span><p>Menu yang panjang membuat pelanggan ragu memilih.</p></li>
+            <li class="receipt-line"><span class="receipt-no">04</span><p>Pemilik sulit memantau penjualan saat outlet mulai bertambah.</p></li>
+            <li class="receipt-line"><span class="receipt-no">05</span><p>Standar pelayanan antar cabang mudah berbeda ketika prosesnya manual.</p></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section system" id="sistem">
+      <div class="shell">
+        <div class="system-head">
+          <div>
+            <span class="section-label">Sistem</span>
+            <h2 class="section-title">Pesanan bergerak. Tim tetap fokus.</h2>
+          </div>
+          <p class="section-copy">QRCoffee menghubungkan meja, pembayaran, dan bar dalam satu alur yang bisa dipantau.</p>
+        </div>
+        <ol class="pipeline">
+          <li class="pipe-node">
+            <div class="pipe-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg></div>
+            <h3>Pelanggan memesan</h3>
+            <p>Scan QR, lihat menu outlet, pilih produk, dan bayar lewat HP sendiri.</p>
+          </li>
+          <li class="pipe-node">
+            <div class="pipe-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13m0 0-3.5-3.5M17 8l-3.5 3.5M20 16H7m0 0 3.5-3.5M7 16l3.5 3.5"/></svg></div>
+            <h3>Sistem meneruskan</h3>
+            <p>Outlet, meja, detail item, dan status pembayaran ikut tercatat.</p>
+          </li>
+          <li class="pipe-node">
+            <div class="pipe-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5V9Zm11 1.5h1.5a2.5 2.5 0 0 1 0 5H16M8 3.5v2M11.5 3.5v2"/></svg></div>
+            <h3>Bar mulai bekerja</h3>
+            <p>Pesanan muncul di layar dapur untuk diproses sampai selesai.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section roles" id="pengguna">
+      <div class="shell">
+        <div class="roles-head">
+          <div>
+            <span class="section-label">Pengguna</span>
+            <h2 class="section-title">Tampilan yang tepat untuk orang yang tepat.</h2>
+          </div>
+          <p class="section-copy">Pelanggan melihat pilihan. Admin melihat kontrol. Tim bar melihat pekerjaan yang harus diselesaikan.</p>
+        </div>
+
+        <div class="role-switch" role="tablist" aria-label="Pilih jenis pengguna">
+          <button class="role-tab active" type="button" role="tab" id="tab-customer" aria-controls="panel-customer" aria-selected="true" data-role="customer"><span class="role-tab-no">01</span><strong>Pelanggan</strong></button>
+          <button class="role-tab" type="button" role="tab" id="tab-admin" aria-controls="panel-admin" aria-selected="false" tabindex="-1" data-role="admin"><span class="role-tab-no">02</span><strong>Admin outlet</strong></button>
+          <button class="role-tab" type="button" role="tab" id="tab-kitchen" aria-controls="panel-kitchen" aria-selected="false" tabindex="-1" data-role="kitchen"><span class="role-tab-no">03</span><strong>Dapur dan bar</strong></button>
+          <span class="role-switch-thumb" aria-hidden="true"></span>
+        </div>
+
+        <div class="role-stage">
+          <div class="role-panel active" id="panel-customer" role="tabpanel" aria-labelledby="tab-customer" data-panel="customer">
+            <div class="role-content">
+              <h3>Datang, duduk, langsung pesan.</h3>
+              <p>Pelanggan memakai perangkat yang sudah ada di tangannya. Tidak ada akun dan tidak ada aplikasi tambahan.</p>
+              <ul class="feature-list">
+                <li>QR unik untuk setiap meja</li>
+                <li>Menu digital dengan kategori dan pencarian</li>
+                <li>Rekomendasi menu sesuai rasa dan budget</li>
+                <li>Keranjang, checkout, dan pembayaran online</li>
+              </ul>
+            </div>
+            <div class="role-visual">
+              <div class="dash">
+                <div class="dash-top"><span>Order experience</span><i></i></div>
+                <div class="dash-big">4 langkah<small>dari scan sampai pembayaran</small></div>
+                <div class="dash-bars">
+                  <div class="dash-bar"><span>Scan QR</span><i style="--w:100%"></i><b>01</b></div>
+                  <div class="dash-bar"><span>Pilih menu</span><i style="--w:76%"></i><b>02</b></div>
+                  <div class="dash-bar"><span>Checkout</span><i style="--w:52%"></i><b>03</b></div>
+                  <div class="dash-bar"><span>Bayar</span><i style="--w:29%"></i><b>04</b></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="role-panel" id="panel-admin" role="tabpanel" aria-labelledby="tab-admin" data-panel="admin" hidden>
+            <div class="role-content">
+              <h3>Satu tempat untuk menjaga outlet tetap rapi.</h3>
+              <p>Hal yang biasanya tersebar di catatan manual sekarang bisa dikelola dari satu dashboard.</p>
+              <ul class="feature-list">
+                <li>Kelola menu, kategori, dan ketersediaan</li>
+                <li>Atur meja dan QR unik setiap meja</li>
+                <li>Pantau pesanan dan riwayat transaksi</li>
+                <li>Lihat laporan penjualan per outlet</li>
+              </ul>
+            </div>
+            <div class="role-visual">
+              <div class="dash">
+                <div class="dash-top"><span>Outlet control</span><i></i></div>
+                <div class="dash-big">Satu panel<small>menu, meja, pesanan, dan laporan</small></div>
+                <div class="order-stack">
+                  <div class="order-card"><b>24</b><div><strong>Menu aktif</strong><span>3 kategori</span></div><em>Tersedia</em></div>
+                  <div class="order-card"><b>12</b><div><strong>Meja terhubung</strong><span>QR unik</span></div><em>Online</em></div>
+                  <div class="order-card"><b>08</b><div><strong>Pesanan hari ini</strong><span>Semua tercatat</span></div><em>Live</em></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="role-panel" id="panel-kitchen" role="tabpanel" aria-labelledby="tab-kitchen" data-panel="kitchen" hidden>
+            <div class="role-content">
+              <h3>Tiket pesanan yang jelas, bukan catatan yang tercecer.</h3>
+              <p>Tim bar melihat urutan kerja dan memindahkan status pesanan tanpa menebak meja pelanggan.</p>
+              <ul class="feature-list">
+                <li>Pesanan baru muncul otomatis</li>
+                <li>Detail item dan nomor meja terlihat jelas</li>
+                <li>Status baru, diproses, dan selesai</li>
+              </ul>
+            </div>
+            <div class="role-visual">
+              <div class="dash">
+                <div class="dash-top"><span>Kitchen queue</span><i></i></div>
+                <div class="order-stack tickets">
+                  <div class="order-card is-new"><b>07</b><div><strong>2 item • Meja 07</strong><span>Masuk 1 menit lalu</span></div><em>Baru</em></div>
+                  <div class="order-card is-proc"><b>03</b><div><strong>3 item • Meja 03</strong><span>Sedang diracik</span></div><em>Proses</em></div>
+                  <div class="order-card is-done"><b>11</b><div><strong>1 item • Meja 11</strong><span>Siap diantar</span></div><em>Selesai</em></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section how" id="cara">
+      <div class="shell how-layout">
+        <div class="how-copy">
+          <span class="section-label">Cara kerja</span>
+          <h2 class="section-title">Lima langkah. Tidak ada yang terputus.</h2>
+          <p class="section-copy">Setiap perubahan status terlihat oleh pihak yang perlu tahu.</p>
+        </div>
+        <ol class="timeline" id="timeline">
+          <li class="tl-step"><span class="tl-node">1</span><div><h3>Scan QR meja</h3><p>Sistem mengenali outlet dan nomor meja pelanggan.</p></div></li>
+          <li class="tl-step"><span class="tl-node">2</span><div><h3>Pilih menu</h3><p>Pelanggan melihat menu yang tersedia di outlet tersebut.</p></div></li>
+          <li class="tl-step"><span class="tl-node">3</span><div><h3>Bayar online</h3><p>Keranjang diperiksa, pembayaran dilakukan, lalu status dikonfirmasi.</p></div></li>
+          <li class="tl-step"><span class="tl-node">4</span><div><h3>Masuk ke bar</h3><p>Pesanan tampil bersama nomor meja dan detail item.</p></div></li>
+          <li class="tl-step"><span class="tl-node">5</span><div><h3>Selesai dan tercatat</h3><p>Pesanan diantar. Riwayatnya masuk ke laporan outlet.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section scale" id="skala">
+      <div class="shell">
+        <span class="section-label">Skala</span>
+        <h2 class="section-title">Mulai dari satu outlet. Tetap siap saat bertambah.</h2>
+        <div class="scale-grid">
+          <article class="scale-card single">
+            <div class="scale-mark" aria-hidden="true"><i></i></div>
+            <h3>Outlet tunggal</h3>
+            <p>Cocok untuk coffee shop yang ingin mengurangi antrean dan merapikan pesanan harian.</p>
+            <ul class="scale-list"><li>Pesanan tercatat otomatis</li><li>Laporan siap dilihat</li><li>Alur kerja lebih ringkas</li></ul>
+          </article>
+          <article class="scale-card multi">
+            <div class="scale-mark branch" aria-hidden="true"><b></b><i></i><i></i><i></i></div>
+            <h3>Brand multi-outlet</h3>
+            <p>Satu sistem untuk banyak cabang, tanpa mencampur menu, meja, pesanan, dan laporan masing-masing outlet.</p>
+            <ul class="scale-list"><li>Tambah cabang tanpa mulai dari nol</li><li>Kontrol outlet tetap terpisah</li><li>Pengalaman pelanggan tetap seragam</li></ul>
+          </article>
+        </div>
+        <div class="capabilities">
+          <article class="capability"><h3>Rekomendasi menu</h3><p>Membantu pelanggan menemukan pilihan berdasarkan rasa dan budget.</p></article>
+          <article class="capability"><h3>Berbasis web</h3><p>Dibuka langsung dari browser HP pelanggan, tanpa unduhan tambahan.</p></article>
+          <article class="capability"><h3>Dukungan pengembangan</h3><p>Perubahan kebutuhan outlet bisa dibahas bersama tim pengembang.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="tentang">
+      <div class="shell about-grid">
+        <div class="about-main">
+          <span class="section-label">Tentang kami</span>
+          <p class="about-statement">Kami merancang alur digital yang tetap terasa <span>sederhana di meja</span> dan rapi di belakang bar.</p>
+          <p class="section-copy">QRCoffee lahir dari satu masalah yang dekat dengan operasional coffee shop: proses memesan seharusnya tidak menghabiskan waktu pelanggan atau memecah fokus tim.</p>
+        </div>
+        <div class="about-principles">
+          <article class="about-item"><h3>Jelas untuk pelanggan</h3><p>Tidak perlu akun atau aplikasi baru. Seluruh alur berjalan dari browser HP.</p></article>
+          <article class="about-item"><h3>Ringkas untuk tim outlet</h3><p>Detail meja, item, pembayaran, dan status pesanan berada dalam alur yang sama.</p></article>
+          <article class="about-item"><h3>Siap berkembang</h3><p>Strukturnya dapat digunakan satu outlet, lalu diperluas ketika jumlah cabang bertambah.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq" id="faq">
+      <div class="shell faq-layout">
+        <div class="faq-copy">
+          <span class="section-label">FAQ</span>
+          <h2 class="section-title">Sebelum kamu mulai.</h2>
+        </div>
+        <div class="faq-list">
+          <details><summary>Apakah pelanggan perlu memasang aplikasi?</summary><p>Tidak. Pelanggan cukup memindai QR di meja dan memesan melalui browser di HP mereka.</p></details>
+          <details><summary>Bisa dipakai untuk lebih dari satu outlet?</summary><p>Bisa. Menu, meja, pesanan, dan laporan setiap outlet tetap terpisah di dalam sistem yang sama.</p></details>
+          <details><summary>Bagaimana kalau ada kendala pada sistem?</summary><p>Tim pengembang bisa membantu perbaikan dan membahas kebutuhan pengembangan berikutnya.</p></details>
+          <details><summary>Bagaimana cara mulai?</summary><p>Hubungi tim melalui WhatsApp, ceritakan kebutuhan outlet atau brand kamu, lalu alur penerapannya bisa dibahas bersama.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="final" id="mulai">
+      <div class="shell">
+        <div class="final-box">
+          <img class="final-mark" src="assets/logo.png" alt="">
+          <div class="final-copy">
+            <h2>Meja siap. Menu siap. Saatnya alurnya ikut siap.</h2>
+            <p>Ceritakan jumlah outlet, alur pemesanan saat ini, dan bagian yang paling sering membuat tim kewalahan.</p>
+          </div>
+          <div class="final-cta">
+            <p>Pendaftaran dan pembelian sementara dilakukan melalui WhatsApp.</p>
+            <button class="primary-button" type="button" data-contact>Bahas lewat WhatsApp <span aria-hidden="true">↗</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div class="footer-brand">
+        <span class="footer-logo"><img src="assets/logo.png" alt=""></span>
+        <p>Sistem pemesanan QR yang menghubungkan meja, pembayaran, dan bar dalam satu alur.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Navigasi footer">
+        <strong>Jelajahi</strong>
+        <a href="#masalah">Masalah</a>
+        <a href="#sistem">Sistem</a>
+        <a href="#pengguna">Pengguna</a>
+        <a href="#cara">Cara kerja</a>
+      </nav>
+      <nav class="footer-nav" aria-label="Informasi QRCoffee">
+        <strong>QRCoffee</strong>
+        <a href="#tentang">Tentang kami</a>
+        <a href="#faq">FAQ</a>
+        <button type="button" data-contact>Bahas kebutuhan</button>
+      </nav>
+      <div class="footer-note">
+        <strong>Dibuat untuk alur yang jelas.</strong>
+        <p>Dari pelanggan duduk sampai pesanan selesai diantar.</p>
+      </div>
+    </div>
+    <div class="shell footer-bottom">
+      <span>QRCoffee © 2026</span>
+      <span><i></i>Pemesanan langsung dari meja</span>
+    </div>
+  </footer>
+
+  <button class="wa-float" type="button" aria-label="Buka informasi WhatsApp" aria-expanded="false" data-contact>
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.98L2 22l5.17-1.5A9.9 9.9 0 1 0 12.04 2Zm5.8 14.1c-.25.7-1.45 1.33-2 1.4-.52.07-1.17.1-1.9-.12a17 17 0 0 1-1.72-.63c-3.03-1.3-5-4.35-5.15-4.55-.15-.2-1.23-1.63-1.23-3.1 0-1.48.77-2.2 1.05-2.5.27-.3.6-.37.8-.37h.57c.18 0 .43-.07.67.5.25.6.85 2.07.92 2.22.08.15.13.32.03.52-.1.2-.15.32-.3.5-.15.17-.32.38-.45.51-.15.15-.3.3-.13.6.17.3.77 1.27 1.65 2.05 1.13 1 2.08 1.32 2.38 1.47.3.15.47.12.65-.07.17-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.28.1 1.75.83 2.05.98.3.15.5.22.57.35.08.12.08.72-.17 1.4Z"/></svg>
+  </button>
+
+  <aside class="contact-popover" id="contact-popover" aria-hidden="true" aria-label="Informasi kontak WhatsApp">
+    <button class="close" type="button" aria-label="Tutup">×</button>
+    <small>WhatsApp inquiry</small>
+    <h3>Bahas kebutuhan outlet kamu.</h3>
+    <p>Pada versi final, tombol ini akan membuka chat pendaftaran dengan pesan yang sudah disiapkan.</p>
+    <p class="contact-note">Nomor WhatsApp belum dimasukkan pada mockup ini.</p>
+  </aside>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
