@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#FAF4EA">
+    <title>Detail Menu — Minimal Ngopi</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/customer.css">
+</head>
+<body>
+
+<div class="app detail-page">
+
+    <div class="app-body">
+
+        <!-- Foto menu -->
+        <div class="detail-hero">
+            <a href="customer_menu.html" class="back-btn detail-back" id="detail-back" aria-label="Kembali ke menu">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+
+            <img id="detail-photo"
+                 src="../assets/images/kopi_aren.png"
+                 alt="Foto menu"
+                 class="detail-photo">
+        </div>
+
+        <!-- Keterangan menu -->
+        <div class="detail-sheet">
+
+            <div class="detail-title">
+                <h1 id="detail-name" class="detail-name">Kopi Susu Gula Aren</h1>
+                <p id="detail-price" class="detail-price">Rp24.000</p>
+            </div>
+
+            <p id="detail-desc" class="detail-desc">Espresso, susu segar, gula aren cair.</p>
+
+            <div class="detail-tags">
+                <span id="detail-category">Kopi</span>
+                <span id="detail-caffeine">Kafein sedang</span>
+            </div>
+
+            <!-- Pilihan ukuran & level gula diisi oleh JavaScript -->
+            <div id="pilihan-menu"></div>
+
+            <!-- Catatan pelanggan -->
+            <div class="detail-section">
+                <h3>Catatan</h3>
+                <textarea id="catatan"
+                          class="note-input"
+                          placeholder="Contoh: tanpa es, less sugar..."></textarea>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Jumlah & tombol tambah -->
+    <div class="detail-bottom">
+        <div class="quantity">
+            <button type="button" class="quantity-btn" id="kurang" aria-label="Kurangi jumlah">−</button>
+            <span id="jumlah">1</span>
+            <button type="button" class="quantity-btn" id="tambah" aria-label="Tambah jumlah">+</button>
+        </div>
+
+        <button type="button" class="btn add-cart" id="tambah-keranjang">
+            Tambah · Rp24.000
+        </button>
+    </div>
+
+</div>
+
+<script src="../assets/js/customer.js"></script>
+<script src="../assets/js/customer_detail.js"></script>
+
+</body>
+</html>

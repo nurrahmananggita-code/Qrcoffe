@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#FAF4EA">
+    <title>Menu — Minimal Ngopi</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/customer.css?v=20261110">
+</head>
+<body>
+
+<div class="app menu-page">
+
+    <div class="app-body" id="menu-scroll">
+
+        <!-- KEPALA: satu foto besar, tulisan seminimal mungkin -->
+        <header class="mast">
+  <div class="mast-top">
+    <img src="../assets/images/logo.png" alt="Minimal Ngopi" class="mast-logo" />
+    <span class="table-pill">Meja 5</span>
+  </div>
+
+  <div class="mast-foot">
+    <p class="mast-hello" id="info-tamu">Meja 5 · Halo, Tamu</p>
+    <div class="mast-contact">
+      <span>0812 3456 7890</span>
+      <span class="mast-sep"></span>
+      <span>halo@minimalngopi.id</span>
+    </div>
+    <h1 class="mast-title">Mau pesan apa hari ini?</h1>
+  </div>
+</header>
+
+        <!-- MENU BERGERAK: foto menu berjalan sendiri, bisa digeser -->
+        <section class="rak" aria-label="Menu bergerak">
+            <div class="rak-track" id="rak-track"></div>
+        </section>
+
+        <!-- AI BARISTA -->
+        <a href="customer_rekomendasi.html" class="ai-card" data-reveal>
+            <div class="ai-text">
+                <p class="ai-title">Bingung pilih?</p>
+                <p class="ai-desc">AI Barista pilihkan.</p>
+            </div>
+            <span class="ai-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <!-- PENCARIAN & KATEGORI -->
+        <div class="menu-tools" id="menu-tools">
+            <label class="search" for="cari-menu">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle cx="11" cy="11" r="6.6" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="M16 16l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+                <input type="text" id="cari-menu" placeholder="Cari menu..." autocomplete="off" aria-label="Cari menu">
+            </label>
+
+            <div class="chips">
+                <button type="button" class="chip chip-on" data-kategori="semua">
+                    <img src="../assets/images/logo.png" alt="">
+                    <span>Semua</span>
+                </button>
+                <button type="button" class="chip" data-kategori="kopi">
+                    <img src="../assets/images/kopi_aren.png" alt="">
+                    <span>Kopi</span>
+                </button>
+                <button type="button" class="chip" data-kategori="non-kopi">
+                    <img src="../assets/images/matcha_latte.png" alt="">
+                    <span>Non-kopi</span>
+                </button>
+                <button type="button" class="chip" data-kategori="makanan-berat">
+                    <img src="../assets/images/nasi_goreng_kampung.png" alt="">
+                    <span>Makanan</span>
+                </button>
+                <button type="button" class="chip" data-kategori="camilan">
+                    <img src="../assets/images/kentang_goreng.png" alt="">
+                    <span>Camilan</span>
+                </button>
+                <button type="button" class="chip" data-kategori="dessert">
+                    <img src="../assets/images/puding_cokelat.png" alt="">
+                    <span>Dessert</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- DAFTAR MENU -->
+        <div class="menu-list" id="menu-list">
+
+            <a href="customer_detail.html?menu=kopi-susu-gula-aren"
+               class="menu-link"
+               data-kategori="kopi">
+                <article class="menu-item">
+                    <img src="../assets/images/kopi_aren.png" alt="Kopi Susu Gula Aren" class="item-photo">
+                    <div class="item-info">
+                        <p class="item-name">Kopi Susu Gula Aren</p>
+                        <p class="item-desc">Espresso, susu segar, gula aren.</p>
+                        <p class="item-price">Rp24.000</p>
+                    </div>
+                    <span class="plus" aria-hidden="true">+</span>
+                </article>
+            </a>
+
+            <a href="customer_detail.html?menu=americano"
+               class="menu-link"
+               data-kategori="kopi">
+                <article class="menu-item">
+                    <img src="../assets/images/kopi_americano.png" alt="Americano" class="item-photo">
+                    <div class="item-info">
+                        <p class="item-name">Americano</p>
+                        <p class="item-desc">Espresso dan air panas.</p>
+                        <p class="item-price">Rp20.000</p>
+                    </div>
+                    <span class="plus" aria-hidden="true">+</span>
+                </article>
+            </a>
+
+            <a href="customer_detail.html?menu=kopi-tubruk"
+               class="menu-link"
+               data-kategori="kopi">
+                <article class="menu-item">
+                    <img src="../assets/images/kopi_tubruk.png" alt="Kopi Tubruk" class="item-photo">
+                    <div class="item-info">
+                        <p class="item-name">Kopi Tubruk</p>
+                        <p class="item-desc">Kopi tubruk, disajikan panas.</p>
+                        <p class="item-price">Rp15.000</p>
+                    </div>
+                    <span class="plus" aria-hidden="true">+</span>
+                </article>
+            </a>
+
+            <a href="customer_detail.html?menu=matcha-latte"
+               class="menu-link"
+               data-kategori="non-kopi">
+                <article class="menu-item">
+                    <img src="../assets/images/matcha_latte.png" alt="Matcha Latte" class="item-photo" loading="lazy">
+                    <div class="item-info">
+                        <p class="item-name">Matcha Latte</p>
+                        <p class="item-desc">Matcha Jepang dan susu.</p>
+                        <p class="item-price">Rp28.000</p>
+                    </div>
+                    <span class="plus" aria-hidden="true">+</span>
+                </article>
+            </a>
+
+            <a href="customer_detail.html?menu=teh-tarik"
+               class="menu-link"
+               data-kategori="non-kopi">
+                <article class="menu-item">
+                    <img src="../assets/images/teh_tarik.png" alt="Teh Tarik" class="item-photo" loading="lazy">
+                    <div class="item-info">
+                        <p class="item-name">Teh Tarik</p>
+                        <p class="item-desc">Teh pekat dan susu.</p>
+                        <p class="item-price">Rp18.000</p>
+                    </div>
+                    <span class="plus" aria-hidden="true">+</span>
+                </article>
+            </a>
+
+            <a href="customer_detail.html?menu=nasi-goreng-kampung"
+               class="menu-link"
+               data-kategori="makanan-berat">
+                <article class="menu-item">
+                    <img src="../assets/images/nasi_goreng_kampung.png" alt="Nasi Goreng Kampung" class="item-photo" loading="lazy">
+                    <div class="item-info">
+                        <p class="item-name">Nasi Goreng Kampung</p>
+                        <p class="item-desc">Telur, ayam suwir, kerupuk.</p>
+                        <p class="item-price">Rp32.000</p>
+                    </div>
+                    <span class="plus" aria-hidden="true">+</span>
+                </article>
+            </a>
+
+            <a href="customer_detail.html?menu=mie-goreng-jawa"
+               class="menu-link"
+               data-kategori="makanan-berat">
+                <article class="menu-item">
+                    <img src="../assets/images/mie_goreng_jawa.png" alt="Mie Goreng Jawa" class="item-photo" loading="lazy">
+                    <div class="item-info">
+                        <p class="item-name">Mie Goreng Jawa</p>
+                        <p class="item-desc">Kecap manis dan sayur.</p>
+                        <p class="item-price">Rp30.000</p>
+                    </div>
+                    <span class="plus" aria-hidden="true">+</span>
+                </article>
+            </a>
+
+            <a href="customer_detail.html?menu=ayam-bakar-madu"
+               class="menu-link"
+               data-kategori="makanan-berat">
+                <article class="menu-item">
+                    <img src="../assets/images/ayam_bakar_madu.png" alt="Ayam Bakar Madu" class="item-photo" loading="lazy">
+                    <div class="item-info">
+                        <p class="item-name">Ayam Bakar Madu</p>
+                        <p class="item-desc">Olesan madu, nasi, lalapan.</p>
+                        <p class="item-price">Rp38.000</p>
+                    </div>
+                    <span class="plus" aria-hidden="true">+</span>
+                </article>
+            </a>
+
+            <a href="customer_detail.html?menu=pisang-goreng-keju"
+               class="menu-link"
+               data-kategori="camilan">
+                <article class="menu-item">
+                    <img src="../assets/images/pisang_goreng_keju.png" alt="Pisang Goreng Keju" class="item-photo" loading="lazy">
+                    <div class="item-info">
+                        <p class="item-name">Pisang Goreng Keju</p>
+                        <p class="item-desc">Keju parut dan susu.</p>
+                        <p class="item-price">Rp22.000</p>
+                    </div>
+                    <span class="plus" aria-hidden="true">+</span>
+                </article>
+            </a>
+
+            <a href="customer_detail.html?menu=kentang-goreng"
+               class="menu-link"
+               data-kategori="camilan">
+                <article class="menu-item">
+                    <img src="../assets/images/kentang_goreng.png" alt="Kentang Goreng" class="item-photo" loading="lazy">
+                    <div class="item-info">
+                        <p class="item-name">Kentang Goreng</p>
+                        <p class="item-desc">Renyah, saus sambal.</p>
+                        <p class="item-price">Rp20.000</p>
+                    </div>
+                    <span class="plus" aria-hidden="true">+</span>
+                </article>
+            </a>
+
+            <a href="customer_detail.html?menu=roti-bakar-cokelat"
+               class="menu-link"
+               data-kategori="dessert">
+                <article class="menu-item">
+                    <img src="../assets/images/roti_bakar_cokelat.png" alt="Roti Bakar Cokelat" class="item-photo" loading="lazy">
+                    <div class="item-info">
+                        <p class="item-name">Roti Bakar Cokelat</p>
+                        <p class="item-desc">Selai cokelat dan keju.</p>
+                        <p class="item-price">Rp21.000</p>
+                    </div>
+                    <span class="plus" aria-hidden="true">+</span>
+                </article>
+            </a>
+
+            <a href="customer_detail.html?menu=puding-cokelat"
+               class="menu-link"
+               data-kategori="dessert">
+                <article class="menu-item">
+                    <img src="../assets/images/puding_cokelat.png" alt="Puding Cokelat" class="item-photo" loading="lazy">
+                    <div class="item-info">
+                        <p class="item-name">Puding Cokelat</p>
+                        <p class="item-desc">Lembut, vla vanila.</p>
+                        <p class="item-price">Rp17.000</p>
+                    </div>
+                    <span class="plus" aria-hidden="true">+</span>
+                </article>
+            </a>
+
+        </div>
+
+        <p class="menu-alamat">
+            Minimal Ngopi · Jl. Kenanga Raya No. 12, Kemang
+        </p>
+    </div>
+
+    <!-- BAR KERANJANG -->
+    <a href="customer_keranjang.html" class="cart-bar" id="cart-bar">
+        <span id="cart-count">0 item</span>
+        <span id="cart-total">Rp0 →</span>
+    </a>
+
+</div>
+
+<!-- PANEL DETAIL MENU -->
+<div class="detail-overlay" id="detail-overlay">
+    <div class="detail-panel">
+        <button type="button" class="detail-close" id="detail-close" aria-label="Tutup detail menu">×</button>
+        <iframe id="detail-frame" class="detail-frame" title="Detail menu"></iframe>
+    </div>
+</div>
+
+<script src="../assets/js/customer.js"></script>
+<script src="../assets/js/customer_menu.js"></script>
+
+</body>
+</html>

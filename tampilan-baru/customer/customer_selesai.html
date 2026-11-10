@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#FAF4EA">
+    <title>Pembayaran Berhasil — Minimal Ngopi</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/customer.css">
+    <link rel="stylesheet" href="../assets/css/customer-pages.css">
+</head>
+<body>
+
+<div class="app">
+
+    <div class="sukses-body">
+
+        <!-- Ikon centang -->
+        <div class="sukses-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="34" height="34" fill="none">
+                <path d="M4.5 12.5l5 5 10-11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+
+        <!-- Judul dan keterangan -->
+        <h1 class="sukses-title">Pembayaran Berhasil</h1>
+        <p class="sukses-desc">Terima kasih, pembayaran kamu sudah kami terima.</p>
+        <span class="badge-lunas">Sudah dibayar</span>
+
+        <!-- Ringkasan transaksi -->
+        <div class="sukses-card">
+            <div class="sukses-row">
+                <span class="sukses-label">Metode</span>
+                <b id="metode-bayar">QRIS</b>
+            </div>
+            <div class="sukses-row">
+                <span class="sukses-label">Total</span>
+                <b id="total-bayar">Rp0</b>
+            </div>
+            <div class="sukses-row">
+                <span class="sukses-label">No. transaksi</span>
+                <b id="no-transaksi">TRX-0000</b>
+            </div>
+        </div>
+
+        <a href="customer_status.html" class="btn-status">Lihat Status Pesanan</a>
+
+    </div>
+
+</div>
+
+<script src="../assets/js/customer.js"></script>
+<script src="../assets/js/customer_selesai.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#FAF4EA">
+    <title>AI Barista — Minimal Ngopi</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/customer.css?v=20261110">
+    <link rel="stylesheet" href="../assets/css/customer-pages.css?v=20261110">
+</head>
+<body>
+
+<div class="app rek-page">
+
+    <!-- Bar atas -->
+    <div class="rek-top">
+        <span class="biji-rek" aria-hidden="true"></span>
+        <a href="customer_menu.html" class="rek-back" aria-label="Kembali ke menu">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+        <p class="rek-title" id="rek-judul">AI Barista</p>
+    </div>
+
+    <div class="app-body">
+        <div class="rek-body">
+
+            <div id="rek-form">
+
+                <!-- Kartu penjelasan -->
+                <div class="rek-intro">
+                    <p class="rek-intro-title">Ceritakan seleramu</p>
+                    <p class="rek-intro-desc">Ketik bebas aja, kayak ngobrol sama barista.</p>
+                </div>
+
+                <!-- Kolom cerita -->
+                <textarea id="rek-input" class="rek-input"
+                    placeholder="Contoh: aku lagi capek banget, pengen yang manis dan dingin, budget 25 ribuan"></textarea>
+
+                <!-- Contoh cerita -->
+                <p class="rek-label">Atau coba salah satu:</p>
+                <button type="button" class="rek-chip">Lagi ngantuk, butuh yang kuat tapi nggak pahit banget</button>
+                <button type="button" class="rek-chip">Pengen yang manis dan dingin, budget 25 ribuan</button>
+                <button type="button" class="rek-chip">Nggak mau kopi, yang creamy dan hangat aja</button>
+                <button type="button" class="rek-chip">Mau nemenin kerja lama, kafein tinggi</button>
+
+                <!-- Tombol tanya -->
+                <button type="button" id="rek-tanya" class="rek-btn">Tanya AI Barista</button>
+            </div>
+
+            <!-- Hasil rekomendasi (diisi oleh JavaScript) -->
+            <div id="rek-hasil" hidden></div>
+
+        </div>
+    </div>
+
+    <!-- Bar keranjang -->
+    <a href="customer_keranjang.html" id="rek-cart" class="rek-cart" hidden>
+        <span id="rek-cart-item">0 item</span>
+        <span id="rek-cart-total">Rp0 →</span>
+    </a>
+
+</div>
+
+<!-- Pop-up detail menu -->
+<div id="rek-popup" class="rek-popup" hidden>
+    <div class="rek-popup-isi">
+        <iframe id="rek-popup-frame" class="rek-popup-frame" title="Detail menu"></iframe>
+    </div>
+</div>
+
+<script src="../assets/js/customer.js"></script>
+<script src="../assets/js/customer_rekomendasi.js"></script>
+
+</body>
+</html>

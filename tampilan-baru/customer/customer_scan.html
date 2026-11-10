@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#36200F">
+    <title>Scan QR — Minimal Ngopi</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/customer.css">
+</head>
+<body>
+
+<div class="app scan-page">
+
+    <!-- FOTO LATAR -->
+    <div class="scan-bg" data-parallax></div>
+
+    <!-- JUDUL -->
+    <header class="scan-head">
+        <h1 class="scan-title">Minimal Ngopi</h1>
+        <p class="scan-desc">Scan QR di meja kamu untuk mulai memesan</p>
+    </header>
+
+    <!-- KOTAK SCAN -->
+    <div class="scan-frame">
+        <span class="scan-line"></span>
+    </div>
+
+    <!-- TOMBOL + DEMO -->
+    <div class="scan-bottom">
+        <a href="customer_meja.html?meja=5" class="btn btn-block btn-light" id="btn-scan">Simulasikan Scan QR</a>
+
+        <div class="demo-row">
+            <label for="pilih-meja">Demo: duduk di meja</label>
+            <select id="pilih-meja">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option selected>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+            </select>
+        </div>
+    </div>
+
+</div>
+
+<script src="../assets/js/customer.js"></script>
+<script src="../assets/js/customer_scan.js"></script>
+
+</body>
+</html>

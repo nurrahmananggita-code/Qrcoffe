@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#FAF4EA">
+    <title>Checkout — Minimal Ngopi</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/customer.css">
+    <link rel="stylesheet" href="../assets/css/customer-pages.css">
+</head>
+<body>
+
+<div class="app">
+
+    <header class="app-bar">
+        <a href="customer_keranjang.html" class="back-btn" aria-label="Kembali ke keranjang">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+        <h1 class="bar-title">Checkout</h1>
+        <span class="bar-spacer"></span>
+    </header>
+
+    <div class="app-body">
+        <div class="checkout-body">
+
+            <!-- Dipesan untuk -->
+            <div class="info-card">
+                <div>
+                    <p class="info-label">Dipesan untuk</p>
+                    <p class="info-value" id="info-pemesan">Tamu · Meja 5</p>
+                </div>
+                <span class="tag">Dine in</span>
+            </div>
+
+            <!-- Ringkasan pesanan -->
+            <h3 class="section-title">Ringkasan pesanan</h3>
+
+            <div class="summary-card">
+                <div id="daftar-ringkasan"></div>
+
+                <hr class="summary-line">
+
+                <div class="summary-row summary-muted">
+                    <span>Subtotal</span>
+                    <span id="subtotal">Rp0</span>
+                </div>
+                <div class="summary-row summary-total">
+                    <span>Total</span>
+                    <span id="total">Rp0</span>
+                </div>
+            </div>
+
+            <!-- Catatan untuk barista -->
+            <h3 class="section-title">Catatan untuk barista</h3>
+
+            <textarea id="catatan-pesanan"
+                      class="checkout-note"
+                      placeholder="Opsional, contoh: pedas sedang, tanpa telur"></textarea>
+
+            <a href="customer_pembayaran.html" class="btn-bayar" id="tombol-bayar">
+                Pilih Pembayaran
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<script src="../assets/js/customer.js"></script>
+<script src="../assets/js/customer_checkout.js"></script>
+
+</body>
+</html>
