@@ -1,0 +1,74 @@
+/* =====================================================================
+   QRCOFFEE - TEMA WARNA (Admin Outlet + Dapur)
+   Diambil dari landing page (qrcoffee-landing-v2/styles.css):
+   kertas krem hangat, charcoal (espresso), dan aksen amber.
+
+   Satu-satunya tempat untuk mengubah warna. Semua CSS lain memakai
+   variabel di bawah ini. File yang sama ada di admin-outlet & dapur.
+   >>> Palet ini USULAN. Konfirmasi dulu ke grup sebelum dianggap final. <<<
+   ===================================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap");
+
+:root {
+    color-scheme: light;
+
+    /* Latar & permukaan (landing: --paper, --surface, --surface-soft, --line) */
+    --c-bg:          #F6F4EF;   /* latar halaman (kertas krem)          */
+    --c-surface:     #FFFFFF;   /* kartu, panel                         */
+    --c-surface-2:   #ECE9E2;   /* header tabel, area cekung            */
+    --c-surface-3:   #EBE8E1;   /* chip/badge netral, hover             */
+    --c-border:      #D7D2C9;   /* garis pemisah, border input          */
+
+    /* Sidebar gelap (landing: --espresso) */
+    --c-sidebar:     #292730;
+    --c-on-dark:     #FFFDF8;
+    --c-on-dark-soft:#CEC9D2;
+    --c-night-line:  #514D59;
+
+    /* Teks (landing: --ink, --ink-soft) */
+    --c-text:        #292730;
+    --c-muted:       #66616C;
+    --c-faint:       #A39EAB;
+
+    /* Aksen amber (landing: --amber, --amber-dark, --amber-light) */
+    --c-accent:       #E58322;  /* isi tombol, switch, bar              */
+    --c-accent-hover: #F5A848;
+    --c-accent-text:  #B95C0B;  /* teks/link beraksen di atas putih     */
+    --c-accent-soft:  #F9E3C8;  /* latar badge/ikon beraksen            */
+    --c-on-accent:    #201F25;  /* teks di atas warna aksen             */
+
+    /* Status */
+    --c-success:      #25835A;
+    --c-success-soft: #DCEFE5;
+    --c-warn:         #8E4600;
+    --c-warn-soft:    #FFF1D6;
+    --c-danger:       #C0392B;
+    --c-danger-soft:  #FBE3E0;
+
+    --c-overlay:     rgba(41, 39, 48, .55);
+    --c-shadow:      0 1px 2px rgba(35, 30, 39, .06), 0 8px 24px rgba(35, 30, 39, .05);
+
+    --font-display:  "Archivo", system-ui, "Segoe UI", sans-serif;
+    --font-body:     "Manrope", system-ui, "Segoe UI", sans-serif;
+}
+
+/* Area gelap (sidebar & panel kiri login dapur): warna dibalik di dalamnya */
+.sidebar, .login-art {
+    --c-text:        var(--c-on-dark);
+    --c-muted:       var(--c-on-dark-soft);
+    --c-faint:       #A39EAB;
+    --c-border:      var(--c-night-line);
+    --c-accent-text: #F5A848;
+    --c-danger:      #FF8A80;
+    --c-danger-soft: rgba(255, 138, 128, .14);
+    --c-surface-3:   #37343F;
+    background: var(--c-sidebar);
+    color: var(--c-on-dark);
+}
+
+body { font-family: var(--font-body); }
+h1, h2, h3, .brand, .greeting { font-family: var(--font-display); letter-spacing: -.02em; }
+button, input, select, textarea { font-family: inherit; }
+
+/* Kartu putih di atas kertas krem: beri bayangan tipis */
+.card, .panel { box-shadow: var(--c-shadow); }

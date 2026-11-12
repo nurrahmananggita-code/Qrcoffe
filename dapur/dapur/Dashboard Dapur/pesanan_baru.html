@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Pesanan Baru - Minimal Ngopi Dapur
+    </title>
+    <link rel="stylesheet" href="../assets/css/theme.css">
+    <link rel="stylesheet" href="../assets/css/dapur.css">
+</head>
+<body>
+<table width="100%" height="100%" border="0" id="layout-utama">
+    <tr>
+
+        <!-- ===== SIDEBAR (Langsung ditutup di baris ini) ===== -->
+        <td width="250px" valign="top" class="sidebar" id="sidebar" data-aktif="pesanan_baru.html"></td>
+
+        <!-- ===== KONTEN ===== -->
+        <td valign="top" class="content">
+
+            <!-- TOP BAR -->
+            <div class="topbar">
+                <table width="100%" border="0">
+                    <tr>
+                        <td valign="middle">
+                            <p class="breadcrumb">
+                                Dapur /
+                                <b class="breadcrumb-active">
+                                    Pesanan Baru
+                                </b>
+                            </p>
+                        </td>
+                        <td align="right" valign="middle">
+                            <div class="profile">
+                                <span class="avatar">
+                                    B
+                                </span>
+                                <span class="profile-name">
+                                    Barista 01
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- JUDUL HALAMAN & CETAK SEMUA -->
+            <table width="100%" border="0">
+                <tr>
+                    <td valign="top">
+                        <h1 class="greeting">
+                            Pesanan Baru
+                        </h1>
+                        <p class="date">
+                            3 pesanan menunggu diterima.
+                        </p>
+                    </td>
+                    <td align="right" valign="middle">
+                        <p><button class="btn-secondary" onclick="cetakSemua()">Cetak semua</button></p>
+                        <p class="clock">
+                            09.20
+                        </p>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- DAFTAR KARTU PESANAN BARU -->
+            <table width="100%" border="0" class="row">
+                <tr>
+                    <td width="32%" valign="top" class="card card-baru">
+                        <table width="100%" border="0">
+                            <tr>
+                                <td>
+                                    <p class="card-title">Meja 4</p>
+                                    <p class="meta">MN-041 &middot; 09:12</p>
+                                </td>
+                                <td align="right" valign="top">
+                                    <span class="tag tag-wait">Baru</span>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%" border="0" class="mt-15">
+                            <tr>
+                                <td width="34" valign="top" class="it-qty">2x</td>
+                                <td class="it-name">Es Kopi Susu<br><span class="it-sub">Less sugar</span></td>
+                            </tr>
+                            <tr>
+                                <td width="34" valign="top" class="it-qty">1x</td>
+                                <td class="it-name">Croissant<br><span class="it-sub">Dipanaskan</span></td>
+                            </tr>
+                        </table>
+                        <p class="card-note">Catatan: Pelanggan alergi kacang.</p>
+                        <p class="actions">
+                            <a href="detail_pesanan.html" class="btn-secondary btn-link">Lihat detail</a>
+                            <button class="btn-secondary" onclick="cetakPesanan(this)">Cetak</button>
+                            <button class="btn-primary" onclick="terimaPesanan(this)">Terima & proses</button>
+                        </p>
+                    </td>
+                    <td width="20px"></td>
+                    <td width="32%" valign="top" class="card card-baru">
+                        <table width="100%" border="0">
+                            <tr>
+                                <td>
+                                    <p class="card-title">Meja 5</p>
+                                    <p class="meta">MN-042 &middot; 09:14</p>
+                                </td>
+                                <td align="right" valign="top">
+                                    <span class="tag tag-wait">Baru</span>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%" border="0" class="mt-15">
+                            <tr>
+                                <td width="34" valign="top" class="it-qty">1x</td>
+                                <td class="it-name">Americano Panas</td>
+                            </tr>
+                            <tr>
+                                <td width="34" valign="top" class="it-qty">2x</td>
+                                <td class="it-name">Roti Bakar Cokelat</td>
+                            </tr>
+                        </table>
+                        <p class="actions">
+                            <a href="detail_pesanan.html" class="btn-secondary btn-link">Lihat detail</a>
+                            <button class="btn-secondary" onclick="cetakPesanan(this)">Cetak</button>
+                            <button class="btn-primary" onclick="terimaPesanan(this)">Terima & proses</button>
+                        </p>
+                    </td>
+                    <td width="20px"></td>
+                    <td width="32%" valign="top" class="card card-baru">
+                        <table width="100%" border="0">
+                            <tr>
+                                <td>
+                                    <p class="card-title">Meja 7</p>
+                                    <p class="meta">MN-043 &middot; 09:16</p>
+                                </td>
+                                <td align="right" valign="top">
+                                    <span class="tag tag-wait">Baru</span>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%" border="0" class="mt-15">
+                            <tr>
+                                <td width="34" valign="top" class="it-qty">1x</td>
+                                <td class="it-name">Latte<br><span class="it-sub">Oat milk</span></td>
+                            </tr>
+                            <tr>
+                                <td width="34" valign="top" class="it-qty">1x</td>
+                                <td class="it-name">Matcha Latte<br><span class="it-sub">Extra es</span></td>
+                            </tr>
+                        </table>
+                        <p class="actions">
+                            <a href="detail_pesanan.html" class="btn-secondary btn-link">Lihat detail</a>
+                            <button class="btn-secondary" onclick="cetakPesanan(this)">Cetak</button>
+                            <button class="btn-primary" onclick="terimaPesanan(this)">Terima & proses</button>
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!-- AREA UNTUK CETAK TIKET -->
+<div id="area-cetak"></div>
+
+<!-- PEMANGGILAN SCRIPT SIDEBAR DLL -->
+<script src="../assets/js/sidebar.js"></script>
+<script src="../assets/js/logout.js"></script>
+</body>
+</html>

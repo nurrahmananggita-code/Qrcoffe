@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pesanan Selesai - Minimal Ngopi Dapur</title>
+    <link rel="stylesheet" href="../assets/css/theme.css">
+    <link rel="stylesheet" href="../assets/css/dapur.css">
+</head>
+<body>
+<table width="100%" height="100%" border="0" id="layout-utama">
+    <tr>
+        <!-- ===== SIDEBAR ===== -->
+        <td width="250px" valign="top" class="sidebar" id="sidebar" data-aktif="pesanan_selesai.html"></td>
+
+        <!-- ===== KONTEN UTAMA ===== -->
+        <td valign="top" class="content">
+
+            <!-- TOPBAR -->
+            <div class="topbar">
+                <table width="100%" border="0">
+                    <tr>
+                        <td valign="middle">
+                            <p class="breadcrumb">
+                                Dapur / <b class="breadcrumb-active">Pesanan Selesai</b>
+                            </p>
+                        </td>
+                        <td align="right" valign="middle">
+                            <div class="profile">
+                                <span class="avatar">B</span>
+                                <span class="profile-name">Barista 01</span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- JUDUL HALAMAN -->
+            <table width="100%" border="0">
+                <tr>
+                    <td valign="top">
+                        <h1 class="greeting">Pesanan Selesai</h1>
+                        <p class="date">Memuat data pesanan...</p>
+                    </td>
+                    <td align="right" valign="middle">
+                        <p class="clock">09.20</p>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- TABEL DATA PESANAN SELESAI -->
+            <div class="card mt-15">
+                <table width="100%" border="0" class="data">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Pemesanan</th>
+                            <th>Item</th>
+                            <th>Masuk</th>
+                            <th>Selesai</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Diisi otomatis oleh pesanan_selesai.js -->
+                    </tbody>
+                </table>
+            </div>
+
+        </td>
+    </tr>
+</table>
+
+<!-- PEMANGGILAN SCRIPT -->
+<script src="../assets/js/sidebar.js"></script>
+<script src="../assets/js/pesanan_selesai.js"></script>
+<script src="../assets/js/logout.js"></script>
+</body>
+</html>
